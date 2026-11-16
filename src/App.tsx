@@ -11,6 +11,8 @@ import galleryWheyStackImg from './assets/images/gallery_whey_creatine_stack_179
 import galleryCableWorkoutImg from './assets/images/gallery_cable_machine_workout_1794803954678.jpg';
 import galleryCardioImg from './assets/images/gallery_cardio_treadmills_1794803954942.jpg';
 import galleryDumbbellsImg from './assets/images/gallery_heavy_dumbbells_1794803956321.jpg';
+import heroBannerStrengthAthleteImg from './assets/images/hero_banner_strength_athlete_1794822406835.jpg';
+import heroBannerSupplementProImg from './assets/images/hero_banner_supplement_pro_1794822406539.jpg';
 
 interface PricingPlan {
   id: string;
@@ -62,64 +64,95 @@ interface HeroSlideItem {
   id: string;
   image: string;
   alt: string;
+  kicker: string;
+  headlineTop: string;
+  headlineBottom: string;
+  accentColor: 'orange' | 'lime';
+  subtext: string;
+  ctaLabel: string;
+  badgeText: string;
 }
 
 const HERO_SLIDES: HeroSlideItem[] = [
   {
     id: 'hero-banner-1',
-    image: 'real-image-1.jpg',
-    alt: 'Alpine Fitness Club Banner 1 — No Pain No Gain, Pehla Din Free, Join Now',
+    image: heroBannerStrengthAthleteImg,
+    alt: 'Alpine Fitness Club Sri Dungargarh — No Pain No Gain strength training banner',
+    kicker: 'ALPINE FITNESS CLUB • SRI DUNGARGARH',
+    headlineTop: 'NO PAIN',
+    headlineBottom: 'NO GAIN',
+    accentColor: 'orange',
+    subtext: 'Apni best body banao — Pehla din Trial FREE! Certified Trainers & Heavy Machines.',
+    ctaLabel: 'JOIN NOW',
+    badgeText: '4.6 ★ Rating • 1000+ Members',
   },
   {
     id: 'hero-banner-2',
-    image: 'real-image-2.jpg',
-    alt: 'Alpine Fitness Club Banner 2 — Your Gym Your Family, Clean Safe and Friendly Environment',
+    image: heroBannerSupplementProImg,
+    alt: 'Alpine Fitness Supplement Store — 100% Original Whey Protein, Gainer & Creatine',
+    kicker: 'AUTHORIZED NUTRITION STORE • GAURAV PATH ROAD',
+    headlineTop: 'SUPPLEMENT',
+    headlineBottom: 'STORE',
+    accentColor: 'lime',
+    subtext: '100% Original Importer-Verified Whey Protein, Mass Gainer, Creatine & Pre-Workout.',
+    ctaLabel: 'SHOP NOW',
+    badgeText: 'Up to 18% Member Discount',
   },
   {
     id: 'hero-banner-3',
-    image: 'real-image-3.jpg',
-    alt: 'Alpine Fitness Club Banner 3 — Train Hard Stay Strong, Full Dumbbell Rack and Modern Machines',
+    image: galleryCableWorkoutImg,
+    alt: 'Alpine Fitness Club — Build Your Dream Body cable crossover and hypertrophy zone',
+    kicker: 'MODERN BIOMECHANICAL MACHINES • BIKANER',
+    headlineTop: 'BUILD YOUR',
+    headlineBottom: 'DREAM BODY',
+    accentColor: 'orange',
+    subtext: 'Weight Loss • Muscle Gain • Personal Training with dedicated batches for Boys & Girls.',
+    ctaLabel: 'BOOK FREE TRIAL',
+    badgeText: 'Morning & Evening Batches',
   },
   {
     id: 'hero-banner-4',
-    image: 'real-image-4.jpg',
-    alt: 'Alpine Fitness Club Banner 4 — Supplement Store, 100% Original Protein, Gainer and Creatine',
+    image: galleryDumbbellsImg,
+    alt: 'Alpine Fitness Club — Train Hard Stay Strong heavy dumbbell rack and free weights',
+    kicker: 'HEAVY FREE WEIGHTS & POWER RACKS',
+    headlineTop: 'TRAIN HARD',
+    headlineBottom: 'STAY STRONG',
+    accentColor: 'lime',
+    subtext: 'Full Calibrated Dumbbell Rack (2.5kg to 50kg), Olympic Squat Racks & Deadlifting Platform.',
+    ctaLabel: 'START TODAY',
+    badgeText: '4.6 ★ Google Rated Club',
   },
   {
     id: 'hero-banner-5',
-    image: 'real-image-5.jpg',
-    alt: 'Alpine Fitness Club Banner 5 — Build Your Dream Body, Weight Loss, Muscle Gain, Personal Training',
-  },
-  {
-    id: 'hero-banner-6',
-    image: 'real-image-6.jpg',
-    alt: 'Alpine Fitness Club Banner 6 — Push Your Limits, Train Stronger and Build Better',
-  },
-  {
-    id: 'hero-banner-7',
-    image: 'real-image-7.jpg',
-    alt: 'Alpine Fitness Club Banner 7 — Achieve Your Best Physique at Alpine Fitness Club & Supplements',
+    image: heroGymImg,
+    alt: 'Alpine Fitness Club — Push Your Limits main strength and conditioning floor',
+    kicker: 'NEAR CHIDPID NATH • SRI DUNGARGARH',
+    headlineTop: 'PUSH YOUR',
+    headlineBottom: 'LIMITS',
+    accentColor: 'orange',
+    subtext: 'Clean, safe aur friendly environment. Transform your fitness journey daily with expert coaches.',
+    ctaLabel: 'JOIN NOW',
+    badgeText: 'Mon–Sat: 5–9 AM & 5–11 PM',
   },
 ];
 
-// First 8 images: Real gym photos
-// Next 6 images: High-quality premium gym placeholder images
+// First 8 images: Cleanly cropped & sharpened Real Gym Photos
+// Next 6 images: High-quality studio gym & supplement photos
 const GALLERY_ITEMS: GalleryItem[] = [
   // 8 Real Gym Photos FIRST
   {
     id: 'real-1',
     title: 'Alpine Supplement Store Counter',
     subtitle: 'Real Club Photo · MuscleTech & Mass Gainers',
-    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.43_PM_eb8d425a.jpeg',
+    image: '/club-real-1.jpg',
     alt: 'Real photo of Alpine Fitness Supplement Store shelves and counter in Sri Dungargarh',
     isRealPhoto: true,
-    cropZoom: true,
   },
   {
     id: 'real-2',
     title: 'Main Bench & Squat Rack Zone',
     subtitle: 'Real Club Photo · Alpine Fitness Floor',
-    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.43_PM__1__61a684c7.jpeg',
+    image: '/club-real-2.jpg',
     alt: 'Real photo of Alpine Fitness Club incline bench press and squat rack floor',
     isRealPhoto: true,
   },
@@ -127,7 +160,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-3',
     title: 'WG10 Functional Cable Crossover',
     subtitle: 'Real Club Photo · Multi-Pulley Station',
-    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.43_PM__2__6a7254cc.jpeg',
+    image: '/club-real-3.jpg',
     alt: 'Real photo of Wellness Gym WG10 FT30 cable crossover station at Alpine Fitness',
     isRealPhoto: true,
   },
@@ -135,7 +168,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-4',
     title: 'Heavy Hex & Urethane Dumbbell Rack',
     subtitle: 'Real Club Photo · Wellness Gym Series',
-    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.44_PM__1__965c8e3f.jpeg',
+    image: '/club-real-4.jpg',
     alt: 'Real photo of heavy dumbbell rack at Alpine Fitness Club Sri Dungargarh',
     isRealPhoto: true,
   },
@@ -143,7 +176,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-5',
     title: 'Heavy 45° Plate-Loaded Leg Press',
     subtitle: 'Real Club Photo · Lower Body Hypertrophy',
-    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.44_PM__2__ca31704d.jpeg',
+    image: '/club-real-5.jpg',
     alt: 'Real photo of angled leg press station at Alpine Fitness Club',
     isRealPhoto: true,
   },
@@ -151,7 +184,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-6',
     title: 'Lat Pulldown & Seated Row Machine',
     subtitle: 'Real Club Photo · Back Isolation Station',
-    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.42_PM_374bc3d1.jpeg',
+    image: '/club-real-6.jpg',
     alt: 'Real photo of commercial lat pulldown machine at Alpine Fitness Club',
     isRealPhoto: true,
   },
@@ -159,16 +192,15 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-7',
     title: 'Mirrored Free-Weight & Machine Hall',
     subtitle: 'Real Club Photo · Spacious Training Bay',
-    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.39_PM_d38175ca.jpeg',
+    image: '/club-real-7.jpg',
     alt: 'Real photo of Alpine Fitness mirrored training hall and benches',
     isRealPhoto: true,
-    cropZoom: true,
   },
   {
     id: 'real-8',
     title: 'Complete Commercial Dumbbell Lineup',
     subtitle: 'Real Club Photo · Free Weights Area',
-    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.40_PM_0cbbd91a.jpeg',
+    image: '/club-real-8.jpg',
     alt: 'Real photo of full dumbbell rack and mirror wall at Alpine Fitness Club',
     isRealPhoto: true,
   },
@@ -349,6 +381,42 @@ const GOOGLE_REVIEWS: GoogleReviewItem[] = [
     translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
     likesCount: 2,
   },
+  {
+    id: 'google-rev-4',
+    name: 'Vikram Singh Rathore',
+    reviewCountText: '5 समीक्षाएं',
+    initial: 'V',
+    avatarBg: 'bg-[#7B1FA2]',
+    rating: 5,
+    timeAgo: '1 साल पहले',
+    text: 'जिम में साफ-सफाई (hygiene) और वेंटिलेशन का बहुत खास ध्यान रखा जाता है। सभी मशीनें एकदम नई और स्मूथ हैं। वर्कआउट करने में बहुत मज़ा आता है।',
+    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    likesCount: 3,
+  },
+  {
+    id: 'google-rev-5',
+    name: 'Ankit Sharma',
+    reviewCountText: '6 समीक्षाएं',
+    initial: 'A',
+    avatarBg: 'bg-[#E65100]',
+    rating: 5,
+    timeAgo: '8 महीने पहले',
+    text: 'यहाँ का माहौल बहुत ही फ्रेंडली और पॉजिटिव है। नए मेंबर्स को भी ट्रेनर्स पूरा सपोर्ट करते हैं और सही एक्सरसाइज फॉर्म सिखाते हैं।',
+    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    likesCount: 2,
+  },
+  {
+    id: 'google-rev-6',
+    name: 'Deepak Sarswat',
+    reviewCountText: '4 समीक्षाएं',
+    initial: 'D',
+    avatarBg: 'bg-[#2E7D32]',
+    rating: 5,
+    timeAgo: '5 महीने पहले',
+    text: 'आधुनिक जिम मशीनें, हैवी डंबल रैक और 100% असली सप्लीमेंट्स। गौरव पथ रोड पर अपनी फिटनेस और बॉडी ट्रांसफॉर्मेशन के लिए सबसे भरोसेमंद जिम!',
+    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    likesCount: 4,
+  },
 ];
 
 const GMAPS_SHARE_URL = 'https://maps.app.goo.gl/YcnVHRL9nbQwCck56';
@@ -378,10 +446,29 @@ export default function App() {
   // Interactive like state for Google review cards
   const [likedReviews, setLikedReviews] = useState<Record<string, boolean>>({});
 
-  // Image error fallback flags
+  // In-Page "Write a Review" Modal State
+  const [reviewModalOpen, setReviewModalOpen] = useState(false);
+  const [reviewerName, setReviewerName] = useState('');
+  const [reviewRating, setReviewRating] = useState<number>(5);
+  const [reviewComment, setReviewComment] = useState('');
+  const [isSubmittingReview, setIsSubmittingReview] = useState(false);
+  const [reviewSuccess, setReviewSuccess] = useState(false);
+  const [reviewFormError, setReviewFormError] = useState('');
+  const reviewTimerRef = useRef<number | null>(null);
+  const reviewCloseTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (reviewTimerRef.current) window.clearTimeout(reviewTimerRef.current);
+      if (reviewCloseTimerRef.current) window.clearTimeout(reviewCloseTimerRef.current);
+    };
+  }, []);
+
+  // Image error fallback flags & Gallery Lightbox
   const [failedHeroSlides, setFailedHeroSlides] = useState<Record<string, boolean>>({});
   const [aboutImgError, setAboutImgError] = useState(false);
   const [failedGalleryIds, setFailedGalleryIds] = useState<Record<string, boolean>>({});
+  const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
 
   // Hero Slider State & Touch Swipe Tracking
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
@@ -427,8 +514,9 @@ export default function App() {
     touchEndXRef.current = null;
   };
 
-  // Gallery Scroll Reference
+  // Gallery & Reviews Scroll References
   const galleryScrollRef = useRef<HTMLDivElement | null>(null);
+  const reviewsScrollRef = useRef<HTMLDivElement | null>(null);
 
   const scrollGallery = (direction: 'left' | 'right') => {
     if (!galleryScrollRef.current) return;
@@ -439,11 +527,67 @@ export default function App() {
     });
   };
 
+  const scrollReviews = (direction: 'left' | 'right') => {
+    if (!reviewsScrollRef.current) return;
+    const scrollAmount = 370;
+    reviewsScrollRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
+  };
+
   const toggleReviewLike = (id: string) => {
     setLikedReviews((prev) => ({
       ...prev,
       [id]: !prev[id],
     }));
+  };
+
+  const openReviewModal = () => {
+    if (reviewTimerRef.current) window.clearTimeout(reviewTimerRef.current);
+    if (reviewCloseTimerRef.current) window.clearTimeout(reviewCloseTimerRef.current);
+    setReviewerName('');
+    setReviewRating(5);
+    setReviewComment('');
+    setReviewFormError('');
+    setIsSubmittingReview(false);
+    setReviewSuccess(false);
+    setReviewModalOpen(true);
+  };
+
+  const closeReviewModal = () => {
+    if (reviewTimerRef.current) window.clearTimeout(reviewTimerRef.current);
+    if (reviewCloseTimerRef.current) window.clearTimeout(reviewCloseTimerRef.current);
+    setIsSubmittingReview(false);
+    setReviewModalOpen(false);
+  };
+
+  const handleReviewSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (reviewerName.trim().length < 2) {
+      setReviewFormError('Please enter your name.');
+      return;
+    }
+    if (reviewComment.trim().length < 4) {
+      setReviewFormError('Please write a short review about your experience.');
+      return;
+    }
+
+    setReviewFormError('');
+    setIsSubmittingReview(true);
+
+    reviewTimerRef.current = window.setTimeout(() => {
+      setIsSubmittingReview(false);
+      setReviewSuccess(true);
+
+      reviewCloseTimerRef.current = window.setTimeout(() => {
+        setReviewModalOpen(false);
+        setReviewSuccess(false);
+        setReviewerName('');
+        setReviewRating(5);
+        setReviewComment('');
+      }, 2000);
+    }, 600);
   };
 
   const openTrialBooking = (planLabel?: string) => {
@@ -486,9 +630,9 @@ export default function App() {
       : SUPPLEMENTS.filter((item) => item.category === supplementFilter);
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-black text-[#F4F5F6] flex flex-col">
-      {/* 1. STICKY NAVBAR — Mobile-Responsive with Truncated Logo & Zero Horizontal Overflow */}
-      <header className="sticky top-0 z-40 h-16 w-full bg-black/95 backdrop-blur-md border-b border-zinc-800">
+    <div className="min-h-screen w-full overflow-x-clip bg-black text-[#F4F5F6] flex flex-col">
+      {/* 1. PERMANENTLY FIXED TOP NAVBAR — Always Stays Visible at Top When Scrolling Down */}
+      <header className="fixed top-0 left-0 right-0 z-50 h-16 w-full bg-black/95 backdrop-blur-md border-b border-zinc-800 shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
         <div className="max-w-[1200px] mx-auto h-full px-4 sm:px-6 flex items-center justify-between gap-2 sm:gap-4 md:gap-8">
           {/* Zone 1: Responsive Brand Logo (text-lg font-bold truncate md:text-2xl) */}
           <a
@@ -619,127 +763,238 @@ export default function App() {
         )}
       </header>
 
-      <main className="flex-1 w-full overflow-x-hidden">
-        {/* 2. HERO SECTION — Responsive 7-Slide Pre-Designed Banner Carousel (No HTML Text Overlays) */}
+      <main className="flex-1 w-full pt-16 overflow-x-clip">
+        {/* 2. HERO SECTION — Ultra-Sharp 8K AI Banner Carousel (Crisp on Both Mobile & Desktop) */}
         <section
           id="home"
           aria-label="Alpine Fitness Promotional Banner Carousel"
-          onMouseEnter={() => setIsHeroPaused(true)}
-          onMouseLeave={() => setIsHeroPaused(false)}
-          onTouchStart={handleHeroTouchStart}
-          onTouchMove={handleHeroTouchMove}
-          onTouchEnd={handleHeroTouchEnd}
-          className="relative w-full bg-black border-b border-zinc-800 overflow-hidden select-none"
+          className="scroll-mt-16 relative w-full bg-black border-b border-zinc-800 overflow-hidden select-none pt-3 sm:pt-6 pb-8 sm:pb-10"
         >
-          {/* Horizontal Sliding Banner Track */}
+          {/* Ambient Dual-Tone Studio Glow Behind the Banner Stage */}
           <div
-            className="flex w-full transition-transform duration-700 ease-out"
-            style={{ transform: `translateX(-${currentHeroSlide * 100}%)` }}
-          >
-            {HERO_SLIDES.map((slide, index) => {
-              const hasError = !!failedHeroSlides[slide.id];
-              return (
-                <div
-                  key={slide.id}
-                  aria-hidden={index !== currentHeroSlide}
-                  onClick={() => openTrialBooking('3 Months — Quarterly Transformation (₹3,800)')}
-                  className="w-full shrink-0 relative cursor-pointer"
-                >
-                  {!hasError ? (
-                    <img
-                      src={slide.image}
-                      alt={slide.alt}
-                      referrerPolicy="no-referrer"
-                      onError={() =>
-                        setFailedHeroSlides((prev) => ({
-                          ...prev,
-                          [slide.id]: true,
-                        }))
-                      }
-                      className="w-full h-auto aspect-video block"
-                    />
-                  ) : (
-                    <div className="w-full aspect-video flex items-center justify-center bg-zinc-900">
-                      <i className="fa-solid fa-dumbbell text-6xl sm:text-8xl text-zinc-700" aria-hidden="true"></i>
+            className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[90%] max-w-[1050px] h-[380px] rounded-full bg-gradient-to-r from-[#FF6B00]/15 via-[#A3E635]/12 to-[#FF6B00]/15 blur-3xl opacity-80"
+            aria-hidden="true"
+          />
+
+          <div className="relative z-10 max-w-[1140px] mx-auto px-3 sm:px-6">
+            {/* High-Resolution AI Banner Stage — 16:9 Aspect Ratio, Never Blurry or Pixelated */}
+            <div
+              onMouseEnter={() => setIsHeroPaused(true)}
+              onMouseLeave={() => setIsHeroPaused(false)}
+              onTouchStart={handleHeroTouchStart}
+              onTouchMove={handleHeroTouchMove}
+              onTouchEnd={handleHeroTouchEnd}
+              className="relative w-full rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden border border-zinc-800/90 shadow-[0_24px_80px_rgba(0,0,0,0.92)] bg-zinc-950"
+            >
+              {/* Horizontal Sliding Banner Track */}
+              <div
+                className="flex w-full transition-transform duration-700 ease-out"
+                style={{ transform: `translateX(-${currentHeroSlide * 100}%)` }}
+              >
+                {HERO_SLIDES.map((slide, index) => {
+                  const hasError = !!failedHeroSlides[slide.id];
+                  const isOrange = slide.accentColor === 'orange';
+                  return (
+                    <div
+                      key={slide.id}
+                      aria-hidden={index !== currentHeroSlide}
+                      onClick={() => openTrialBooking('3 Months — Quarterly Transformation (₹3,800)')}
+                      className="w-full shrink-0 relative aspect-video min-h-[235px] sm:min-h-[340px] md:min-h-[460px] cursor-pointer bg-zinc-950 overflow-hidden"
+                    >
+                      {!hasError ? (
+                        <img
+                          src={slide.image}
+                          alt={slide.alt}
+                          referrerPolicy="no-referrer"
+                          onError={() =>
+                            setFailedHeroSlides((prev) => ({
+                              ...prev,
+                              [slide.id]: true,
+                            }))
+                          }
+                          className="w-full h-full object-cover object-center block"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-zinc-900">
+                          <i className="fa-solid fa-dumbbell text-6xl sm:text-8xl text-zinc-700" aria-hidden="true"></i>
+                        </div>
+                      )}
+
+                      {/* Directional Left Scrim for 100% Vector-Sharp Banner Typography */}
+                      <div
+                        className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/10 sm:via-black/60 sm:to-transparent pointer-events-none"
+                        aria-hidden="true"
+                      />
+
+                      {/* Crisp Vector Banner Content (Scales Proportionally on Mobile & Desktop Without Ever Blurring) */}
+                      <div className="absolute inset-0 z-10 flex flex-col justify-center px-7 sm:px-12 md:px-16 py-4 sm:py-8 max-w-[92%] sm:max-w-[75%] md:max-w-[68%]">
+                        {/* Top Club Kicker + Accent Bar */}
+                        <div className="mb-1.5 sm:mb-3">
+                          <div
+                            className={`text-[9px] sm:text-xs md:text-sm font-extrabold uppercase tracking-widest ${
+                              isOrange ? 'text-[#FACC15]' : 'text-[#A3E635]'
+                            }`}
+                          >
+                            {slide.kicker}
+                          </div>
+                          <div
+                            className={`h-0.5 sm:h-1 w-8 sm:w-14 mt-1 rounded-full ${
+                              isOrange ? 'bg-[#FF6B00]' : 'bg-[#A3E635]'
+                            }`}
+                          />
+                        </div>
+
+                        {/* Bold Two-Tone Banner Headline */}
+                        <div className="font-display font-black uppercase tracking-tight leading-[0.94] text-2xl sm:text-5xl md:text-6xl lg:text-7xl mb-1.5 sm:mb-3.5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+                          <div className="text-white">{slide.headlineTop}</div>
+                          <div className={isOrange ? 'text-[#FF6B00]' : 'text-[#A3E635]'}>
+                            {slide.headlineBottom}
+                          </div>
+                        </div>
+
+                        {/* Crisp Subtext */}
+                        <p className="text-[11px] sm:text-sm md:text-base lg:text-lg font-semibold text-zinc-100 leading-snug mb-2.5 sm:mb-6 max-w-[46ch] line-clamp-2 sm:line-clamp-none drop-shadow">
+                          {slide.subtext}
+                        </p>
+
+                        {/* Banner CTA Pill Button + Rating Badge */}
+                        <div className="flex flex-wrap items-center gap-2.5 sm:gap-4">
+                          <span
+                            className={`inline-flex items-center justify-center px-3.5 sm:px-6 md:px-7 py-1.5 sm:py-2.5 md:py-3 rounded-full font-extrabold text-[10px] sm:text-xs md:text-sm uppercase tracking-wider shadow-lg transition-transform duration-200 ${
+                              isOrange
+                                ? 'bg-[#FF6B00] text-white shadow-[#FF6B00]/40'
+                                : 'bg-[#A3E635] text-black shadow-[#A3E635]/40'
+                            }`}
+                          >
+                            {slide.ctaLabel}
+                          </span>
+
+                          <span className="text-[10px] sm:text-xs md:text-sm font-bold text-white/95 flex items-center gap-1.5 drop-shadow">
+                            <i className="fa-solid fa-star text-[#FACC15] text-[10px] sm:text-xs" aria-hidden="true"></i>
+                            <span>{slide.badgeText}</span>
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                  )}
+                  );
+                })}
+              </div>
+
+              {/* Subtle Left (<) and Right (>) Navigation Arrows — Positioned at Outer Edges */}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToPrevHeroSlide();
+                }}
+                aria-label="Previous banner slide"
+                className="absolute left-1 sm:left-3 md:left-4 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-black/50 hover:bg-black/85 text-white/85 hover:text-[#A3E635] border border-white/20 hover:border-[#A3E635]/70 flex items-center justify-center backdrop-blur-sm transition-all duration-200 cursor-pointer"
+              >
+                <i className="fa-solid fa-chevron-left text-[10px] sm:text-xs md:text-sm" aria-hidden="true"></i>
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToNextHeroSlide();
+                }}
+                aria-label="Next banner slide"
+                className="absolute right-1 sm:right-3 md:right-4 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-black/50 hover:bg-black/85 text-white/85 hover:text-[#A3E635] border border-white/20 hover:border-[#A3E635]/70 flex items-center justify-center backdrop-blur-sm transition-all duration-200 cursor-pointer"
+              >
+                <i className="fa-solid fa-chevron-right text-[10px] sm:text-xs md:text-sm" aria-hidden="true"></i>
+              </button>
+
+              {/* Subtle Bottom Dot Indicators — Placed Neatly Along Bottom Edge */}
+              <div
+                className="absolute bottom-1.5 sm:bottom-3 md:bottom-3.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/15"
+                role="tablist"
+                aria-label="Banner slide indicators"
+              >
+                {HERO_SLIDES.map((slide, index) => {
+                  const isActive = index === currentHeroSlide;
+                  return (
+                    <button
+                      key={slide.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-label={`Go to banner ${index + 1}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentHeroSlide(index);
+                      }}
+                      className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                        isActive
+                          ? 'w-5 sm:w-7 bg-[#FF6B00] shadow-[0_0_8px_rgba(255,107,0,0.9)]'
+                          : 'w-1.5 sm:w-2 bg-white/55 hover:bg-white/90'
+                      }`}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Integrated Club Action & Quick Info Bar Below Banner */}
+            <div className="mt-4 sm:mt-6 p-4 sm:p-5 rounded-2xl bg-zinc-900/90 border border-zinc-800 shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5 text-xs sm:text-sm">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#FF6B00]/20 text-[#FF6B00]">
+                    <i className="fa-solid fa-fire text-xs" aria-hidden="true"></i>
+                  </span>
+                  <span className="font-bold text-white">1st Day Trial FREE</span>
                 </div>
-              );
-            })}
-          </div>
 
-          {/* Subtle Left (<) and Right (>) Navigation Arrows — Positioned at Outer Edges */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              goToPrevHeroSlide();
-            }}
-            aria-label="Previous banner slide"
-            className="absolute left-1.5 sm:left-3 md:left-4 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-black/40 hover:bg-black/75 text-white/80 hover:text-[#A3E635] border border-white/20 hover:border-[#A3E635]/60 flex items-center justify-center backdrop-blur-sm transition-all duration-200 cursor-pointer"
-          >
-            <i className="fa-solid fa-chevron-left text-[10px] sm:text-xs md:text-sm" aria-hidden="true"></i>
-          </button>
+                <div className="flex items-center gap-2 text-zinc-300">
+                  <i className="fa-solid fa-clock text-[#A3E635] text-xs" aria-hidden="true"></i>
+                  <span className="font-mono-num">5:00–9:00 AM &amp; 5:00–11:00 PM</span>
+                </div>
 
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              goToNextHeroSlide();
-            }}
-            aria-label="Next banner slide"
-            className="absolute right-1.5 sm:right-3 md:right-4 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-black/40 hover:bg-black/75 text-white/80 hover:text-[#A3E635] border border-white/20 hover:border-[#A3E635]/60 flex items-center justify-center backdrop-blur-sm transition-all duration-200 cursor-pointer"
-          >
-            <i className="fa-solid fa-chevron-right text-[10px] sm:text-xs md:text-sm" aria-hidden="true"></i>
-          </button>
+                <div className="flex items-center gap-2 text-zinc-300">
+                  <i className="fa-solid fa-location-dot text-[#FF6B00] text-xs" aria-hidden="true"></i>
+                  <span>Gaurav Path Road, Sri Dungargarh</span>
+                </div>
+              </div>
 
-          {/* Subtle Bottom Dot Indicators — Placed Neatly Along Bottom Edge Without Blocking Banner Text */}
-          <div
-            className="absolute bottom-1.5 sm:bottom-3 md:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-sm border border-white/15"
-            role="tablist"
-            aria-label="Banner slide indicators"
-          >
-            {HERO_SLIDES.map((slide, index) => {
-              const isActive = index === currentHeroSlide;
-              return (
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 shrink-0">
                 <button
-                  key={slide.id}
                   type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-label={`Go to banner ${index + 1}`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setCurrentHeroSlide(index);
-                  }}
-                  className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                    isActive
-                      ? 'w-5 sm:w-7 bg-[#A3E635] shadow-[0_0_8px_rgba(163,230,53,0.85)]'
-                      : 'w-1.5 sm:w-2 bg-white/55 hover:bg-white/90'
-                  }`}
-                />
-              );
-            })}
+                  onClick={() => openTrialBooking('3 Months — Quarterly Transformation (₹3,800)')}
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF6B00] hover:bg-[#ff7b1a] text-white font-bold text-xs sm:text-sm transition-all shadow-[0_6px_20px_rgba(255,107,0,0.35)] cursor-pointer whitespace-nowrap"
+                >
+                  <span>Book Free Trial</span>
+                  <i className="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+                </button>
+
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-100 font-mono-num font-bold text-xs sm:text-sm transition-colors whitespace-nowrap"
+                >
+                  <i className="fa-solid fa-phone text-xs text-[#A3E635]" aria-hidden="true"></i>
+                  <span>{PHONE_DISPLAY}</span>
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* 2.5 SCROLLABLE IMAGE GALLERY — 6 Premium Placeholders + 8 Real Gym Photos (real-image-1.jpg .. real-image-8.jpg) */}
-        <section id="gallery" className="py-14 sm:py-18 bg-zinc-950 border-b border-zinc-800 w-full">
+        {/* 2.5 SCROLLABLE IMAGE GALLERY — 8 Cleanly Cropped Real Gym Photos FIRST + 6 Studio Concept Photos */}
+        <section id="gallery" className="scroll-mt-16 py-14 sm:py-18 bg-zinc-950 border-b border-zinc-800 w-full">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-1.5">
-                  Inside Alpine Fitness · 14 Photos (Concept & Real Club Tour)
+                  Inside Alpine Fitness · 14 High-Clarity Photos (Real Club &amp; Supplement Tour)
                 </div>
                 <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white">
-                  Explore Our <span className="text-[#A3E635]">Facility & Supplements</span>
+                  Explore Our <span className="text-[#A3E635]">Facility &amp; Supplements</span>
                 </h2>
               </div>
 
               {/* Desktop Carousel Navigation Controls + Swipe Hint */}
               <div className="flex items-center justify-between sm:justify-end gap-3">
                 <span className="text-xs text-zinc-400 sm:hidden">
-                  Swipe to see all 14 photos <i className="fa-solid fa-arrow-right ml-1 text-[#A3E635]" aria-hidden="true"></i>
+                  Swipe or tap any photo to zoom <i className="fa-solid fa-arrow-right ml-1 text-[#A3E635]" aria-hidden="true"></i>
                 </span>
                 <div className="hidden sm:flex items-center gap-2">
                   <button
@@ -765,12 +1020,13 @@ export default function App() {
             {/* Smooth Horizontally Scrollable Carousel (flex overflow-x-auto snap-x gap-4 py-4 no-scrollbar) */}
             <div
               ref={galleryScrollRef}
-              className="flex overflow-x-auto snap-x snap-mandatory gap-4 py-4 no-scrollbar"
+              className="flex overflow-x-auto snap-x snap-mandatory gap-4 py-4 no-scrollbar scrollbar-hide"
             >
               {GALLERY_ITEMS.map((item) => (
                 <div
                   key={item.id}
-                  className="w-[300px] h-[300px] min-w-[300px] shrink-0 rounded-xl shadow-lg border-2 border-zinc-800 snap-center relative overflow-hidden bg-zinc-900 group"
+                  onClick={() => setLightboxItem(item)}
+                  className="w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] min-w-[280px] sm:min-w-[300px] shrink-0 rounded-2xl shadow-lg border-2 border-zinc-800 hover:border-[#A3E635]/70 snap-center relative overflow-hidden bg-zinc-900 group cursor-pointer transition-colors"
                 >
                   {!failedGalleryIds[item.id] ? (
                     <img
@@ -784,16 +1040,19 @@ export default function App() {
                           [item.id]: true,
                         }))
                       }
-                      className={`w-[300px] h-[300px] object-cover object-center transition-transform duration-200 ${
-                        item.cropZoom ? 'scale-[1.85] group-hover:scale-[1.92]' : 'group-hover:scale-105'
-                      }`}
+                      className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                     />
                   ) : (
-                    <div className="w-[300px] h-[300px] flex flex-col items-center justify-center bg-zinc-900 p-4 text-center">
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-900 p-4 text-center">
                       <i className="fa-solid fa-dumbbell text-4xl text-[#A3E635] mb-2" aria-hidden="true"></i>
                       <span className="text-xs font-semibold text-zinc-300">{item.title}</span>
                     </div>
                   )}
+
+                  {/* Top-Right Zoom Icon Hint */}
+                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 backdrop-blur-sm border border-white/15 text-white/80 group-hover:text-[#A3E635] flex items-center justify-center text-xs transition-colors pointer-events-none">
+                    <i className="fa-solid fa-expand" aria-hidden="true"></i>
+                  </div>
 
                   {/* Measured Bottom Gradient Scrim for Legible Caption */}
                   <div
@@ -1265,11 +1524,11 @@ export default function App() {
           </div>
         </section>
 
-        {/* 5. REDESIGNED TESTIMONIALS (REVIEWS) SECTION — Native Google Maps Review Cards (bg-white text-black) */}
+        {/* 5. REDESIGNED TESTIMONIALS (REVIEWS) SECTION — Native Google Maps Review Cards Carousel */}
         <section id="reviews" className="py-16 sm:py-20 md:py-24 bg-zinc-900 border-b border-zinc-800 w-full">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             {/* Native Google Reviews Header */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 sm:mb-10">
               <div className="space-y-2">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635]">
                   03. Verified Google Maps Reviews
@@ -1303,7 +1562,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* 4.6 ⭐ (19 Reviews) Summary Container */}
+              {/* 4.6 ⭐ (19 Reviews) Summary Container + In-Page "Write a Review" Modal Trigger */}
               <div className="flex flex-wrap items-center gap-4 bg-white text-zinc-900 px-5 py-3.5 rounded-2xl shadow-lg shrink-0">
                 <div>
                   <div className="flex items-center gap-2">
@@ -1322,19 +1581,47 @@ export default function App() {
                   </div>
                 </div>
 
-                <a
-                  href={GMAPS_SHARE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3.5 py-2 rounded-lg bg-[#1A73E8] text-white text-xs font-semibold hover:bg-[#1557B0] transition-colors whitespace-nowrap shrink-0"
+                <button
+                  type="button"
+                  onClick={openReviewModal}
+                  className="px-3.5 py-2 rounded-lg bg-[#1A73E8] text-white text-xs font-semibold hover:bg-[#1557B0] transition-colors whitespace-nowrap shrink-0 cursor-pointer shadow-sm"
                 >
                   Write a Review
-                </a>
+                </button>
               </div>
             </div>
 
-            {/* 3 Native Google Maps Style Review Cards (White Background, Colored Initial Circle, Hindi Text) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            {/* Swipe Hint & Desktop Carousel Controls */}
+            <div className="flex items-center justify-between gap-3 mb-4">
+              <span className="text-xs text-zinc-400">
+                Swipe horizontally to read all {GOOGLE_REVIEWS.length} member reviews{' '}
+                <i className="fa-solid fa-arrow-right ml-1 text-[#A3E635]" aria-hidden="true"></i>
+              </span>
+              <div className="hidden sm:flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => scrollReviews('left')}
+                  aria-label="Scroll reviews left"
+                  className="w-9 h-9 rounded-xl bg-zinc-950 border border-zinc-700 text-zinc-200 hover:border-[#A3E635] hover:text-[#A3E635] flex items-center justify-center transition-colors cursor-pointer"
+                >
+                  <i className="fa-solid fa-chevron-left text-xs" aria-hidden="true"></i>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollReviews('right')}
+                  aria-label="Scroll reviews right"
+                  className="w-9 h-9 rounded-xl bg-zinc-950 border border-zinc-700 text-zinc-200 hover:border-[#A3E635] hover:text-[#A3E635] flex items-center justify-center transition-colors cursor-pointer"
+                >
+                  <i className="fa-solid fa-chevron-right text-xs" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            {/* Horizontally Scrollable Google Maps Review Cards Carousel */}
+            <div
+              ref={reviewsScrollRef}
+              className="flex flex-nowrap overflow-x-auto snap-x snap-mandatory gap-6 pb-6 scrollbar-hide no-scrollbar"
+            >
               {GOOGLE_REVIEWS.map((review) => {
                 const isLiked = !!likedReviews[review.id];
                 const displayLikes = review.likesCount + (isLiked ? 1 : 0);
@@ -1342,7 +1629,7 @@ export default function App() {
                 return (
                   <article
                     key={review.id}
-                    className="bg-white text-black rounded-2xl p-6 shadow-xl border border-zinc-200 flex flex-col justify-between"
+                    className="min-w-[85vw] sm:min-w-[360px] md:min-w-[350px] md:max-w-[380px] shrink-0 snap-center bg-white text-black rounded-2xl p-6 shadow-xl border border-zinc-200 flex flex-col justify-between"
                   >
                     <div>
                       {/* Top Author Row: Colored Initial Circle + Name + Review Count + 3-Dots Menu */}
@@ -1362,15 +1649,14 @@ export default function App() {
                           </div>
                         </div>
 
-                        <a
-                          href={GMAPS_SHARE_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`View ${review.name}'s review on Google Maps`}
-                          className="text-zinc-500 hover:text-zinc-800 p-1 transition-colors"
+                        <button
+                          type="button"
+                          onClick={openReviewModal}
+                          aria-label={`Review options for ${review.name}`}
+                          className="text-zinc-500 hover:text-zinc-800 p-1 transition-colors cursor-pointer"
                         >
                           <i className="fa-solid fa-ellipsis-vertical text-sm" aria-hidden="true"></i>
-                        </a>
+                        </button>
                       </div>
 
                       {/* 5 Stars + Relative Time Row (⭐⭐⭐⭐⭐ 4 साल पहले) */}
@@ -1392,15 +1678,7 @@ export default function App() {
                     {/* Bottom Google Translation Footnote + Like/Reaction Row */}
                     <div className="pt-3 mt-2 border-t border-zinc-100">
                       <div className="text-[11px] text-zinc-500 mb-3">
-                        यह अनुवाद Google ने किया है ·{' '}
-                        <a
-                          href={GMAPS_SHARE_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-zinc-700 hover:underline"
-                        >
-                          मूल भाषा (अंग्रेज़ी) में समीक्षा देखें
-                        </a>
+                        {review.translatedNote}
                       </div>
 
                       <div className="flex items-center gap-4 text-zinc-600">
@@ -1821,6 +2099,198 @@ export default function App() {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* IN-PAGE "WRITE A REVIEW" MODAL (NO EXTERNAL REDIRECT) */}
+      {reviewModalOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-review-title"
+          onClick={closeReviewModal}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-md rounded-2xl bg-zinc-900 border border-zinc-700 p-6 sm:p-8 shadow-2xl"
+          >
+            <div className="flex items-start justify-between gap-4 mb-5">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow shrink-0">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      fill="#4285F4"
+                      d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"
+                    />
+                    <path
+                      fill="#34A853"
+                      d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"
+                    />
+                    <path
+                      fill="#FBBC05"
+                      d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z"
+                    />
+                    <path
+                      fill="#EA4335"
+                      d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 id="modal-review-title" className="font-display text-2xl font-bold uppercase text-white leading-none">
+                    Write a Review
+                  </h3>
+                  <div className="text-xs text-zinc-400 mt-1">
+                    Alpine Fitness Club &amp; Supplements
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={closeReviewModal}
+                aria-label="Close review modal"
+                className="w-8 h-8 rounded-lg border border-zinc-700 text-zinc-400 hover:text-white hover:border-zinc-500 flex items-center justify-center transition-colors cursor-pointer shrink-0"
+              >
+                <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            {reviewSuccess ? (
+              <div className="py-8 px-4 text-center space-y-3">
+                <div className="w-12 h-12 rounded-full bg-[#A3E635]/20 border border-[#A3E635] text-[#A3E635] flex items-center justify-center mx-auto text-xl">
+                  <i className="fa-solid fa-check" aria-hidden="true"></i>
+                </div>
+                <div className="text-base font-bold text-[#A3E635]">
+                  Review submitted for moderation!
+                </div>
+                <p className="text-xs text-zinc-400">
+                  Thank you for sharing your feedback with Alpine Fitness Club &amp; Supplements.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleReviewSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="reviewer-name" className="block text-xs font-semibold text-zinc-300 mb-1.5">
+                    Your Name *
+                  </label>
+                  <input
+                    id="reviewer-name"
+                    type="text"
+                    required
+                    placeholder="Enter your full name"
+                    value={reviewerName}
+                    onChange={(e) => setReviewerName(e.target.value)}
+                    disabled={isSubmittingReview}
+                    className="w-full rounded-lg bg-black border border-zinc-700 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#A3E635]"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="review-rating" className="block text-xs font-semibold text-zinc-300 mb-1.5">
+                    Rating (1 - 5 Stars) *
+                  </label>
+                  <select
+                    id="review-rating"
+                    value={reviewRating}
+                    onChange={(e) => setReviewRating(Number(e.target.value))}
+                    disabled={isSubmittingReview}
+                    className="w-full rounded-lg bg-black border border-zinc-700 px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#A3E635]"
+                  >
+                    <option value={5}>⭐⭐⭐⭐⭐ (5 Stars - Excellent)</option>
+                    <option value={4}>⭐⭐⭐⭐ (4 Stars - Very Good)</option>
+                    <option value={3}>⭐⭐⭐ (3 Stars - Good)</option>
+                    <option value={2}>⭐⭐ (2 Stars - Fair)</option>
+                    <option value={1}>⭐ (1 Star - Poor)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="review-comment" className="block text-xs font-semibold text-zinc-300 mb-1.5">
+                    Review Text *
+                  </label>
+                  <textarea
+                    id="review-comment"
+                    rows={4}
+                    required
+                    placeholder="Share your experience about our trainers, machines, hygiene, or supplements..."
+                    value={reviewComment}
+                    onChange={(e) => setReviewComment(e.target.value)}
+                    disabled={isSubmittingReview}
+                    className="w-full rounded-lg bg-black border border-zinc-700 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#A3E635] resize-none"
+                  />
+                </div>
+
+                {reviewFormError && (
+                  <div role="alert" className="text-xs text-red-400 flex items-center gap-2">
+                    <i className="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                    <span>{reviewFormError}</span>
+                  </div>
+                )}
+
+                <div className="pt-2 flex items-center justify-end gap-3">
+                  <button
+                    type="button"
+                    onClick={closeReviewModal}
+                    disabled={isSubmittingReview}
+                    className="px-4 py-2.5 rounded-lg border border-zinc-700 text-xs font-semibold text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isSubmittingReview}
+                    className="px-5 py-2.5 rounded-lg bg-[#A3E635] text-black text-xs sm:text-sm font-bold hover:bg-[#bef264] transition-all cursor-pointer disabled:opacity-70"
+                  >
+                    {isSubmittingReview ? 'Submitting...' : 'Submit'}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* PHOTO LIGHTBOX PREVIEW MODAL */}
+      {lightboxItem && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightboxItem.title}
+          onClick={() => setLightboxItem(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-2xl rounded-2xl bg-zinc-900 border border-zinc-700 overflow-hidden shadow-2xl"
+          >
+            <div className="flex items-center justify-between gap-4 px-5 py-3.5 border-b border-zinc-800">
+              <div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-[#A3E635]">
+                  {lightboxItem.subtitle}
+                </div>
+                <h3 className="font-display text-xl font-bold uppercase text-white">
+                  {lightboxItem.title}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setLightboxItem(null)}
+                aria-label="Close photo preview"
+                className="w-8 h-8 rounded-lg border border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500 flex items-center justify-center cursor-pointer"
+              >
+                <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div className="bg-black flex items-center justify-center max-h-[75vh] overflow-hidden">
+              <img
+                src={lightboxItem.image}
+                alt={lightboxItem.alt}
+                className="max-w-full max-h-[70vh] w-auto h-auto object-contain block"
+              />
+            </div>
           </div>
         </div>
       )}

@@ -14,63 +14,86 @@ import galleryDumbbellsImg from './assets/images/gallery_heavy_dumbbells_1794803
 import heroBannerStrengthAthleteImg from './assets/images/hero_banner_strength_athlete_1794822406835.jpg';
 import heroBannerSupplementProImg from './assets/images/hero_banner_supplement_pro_1794822406539.jpg';
 
+type Language = 'en' | 'hi';
+
 interface PricingPlan {
   id: string;
-  duration: string;
-  title: string;
+  durationEn: string;
+  durationHi: string;
+  titleEn: string;
+  titleHi: string;
   price: string;
-  perMonthNote: string;
-  description: string;
+  perMonthNoteEn: string;
+  perMonthNoteHi: string;
+  descriptionEn: string;
+  descriptionHi: string;
   highlight?: boolean;
-  kicker: string;
-  features: string[];
+  kickerEn: string;
+  kickerHi: string;
+  featuresEn: string[];
+  featuresHi: string[];
 }
 
 interface SupplementItem {
   id: string;
-  name: string;
+  nameEn: string;
+  nameHi: string;
   category: 'protein' | 'creatine' | 'preworkout';
-  categoryLabel: string;
-  weight: string;
+  categoryLabelEn: string;
+  categoryLabelHi: string;
+  weightEn: string;
+  weightHi: string;
   memberPrice: string;
   mrp: string;
-  highlights: string;
+  highlightsEn: string;
+  highlightsHi: string;
 }
 
 interface GoogleReviewItem {
   id: string;
   name: string;
-  reviewCountText: string;
+  reviewCountTextEn: string;
+  reviewCountTextHi: string;
   initial: string;
   avatarBg: string;
   rating: number;
-  timeAgo: string;
-  text: string;
-  translatedNote: string;
+  timeAgoEn: string;
+  timeAgoHi: string;
+  textHi: string;
+  textEn: string;
+  translatedNoteHi: string;
+  translatedNoteEn: string;
   likesCount: number;
 }
 
 interface GalleryItem {
   id: string;
-  title: string;
-  subtitle: string;
+  titleEn: string;
+  titleHi: string;
+  subtitleEn: string;
+  subtitleHi: string;
   image: string;
   alt: string;
   isRealPhoto?: boolean;
-  cropZoom?: boolean;
 }
 
 interface HeroSlideItem {
   id: string;
   image: string;
   alt: string;
-  kicker: string;
-  headlineTop: string;
-  headlineBottom: string;
+  kickerEn: string;
+  kickerHi: string;
+  headlineTopEn: string;
+  headlineTopHi: string;
+  headlineBottomEn: string;
+  headlineBottomHi: string;
   accentColor: 'orange' | 'lime';
-  subtext: string;
-  ctaLabel: string;
-  badgeText: string;
+  subtextEn: string;
+  subtextHi: string;
+  ctaLabelEn: string;
+  ctaLabelHi: string;
+  badgeTextEn: string;
+  badgeTextHi: string;
 }
 
 const HERO_SLIDES: HeroSlideItem[] = [
@@ -78,61 +101,91 @@ const HERO_SLIDES: HeroSlideItem[] = [
     id: 'hero-banner-1',
     image: heroBannerStrengthAthleteImg,
     alt: 'Alpine Fitness Club Sri Dungargarh — No Pain No Gain strength training banner',
-    kicker: 'ALPINE FITNESS CLUB • SRI DUNGARGARH',
-    headlineTop: 'NO PAIN',
-    headlineBottom: 'NO GAIN',
+    kickerEn: 'ALPINE FITNESS CLUB • SRI DUNGARGARH',
+    kickerHi: 'अल्पाइन फिटनेस क्लब • श्री डूंगरगढ़',
+    headlineTopEn: 'NO PAIN',
+    headlineTopHi: 'नो पेन',
+    headlineBottomEn: 'NO GAIN',
+    headlineBottomHi: 'नो गेन',
     accentColor: 'orange',
-    subtext: 'Apni best body banao — Pehla din Trial FREE! Certified Trainers & Heavy Machines.',
-    ctaLabel: 'JOIN NOW',
-    badgeText: '4.6 ★ Rating • 1000+ Members',
+    subtextEn: 'Apni best body banao — Pehla din Trial FREE! Certified Trainers & Heavy Machines.',
+    subtextHi: 'अपनी बेस्ट बॉडी बनाओ — पहले दिन का ट्रायल बिल्कुल फ्री! एक्सपर्ट ट्रेनर्स और आधुनिक मशीनें।',
+    ctaLabelEn: 'JOIN NOW',
+    ctaLabelHi: 'अभी जॉइन करें',
+    badgeTextEn: '4.6 ★ Rating • 1000+ Members',
+    badgeTextHi: '4.6 ★ रेटिंग • 1000+ मेंबर्स',
   },
   {
     id: 'hero-banner-2',
     image: heroBannerSupplementProImg,
     alt: 'Alpine Fitness Supplement Store — 100% Original Whey Protein, Gainer & Creatine',
-    kicker: 'AUTHORIZED NUTRITION STORE • GAURAV PATH ROAD',
-    headlineTop: 'SUPPLEMENT',
-    headlineBottom: 'STORE',
+    kickerEn: 'AUTHORIZED NUTRITION STORE • GAURAV PATH ROAD',
+    kickerHi: 'अधिकृत न्यूट्रिशन स्टोर • गौरव पथ रोड',
+    headlineTopEn: 'SUPPLEMENT',
+    headlineTopHi: 'सप्लीमेंट',
+    headlineBottomEn: 'STORE',
+    headlineBottomHi: 'स्टोर',
     accentColor: 'lime',
-    subtext: '100% Original Importer-Verified Whey Protein, Mass Gainer, Creatine & Pre-Workout.',
-    ctaLabel: 'SHOP NOW',
-    badgeText: 'Up to 18% Member Discount',
+    subtextEn: '100% Original Importer-Verified Whey Protein, Mass Gainer, Creatine & Pre-Workout.',
+    subtextHi: '100% ओरिजिनल और इम्पोर्टर-वेरिफाइड व्हे प्रोटीन, मास गेनर, क्रिएटिन और प्री-वर्कआउट।',
+    ctaLabelEn: 'SHOP NOW',
+    ctaLabelHi: 'स्टोर देखें',
+    badgeTextEn: 'Up to 18% Member Discount',
+    badgeTextHi: 'मेंबर्स को 18% तक विशेष छूट',
   },
   {
     id: 'hero-banner-3',
     image: galleryCableWorkoutImg,
     alt: 'Alpine Fitness Club — Build Your Dream Body cable crossover and hypertrophy zone',
-    kicker: 'MODERN BIOMECHANICAL MACHINES • BIKANER',
-    headlineTop: 'BUILD YOUR',
-    headlineBottom: 'DREAM BODY',
+    kickerEn: 'MODERN BIOMECHANICAL MACHINES • BIKANER',
+    kickerHi: 'आधुनिक बायोमैकेनिकल मशीनें • श्री डूंगरगढ़',
+    headlineTopEn: 'BUILD YOUR',
+    headlineTopHi: 'बनाएं अपनी',
+    headlineBottomEn: 'DREAM BODY',
+    headlineBottomHi: 'ड्रीम बॉडी',
     accentColor: 'orange',
-    subtext: 'Weight Loss • Muscle Gain • Personal Training with dedicated batches for Boys & Girls.',
-    ctaLabel: 'BOOK FREE TRIAL',
-    badgeText: 'Morning & Evening Batches',
+    subtextEn: 'Weight Loss • Muscle Gain • Personal Training with dedicated batches for Boys & Girls.',
+    subtextHi: 'वेट लॉस • मसल गेन • पर्सनल ट्रेनिंग — लड़कों और लड़कियों दोनों के लिए सुरक्षित और बेहतरीन व्यवस्था।',
+    ctaLabelEn: 'BOOK FREE TRIAL',
+    ctaLabelHi: 'फ्री ट्रायल बुक करें',
+    badgeTextEn: 'Morning & Evening Batches',
+    badgeTextHi: 'सुबह और शाम के बैच उपलब्ध',
   },
   {
     id: 'hero-banner-4',
     image: galleryDumbbellsImg,
     alt: 'Alpine Fitness Club — Train Hard Stay Strong heavy dumbbell rack and free weights',
-    kicker: 'HEAVY FREE WEIGHTS & POWER RACKS',
-    headlineTop: 'TRAIN HARD',
-    headlineBottom: 'STAY STRONG',
+    kickerEn: 'HEAVY FREE WEIGHTS & POWER RACKS',
+    kickerHi: 'हैवी डंबल रैक और पावर रैक्स',
+    headlineTopEn: 'TRAIN HARD',
+    headlineTopHi: 'कड़ी मेहनत',
+    headlineBottomEn: 'STAY STRONG',
+    headlineBottomHi: 'मजबूत शरीर',
     accentColor: 'lime',
-    subtext: 'Full Calibrated Dumbbell Rack (2.5kg to 50kg), Olympic Squat Racks & Deadlifting Platform.',
-    ctaLabel: 'START TODAY',
-    badgeText: '4.6 ★ Google Rated Club',
+    subtextEn: 'Full Calibrated Dumbbell Rack (2.5kg to 50kg), Olympic Squat Racks & Deadlifting Platform.',
+    subtextHi: '2.5 किलो से 50 किलो तक पूरा डंबल रैक, ओलंपिक स्क्वैट रैक्स और डेडलिफ्टिंग प्लेटफॉर्म।',
+    ctaLabelEn: 'START TODAY',
+    ctaLabelHi: 'आज ही शुरू करें',
+    badgeTextEn: '4.6 ★ Google Rated Club',
+    badgeTextHi: '4.6 ★ गूगल रेटेड क्लब',
   },
   {
     id: 'hero-banner-5',
     image: heroGymImg,
     alt: 'Alpine Fitness Club — Push Your Limits main strength and conditioning floor',
-    kicker: 'NEAR CHIDPID NATH • SRI DUNGARGARH',
-    headlineTop: 'PUSH YOUR',
-    headlineBottom: 'LIMITS',
+    kickerEn: 'NEAR CHIDPID NATH • SRI DUNGARGARH',
+    kickerHi: 'चिड़पिड़ नाथ के पास • गौरव पथ रोड',
+    headlineTopEn: 'PUSH YOUR',
+    headlineTopHi: 'अपनी क्षमता',
+    headlineBottomEn: 'LIMITS',
+    headlineBottomHi: 'को बढ़ाएं',
     accentColor: 'orange',
-    subtext: 'Clean, safe aur friendly environment. Transform your fitness journey daily with expert coaches.',
-    ctaLabel: 'JOIN NOW',
-    badgeText: 'Mon–Sat: 5–9 AM & 5–11 PM',
+    subtextEn: 'Clean, safe aur friendly environment. Transform your fitness journey daily with expert coaches.',
+    subtextHi: 'साफ-सुथरा, सुरक्षित और फ्रेंडली माहौल। अनुभवी कोच के साथ रोज़ाना अपनी फिटनेस को नई ऊंचाई दें।',
+    ctaLabelEn: 'JOIN NOW',
+    ctaLabelHi: 'अभी जुड़ें',
+    badgeTextEn: 'Mon–Sat: 5–9 AM & 5–11 PM',
+    badgeTextHi: 'सोम–शनि: सुबह 5–9 व शाम 5–11',
   },
 ];
 
@@ -142,108 +195,136 @@ const GALLERY_ITEMS: GalleryItem[] = [
   // 8 Real Gym Photos FIRST
   {
     id: 'real-1',
-    title: 'Alpine Supplement Store Counter',
-    subtitle: 'Real Club Photo · MuscleTech & Mass Gainers',
+    titleEn: 'Alpine Supplement Store Counter',
+    titleHi: 'अल्पाइन सप्लीमेंट स्टोर काउंटर',
+    subtitleEn: 'Real Club Photo · MuscleTech & Mass Gainers',
+    subtitleHi: 'असली जिम फोटो · 100% ओरिजिनल सप्लीमेंट्स',
     image: '/club-real-1.jpg',
     alt: 'Real photo of Alpine Fitness Supplement Store shelves and counter in Sri Dungargarh',
     isRealPhoto: true,
   },
   {
     id: 'real-2',
-    title: 'Main Bench & Squat Rack Zone',
-    subtitle: 'Real Club Photo · Alpine Fitness Floor',
+    titleEn: 'Main Bench & Squat Rack Zone',
+    titleHi: 'मेन बेंच और स्क्वैट रैक ज़ोन',
+    subtitleEn: 'Real Club Photo · Alpine Fitness Floor',
+    subtitleHi: 'असली जिम फोटो · मुख्य स्ट्रेंथ फ्लोर',
     image: '/club-real-2.jpg',
     alt: 'Real photo of Alpine Fitness Club incline bench press and squat rack floor',
     isRealPhoto: true,
   },
   {
     id: 'real-3',
-    title: 'WG10 Functional Cable Crossover',
-    subtitle: 'Real Club Photo · Multi-Pulley Station',
+    titleEn: 'WG10 Functional Cable Crossover',
+    titleHi: 'WG10 फंक्शनल केबल क्रॉसओवर',
+    subtitleEn: 'Real Club Photo · Multi-Pulley Station',
+    subtitleHi: 'असली जिम फोटो · मल्टी-पुली स्टेशन',
     image: '/club-real-3.jpg',
     alt: 'Real photo of Wellness Gym WG10 FT30 cable crossover station at Alpine Fitness',
     isRealPhoto: true,
   },
   {
     id: 'real-4',
-    title: 'Heavy Hex & Urethane Dumbbell Rack',
-    subtitle: 'Real Club Photo · Wellness Gym Series',
+    titleEn: 'Heavy Hex & Urethane Dumbbell Rack',
+    titleHi: 'हैवी डंबल रैक (Wellness Gym)',
+    subtitleEn: 'Real Club Photo · Wellness Gym Series',
+    subtitleHi: 'असली जिम फोटो · वेलनेस जिम सीरीज़',
     image: '/club-real-4.jpg',
     alt: 'Real photo of heavy dumbbell rack at Alpine Fitness Club Sri Dungargarh',
     isRealPhoto: true,
   },
   {
     id: 'real-5',
-    title: 'Heavy 45° Plate-Loaded Leg Press',
-    subtitle: 'Real Club Photo · Lower Body Hypertrophy',
+    titleEn: 'Heavy 45° Plate-Loaded Leg Press',
+    titleHi: 'हैवी 45° प्लेट-लोडेड लेग प्रेस',
+    subtitleEn: 'Real Club Photo · Lower Body Hypertrophy',
+    subtitleHi: 'असली जिम फोटो · लेग वर्कआउट मशीन',
     image: '/club-real-5.jpg',
     alt: 'Real photo of angled leg press station at Alpine Fitness Club',
     isRealPhoto: true,
   },
   {
     id: 'real-6',
-    title: 'Lat Pulldown & Seated Row Machine',
-    subtitle: 'Real Club Photo · Back Isolation Station',
+    titleEn: 'Lat Pulldown & Seated Row Machine',
+    titleHi: 'लैट पुलडाउन और सीटेड रो मशीन',
+    subtitleEn: 'Real Club Photo · Back Isolation Station',
+    subtitleHi: 'असली जिम फोटो · बैक वर्कआउट स्टेशन',
     image: '/club-real-6.jpg',
     alt: 'Real photo of commercial lat pulldown machine at Alpine Fitness Club',
     isRealPhoto: true,
   },
   {
     id: 'real-7',
-    title: 'Mirrored Free-Weight & Machine Hall',
-    subtitle: 'Real Club Photo · Spacious Training Bay',
+    titleEn: 'Mirrored Free-Weight & Machine Hall',
+    titleHi: 'मिरर वर्कआउट और मशीन हॉल',
+    subtitleEn: 'Real Club Photo · Spacious Training Bay',
+    subtitleHi: 'असली जिम फोटो · हवादार ट्रेनिंग हॉल',
     image: '/club-real-7.jpg',
     alt: 'Real photo of Alpine Fitness mirrored training hall and benches',
     isRealPhoto: true,
   },
   {
     id: 'real-8',
-    title: 'Complete Commercial Dumbbell Lineup',
-    subtitle: 'Real Club Photo · Free Weights Area',
+    titleEn: 'Complete Commercial Dumbbell Lineup',
+    titleHi: 'कम्पलीट कमर्शियल डंबल सेटअप',
+    subtitleEn: 'Real Club Photo · Free Weights Area',
+    subtitleHi: 'असली जिम फोटो · फ्री वेट्स एरिया',
     image: '/club-real-8.jpg',
     alt: 'Real photo of full dumbbell rack and mirror wall at Alpine Fitness Club',
     isRealPhoto: true,
   },
-  // 6 Placeholder Gym Images AFTER Real Photos
+  // 6 Studio Gym Images AFTER Real Photos
   {
     id: 'placeholder-1',
-    title: 'Olympic Power Racks & Strength Floor',
-    subtitle: 'Heavy Compound Lifting Zone',
+    titleEn: 'Olympic Power Racks & Strength Floor',
+    titleHi: 'ओलंपिक पावर रैक्स और स्ट्रेंथ फ्लोर',
+    subtitleEn: 'Heavy Compound Lifting Zone',
+    subtitleHi: 'हैवी कंपाउंड लिफ्टिंग ज़ोन',
     image: heroGymImg,
     alt: 'Alpine Fitness Olympic power racks and main strength training floor',
   },
   {
     id: 'placeholder-2',
-    title: '100% Authentic Supplement Bar',
-    subtitle: 'Importer-Verified Nutrition Store',
+    titleEn: '100% Authentic Supplement Bar',
+    titleHi: '100% असली सप्लीमेंट काउंटर',
+    subtitleEn: 'Importer-Verified Nutrition Store',
+    subtitleHi: 'इम्पोर्टर-वेरिफाइड न्यूट्रिशन स्टोर',
     image: supplementStoreImg,
     alt: 'Alpine Fitness in-house authentic whey protein and sports supplement counter',
   },
   {
     id: 'placeholder-3',
-    title: 'Dual-Pulley Cable Crossover',
-    subtitle: 'Precision Hypertrophy Stations',
+    titleEn: 'Dual-Pulley Cable Crossover',
+    titleHi: 'ड्यूल-पुली केबल क्रॉसओवर',
+    subtitleEn: 'Precision Hypertrophy Stations',
+    subtitleHi: 'मसल आइसोलेशन स्टेशन',
     image: galleryCableWorkoutImg,
     alt: 'Athlete performing cable chest flyes on commercial cable crossover machine',
   },
   {
     id: 'placeholder-4',
-    title: 'Whey Isolate & Creatine Stack',
-    subtitle: 'Lab-Tested Recovery Fuel',
+    titleEn: 'Whey Isolate & Creatine Stack',
+    titleHi: 'व्हे आइसोलेट और क्रिएटिन स्टैक',
+    subtitleEn: 'Lab-Tested Recovery Fuel',
+    subtitleHi: 'लैब-टेस्टेड रिकवरी न्यूट्रिशन',
     image: galleryWheyStackImg,
     alt: 'Authentic whey protein isolate tub, micronized creatine, and shaker bottle',
   },
   {
     id: 'placeholder-5',
-    title: 'Calibrated Dumbbells & Plates',
-    subtitle: '2.5 kg to 50 kg Complete Run',
+    titleEn: 'Calibrated Dumbbells & Plates',
+    titleHi: 'कैलिब्रेटेड डंबल्स और ओलंपिक प्लेट्स',
+    subtitleEn: '2.5 kg to 50 kg Complete Run',
+    subtitleHi: '2.5 किलो से 50 किलो तक पूरी रेंज',
     image: galleryDumbbellsImg,
     alt: 'Row of heavy calibrated urethane dumbbells and Olympic weight plates',
   },
   {
     id: 'placeholder-6',
-    title: 'Cardio & Endurance Turf',
-    subtitle: 'Incline Treadmills, Bikes & Ropes',
+    titleEn: 'Cardio & Endurance Turf',
+    titleHi: 'कार्डियो और एंड्योरेंस टर्फ',
+    subtitleEn: 'Incline Treadmills, Bikes & Ropes',
+    subtitleHi: 'ट्रेडमिल, स्पिन बाइक्स और बैटल रोप्स',
     image: galleryCardioImg,
     alt: 'Commercial motorized treadmills, spin bikes, and battle ropes conditioning zone',
   },
@@ -252,51 +333,87 @@ const GALLERY_ITEMS: GalleryItem[] = [
 const PRICING_PLANS: PricingPlan[] = [
   {
     id: '1-month',
-    duration: '1 Month',
-    title: 'Monthly Flex Pass',
+    durationEn: '1 Month',
+    durationHi: '1 महीना',
+    titleEn: 'Monthly Flex Pass',
+    titleHi: 'मंथली फ्लेक्स पास',
     price: '₹1,500',
-    perMonthNote: 'Billed monthly · No lock-in',
-    kicker: '01. Starter Commitment',
-    description: 'Full access to our strength floor, cardio zone, and initial body composition baseline.',
-    features: [
+    perMonthNoteEn: 'Billed monthly · No lock-in',
+    perMonthNoteHi: 'मासिक शुल्क · कोई लॉक-इन नहीं',
+    kickerEn: '01. Starter Commitment',
+    kickerHi: '01. शुरुआती प्लान',
+    descriptionEn: 'Full access to our strength floor, cardio zone, and initial body composition baseline.',
+    descriptionHi: 'स्ट्रेंथ फ्लोर, कार्डियो ज़ोन और शुरुआती बॉडी फिटनेस चेकअप की पूरी सुविधा।',
+    featuresEn: [
       'Full access to Strength & Cardio Floor (Morning or Evening batch)',
       '2 Personal Training orientation & form-check sessions',
       'Baseline BMI & muscle-fat analysis on Day 1',
       'Standard foundational workout split sheet',
       '5% member discount at Alpine Supplement Store',
     ],
+    featuresHi: [
+      'स्ट्रेंथ और कार्डियो फ्लोर का पूरा एक्सेस (सुबह या शाम का बैच)',
+      '2 पर्सनल ट्रेनिंग ओरिएंटेशन और एक्सरसाइज फॉर्म-चेक सेशन',
+      'पहले दिन BMI और बॉडी फैट-मसल एनालिसिस',
+      'बेसिक वर्कआउट रूटीन और एक्सरसाइज चार्ट',
+      'अल्पाइन सप्लीमेंट स्टोर पर 5% मेंबर डिस्काउंट',
+    ],
   },
   {
     id: '3-months',
-    duration: '3 Months',
-    title: 'Quarterly Transformation',
+    durationEn: '3 Months',
+    durationHi: '3 महीने',
+    titleEn: 'Quarterly Transformation',
+    titleHi: 'क्वार्टरली ट्रांसफॉर्मेशन',
     price: '₹3,800',
-    perMonthNote: '₹1,266 / month · Save ₹700',
-    kicker: '02. Most Popular Choice',
+    perMonthNoteEn: '₹1,266 / month · Save ₹700',
+    perMonthNoteHi: '₹1,266 / महीना · ₹700 की बचत',
+    kickerEn: '02. Most Popular Choice',
+    kickerHi: '02. सबसे लोकप्रिय प्लान',
     highlight: true,
-    description: 'Engineered for visible 90-day hypertrophy or fat-loss milestones with structured nutrition.',
-    features: [
+    descriptionEn: 'Engineered for visible 90-day hypertrophy or fat-loss milestones with structured nutrition.',
+    descriptionHi: '90 दिनों में शानदार मसल गेन या फैट-लॉस रिजल्ट्स और डाइट प्लान के लिए सबसे बेहतरीन पैकेज।',
+    featuresEn: [
       'Unlimited access across Morning & Evening operating hours',
       '6 Dedicated Personal Training sessions (2 per month)',
       'Customized vegetarian & non-veg Rajasthani macro Diet Plan',
       'Bi-weekly progressive overload & posture tracking',
       '12% member discount on authentic Whey & Creatine',
     ],
+    featuresHi: [
+      'सुबह और शाम दोनों बैच में अनलिमिटेड जिम एक्सेस',
+      '6 डेडिकेटेड पर्सनल ट्रेनिंग सेशन (हर महीने 2 सेशन)',
+      'कस्टमाइज्ड शाकाहारी और नॉन-वेज राजस्थानी डाइट प्लान',
+      'हर 15 दिन में प्रोग्रेस और पोस्चर ट्रैकिंग',
+      'असली व्हे प्रोटीन और क्रिएटिन पर 12% मेंबर डिस्काउंट',
+    ],
   },
   {
     id: '12-months',
-    duration: '12 Months',
-    title: 'Annual Athlete Elite',
+    durationEn: '12 Months',
+    durationHi: '12 महीने',
+    titleEn: 'Annual Athlete Elite',
+    titleHi: 'एनुअल एथलीट एलीट',
     price: '₹11,500',
-    perMonthNote: '₹958 / month · Save ₹6,500',
-    kicker: '03. Maximum Value',
-    description: 'Year-round athletic conditioning with priority coaching, diet recalibration, and wholesale nutrition pricing.',
-    features: [
+    perMonthNoteEn: '₹958 / month · Save ₹6,500',
+    perMonthNoteHi: '₹958 / महीना · ₹6,500 की भारी बचत',
+    kickerEn: '03. Maximum Value',
+    kickerHi: '03. सबसे ज़्यादा बचत',
+    descriptionEn: 'Year-round athletic conditioning with priority coaching, diet recalibration, and wholesale nutrition pricing.',
+    descriptionHi: 'पूरे साल की फिटनेस, प्रायोरिटी कोचिंग, डाइट गाइडेंस और सप्लीमेंट्स पर होलसेल मेंबर रेट।',
+    featuresEn: [
       'All-access pass for 365 days + 30 days freeze privilege',
       '24 Personal Training & strength peaking sessions',
       'Quarterly Customized Diet & Supplement Stack Programming',
       'Complimentary shaker + 1st week recovery BCAA trial pack',
       'Flat 18% wholesale member rate at Alpine Supplement Store',
+    ],
+    featuresHi: [
+      '365 दिनों का ऑल-एक्सेस पास + 30 दिन मेंबरशिप फ्रीज सुविधा',
+      '24 पर्सनल ट्रेनिंग और स्ट्रेंथ पीकिंग सेशन',
+      'हर तिमाही नया कस्टमाइज्ड डाइट और सप्लीमेंट प्रोग्राम',
+      'फ्री जिम शेकर + पहले हफ्ते का BCAA रिकवरी ट्रायल पैक',
+      'अल्पाइन सप्लीमेंट स्टोर पर फ्लैट 18% होलसेल मेंबर छूट',
     ],
   },
 ];
@@ -304,43 +421,59 @@ const PRICING_PLANS: PricingPlan[] = [
 const SUPPLEMENTS: SupplementItem[] = [
   {
     id: 'whey-isolate',
-    name: '100% Gold Standard Whey Isolate',
+    nameEn: '100% Gold Standard Whey Isolate',
+    nameHi: '100% गोल्ड स्टैंडर्ड व्हे आइसोलेट',
     category: 'protein',
-    categoryLabel: 'Whey Protein',
-    weight: '2 kg (66 Servings)',
+    categoryLabelEn: 'Whey Protein',
+    categoryLabelHi: 'व्हे प्रोटीन',
+    weightEn: '2 kg (66 Servings)',
+    weightHi: '2 किलो (66 सर्विंग्स)',
     memberPrice: '₹5,490',
     mrp: '₹6,499',
-    highlights: '25g pure whey protein · 5.5g BCAA · Importer hologram verified',
+    highlightsEn: '25g pure whey protein · 5.5g BCAA · Importer hologram verified',
+    highlightsHi: '25g शुद्ध व्हे प्रोटीन · 5.5g BCAA · इम्पोर्टर होलोग्राम वेरिफाइड',
   },
   {
     id: 'micronized-creatine',
-    name: 'Micronized Creatine Monohydrate',
+    nameEn: 'Micronized Creatine Monohydrate',
+    nameHi: 'माइक्रोनाइज्ड क्रिएटिन मोनोहाइड्रेट',
     category: 'creatine',
-    categoryLabel: 'Strength & Power',
-    weight: '250 g (83 Servings)',
+    categoryLabelEn: 'Strength & Power',
+    categoryLabelHi: 'स्ट्रेंथ और पावर',
+    weightEn: '250 g (83 Servings)',
+    weightHi: '250 ग्राम (83 सर्विंग्स)',
     memberPrice: '₹890',
     mrp: '₹1,199',
-    highlights: '100% pure pharmaceutical grade · 3g per scoop · Zero fillers',
+    highlightsEn: '100% pure pharmaceutical grade · 3g per scoop · Zero fillers',
+    highlightsHi: '100% शुद्ध फार्मा ग्रेड · 3g प्रति स्कूप · बिना किसी मिलावट के',
   },
   {
     id: 'high-stim-pre',
-    name: 'Alpine Surge Pre-Workout Formula',
+    nameEn: 'Alpine Surge Pre-Workout Formula',
+    nameHi: 'अल्पाइन सर्ज प्री-वर्कआउट फॉर्मूला',
     category: 'preworkout',
-    categoryLabel: 'Pre-Workout & Focus',
-    weight: '300 g (30 Servings)',
+    categoryLabelEn: 'Pre-Workout & Focus',
+    categoryLabelHi: 'प्री-वर्कआउट और एनर्जी',
+    weightEn: '300 g (30 Servings)',
+    weightHi: '300 ग्राम (30 सर्विंग्स)',
     memberPrice: '₹1,450',
     mrp: '₹1,899',
-    highlights: '6g L-Citrulline · 3.2g Beta-Alanine · Sustained evening energy',
+    highlightsEn: '6g L-Citrulline · 3.2g Beta-Alanine · Sustained evening energy',
+    highlightsHi: '6g L-Citrulline · 3.2g Beta-Alanine · जबरदस्त पंप और फोकस',
   },
   {
     id: 'eaa-hydration',
-    name: 'Essential Amino EAA + Electrolytes',
+    nameEn: 'Essential Amino EAA + Electrolytes',
+    nameHi: 'एसेंशियल अमीनो EAA + इलेक्ट्रोलाइट्स',
     category: 'preworkout',
-    categoryLabel: 'Intra-Workout Recovery',
-    weight: '360 g (30 Servings)',
+    categoryLabelEn: 'Intra-Workout Recovery',
+    categoryLabelHi: 'इंट्रा-वर्कआउट रिकवरी',
+    weightEn: '360 g (30 Servings)',
+    weightHi: '360 ग्राम (30 सर्विंग्स)',
     memberPrice: '₹1,290',
     mrp: '₹1,650',
-    highlights: '7g EAAs · Pink Himalayan electrolytes for Rajasthan heat',
+    highlightsEn: '7g EAAs · Pink Himalayan electrolytes for Rajasthan heat',
+    highlightsHi: '7g EAAs · राजस्थान की गर्मी में तुरंत हाइड्रेशन और मसल रिकवरी',
   },
 ];
 
@@ -348,73 +481,97 @@ const GOOGLE_REVIEWS: GoogleReviewItem[] = [
   {
     id: 'google-rev-1',
     name: 'Puneet Ojha',
-    reviewCountText: '4 समीक्षाएं',
+    reviewCountTextHi: '4 समीक्षाएं',
+    reviewCountTextEn: '4 reviews',
     initial: 'P',
     avatarBg: 'bg-[#C2185B]',
     rating: 5,
-    timeAgo: '4 साल पहले',
-    text: 'बहुत ही बढ़िया प्रशिक्षक, बहुत मददगार।',
-    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    timeAgoHi: '4 साल पहले',
+    timeAgoEn: '4 years ago',
+    textHi: 'बहुत ही बढ़िया प्रशिक्षक, बहुत मददगार।',
+    textEn: 'Very good trainer, very helpful and supportive during workouts.',
+    translatedNoteHi: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    translatedNoteEn: 'Translated by Google · See original review on Google Maps',
     likesCount: 1,
   },
   {
     id: 'google-rev-2',
     name: 'lalita tiwari',
-    reviewCountText: '3 समीक्षाएं',
+    reviewCountTextHi: '3 समीक्षाएं',
+    reviewCountTextEn: '3 reviews',
     initial: 'l',
     avatarBg: 'bg-[#00897B]',
     rating: 5,
-    timeAgo: '4 साल पहले',
-    text: 'अच्छी जगह है और लड़कों और लड़कियों दोनों के लिए बढ़िया व्यवस्था है।\nलड़कियों के लिए विशेष रूप से अनुशंसित।',
-    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    timeAgoHi: '4 साल पहले',
+    timeAgoEn: '4 years ago',
+    textHi: 'अच्छी जगह है और लड़कों और लड़कियों दोनों के लिए बढ़िया व्यवस्था है।\nलड़कियों के लिए विशेष रूप से अनुशंसित।',
+    textEn: 'Great place with proper arrangements for both boys and girls.\nHighly recommended especially for girls.',
+    translatedNoteHi: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    translatedNoteEn: 'Translated by Google · See original review on Google Maps',
     likesCount: 1,
   },
   {
     id: 'google-rev-3',
     name: 'mukesh pareek',
-    reviewCountText: '7 समीक्षाएं',
+    reviewCountTextHi: '7 समीक्षाएं',
+    reviewCountTextEn: '7 reviews',
     initial: 'M',
     avatarBg: 'bg-[#1E88E5]',
     rating: 5,
-    timeAgo: '3 साल पहले',
-    text: 'शानदार जिम उपकरण और 100% ओरिजिनल सप्लीमेंट्स। श्री डूंगरगढ़ में फिटनेस के लिए सबसे बेहतरीन जगह।',
-    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    timeAgoHi: '3 साल पहले',
+    timeAgoEn: '3 years ago',
+    textHi: 'शानदार जिम उपकरण और 100% ओरिजिनल सप्लीमेंट्स। श्री डूंगरगढ़ में फिटनेस के लिए सबसे बेहतरीन जगह।',
+    textEn: 'Top-notch gym machines and 100% original supplements. The best place for fitness in Sri Dungargarh.',
+    translatedNoteHi: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    translatedNoteEn: 'Translated by Google · Verified Google Maps Review',
     likesCount: 2,
   },
   {
     id: 'google-rev-4',
     name: 'Vikram Singh Rathore',
-    reviewCountText: '5 समीक्षाएं',
+    reviewCountTextHi: '5 समीक्षाएं',
+    reviewCountTextEn: '5 reviews',
     initial: 'V',
     avatarBg: 'bg-[#7B1FA2]',
     rating: 5,
-    timeAgo: '1 साल पहले',
-    text: 'जिम में साफ-सफाई (hygiene) और वेंटिलेशन का बहुत खास ध्यान रखा जाता है। सभी मशीनें एकदम नई और स्मूथ हैं। वर्कआउट करने में बहुत मज़ा आता है।',
-    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    timeAgoHi: '1 साल पहले',
+    timeAgoEn: '1 year ago',
+    textHi: 'जिम में साफ-सफाई (hygiene) और वेंटिलेशन का बहुत खास ध्यान रखा जाता है। सभी मशीनें एकदम नई और स्मूथ हैं। वर्कआउट करने में बहुत मज़ा आता है।',
+    textEn: 'Special attention is given to hygiene and ventilation in the gym. All machines are modern and smooth. Working out here feels great.',
+    translatedNoteHi: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    translatedNoteEn: 'Translated by Google · Verified Google Maps Review',
     likesCount: 3,
   },
   {
     id: 'google-rev-5',
     name: 'Ankit Sharma',
-    reviewCountText: '6 समीक्षाएं',
+    reviewCountTextHi: '6 समीक्षाएं',
+    reviewCountTextEn: '6 reviews',
     initial: 'A',
     avatarBg: 'bg-[#E65100]',
     rating: 5,
-    timeAgo: '8 महीने पहले',
-    text: 'यहाँ का माहौल बहुत ही फ्रेंडली और पॉजिटिव है। नए मेंबर्स को भी ट्रेनर्स पूरा सपोर्ट करते हैं और सही एक्सरसाइज फॉर्म सिखाते हैं।',
-    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    timeAgoHi: '8 महीने पहले',
+    timeAgoEn: '8 months ago',
+    textHi: 'यहाँ का माहौल बहुत ही फ्रेंडली और पॉजिटिव है। नए मेंबर्स को भी ट्रेनर्स पूरा सपोर्ट करते हैं और सही एक्सरसाइज फॉर्म सिखाते हैं।',
+    textEn: 'The environment here is very friendly and positive. Trainers fully support beginners and teach proper exercise form.',
+    translatedNoteHi: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    translatedNoteEn: 'Translated by Google · Verified Google Maps Review',
     likesCount: 2,
   },
   {
     id: 'google-rev-6',
     name: 'Deepak Sarswat',
-    reviewCountText: '4 समीक्षाएं',
+    reviewCountTextHi: '4 समीक्षाएं',
+    reviewCountTextEn: '4 reviews',
     initial: 'D',
     avatarBg: 'bg-[#2E7D32]',
     rating: 5,
-    timeAgo: '5 महीने पहले',
-    text: 'आधुनिक जिम मशीनें, हैवी डंबल रैक और 100% असली सप्लीमेंट्स। गौरव पथ रोड पर अपनी फिटनेस और बॉडी ट्रांसफॉर्मेशन के लिए सबसे भरोसेमंद जिम!',
-    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    timeAgoHi: '5 महीने पहले',
+    timeAgoEn: '5 months ago',
+    textHi: 'आधुनिक जिम मशीनें, हैवी डंबल रैक और 100% असली सप्लीमेंट्स। गौरव पथ रोड पर अपनी फिटनेस और बॉडी ट्रांसफॉर्मेशन के लिए सबसे भरोसेमंद जिम!',
+    textEn: 'Modern gym machines, heavy dumbbell rack, and 100% genuine supplements. Most trusted gym on Gaurav Path Road for body transformation!',
+    translatedNoteHi: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    translatedNoteEn: 'Translated by Google · Verified Google Maps Review',
     likesCount: 4,
   },
 ];
@@ -425,6 +582,10 @@ const PHONE_CLEAN = '916350180486';
 const PHONE_TEL = '+916350180486';
 
 export default function App() {
+  // Language State ('en' for English, 'hi' for Hindi)
+  const [lang, setLang] = useState<Language>('en');
+  const isHi = lang === 'hi';
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFacilityTab, setActiveFacilityTab] = useState<'equipment' | 'supplements' | 'timings'>('equipment');
   const [supplementFilter, setSupplementFilter] = useState<'all' | 'protein' | 'creatine' | 'preworkout'>('all');
@@ -565,11 +726,13 @@ export default function App() {
   const handleReviewSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (reviewerName.trim().length < 2) {
-      setReviewFormError('Please enter your name.');
+      setReviewFormError(isHi ? 'कृपया अपना नाम लिखें।' : 'Please enter your name.');
       return;
     }
     if (reviewComment.trim().length < 4) {
-      setReviewFormError('Please write a short review about your experience.');
+      setReviewFormError(
+        isHi ? 'कृपया अपने अनुभव के बारे में कुछ शब्द लिखें।' : 'Please write a short review about your experience.'
+      );
       return;
     }
 
@@ -605,11 +768,13 @@ export default function App() {
     const digitsOnly = phone.replace(/\D/g, '');
 
     if (trimmedName.length < 2) {
-      setFormError('Please enter your full name.');
+      setFormError(isHi ? 'कृपया अपना पूरा नाम दर्ज करें।' : 'Please enter your full name.');
       return;
     }
     if (digitsOnly.length < 10) {
-      setFormError('Please enter a valid 10-digit mobile number.');
+      setFormError(
+        isHi ? 'कृपया सही 10-अंकों का मोबाइल नंबर दर्ज करें।' : 'Please enter a valid 10-digit mobile number.'
+      );
       return;
     }
 
@@ -620,6 +785,8 @@ export default function App() {
   const getWhatsAppUrl = (customMessage?: string) => {
     const defaultText = customMessage
       ? customMessage
+      : isHi
+      ? `नमस्ते अल्पाइन फिटनेस क्लब एंड सप्लीमेंट्स! मुझे गौरव पथ रोड, श्री डूंगरगढ़ स्थित आपके जिम की मेंबरशिप और 1-दिन के फ्री ट्रायल के बारे में जानकारी चाहिए।`
       : `Namaste Alpine Fitness Club & Supplements! I would like to inquire about gym membership and a Free Trial session at your Gaurav Path Road, Sri Dungargarh club.`;
     return `https://wa.me/${PHONE_CLEAN}?text=${encodeURIComponent(defaultText)}`;
   };
@@ -633,65 +800,108 @@ export default function App() {
     <div className="min-h-screen w-full overflow-x-clip bg-black text-[#F4F5F6] flex flex-col">
       {/* 1. PERMANENTLY FIXED TOP NAVBAR — Always Stays Visible at Top When Scrolling Down */}
       <header className="fixed top-0 left-0 right-0 z-50 h-16 w-full bg-black/95 backdrop-blur-md border-b border-zinc-800 shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
-        <div className="max-w-[1200px] mx-auto h-full px-4 sm:px-6 flex items-center justify-between gap-2 sm:gap-4 md:gap-8">
-          {/* Zone 1: Responsive Brand Logo (text-lg font-bold truncate md:text-2xl) */}
+        <div className="max-w-[1200px] mx-auto h-full px-3 sm:px-6 flex items-center justify-between gap-2 sm:gap-4">
+          {/* Zone 1: Responsive Brand Logo */}
           <a
             href="#home"
-            className="font-display text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-wider text-white hover:text-[#A3E635] transition-colors truncate min-w-0"
+            className="font-display text-base sm:text-xl md:text-2xl font-bold uppercase tracking-wider text-white hover:text-[#A3E635] transition-colors truncate min-w-0"
           >
-            Alpine Fitness <span className="text-[#A3E635]">Club & Supplements</span>
+            {isHi ? (
+              <>
+                अल्पाइन फिटनेस <span className="text-[#A3E635]">क्लब एंड सप्लीमेंट्स</span>
+              </>
+            ) : (
+              <>
+                Alpine Fitness <span className="text-[#A3E635]">Club &amp; Supplements</span>
+              </>
+            )}
           </a>
 
           {/* Zone 2: Concise single-line navigation links */}
-          <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-6 lg:gap-7 text-sm font-medium text-zinc-300 shrink-0">
+          <nav
+            aria-label="Main Navigation"
+            className="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium text-zinc-300 shrink-0"
+          >
             <a
               href="#home"
               className="hover:text-[#A3E635] underline-offset-8 hover:underline decoration-[#A3E635] decoration-2 transition-colors whitespace-nowrap shrink-0"
             >
-              Home
+              {isHi ? 'होम' : 'Home'}
             </a>
             <a
               href="#gallery"
               className="hover:text-[#A3E635] underline-offset-8 hover:underline decoration-[#A3E635] decoration-2 transition-colors whitespace-nowrap shrink-0"
             >
-              Gallery
+              {isHi ? 'गैलरी' : 'Gallery'}
             </a>
             <a
               href="#about"
               className="hover:text-[#A3E635] underline-offset-8 hover:underline decoration-[#A3E635] decoration-2 transition-colors whitespace-nowrap shrink-0"
             >
-              About
+              {isHi ? 'हमारे बारे में' : 'About'}
             </a>
             <a
               href="#memberships"
               className="hover:text-[#A3E635] underline-offset-8 hover:underline decoration-[#A3E635] decoration-2 transition-colors whitespace-nowrap shrink-0"
             >
-              Memberships
+              {isHi ? 'मेंबरशिप' : 'Memberships'}
             </a>
             <a
               href="#reviews"
               className="hover:text-[#A3E635] underline-offset-8 hover:underline decoration-[#A3E635] decoration-2 transition-colors whitespace-nowrap shrink-0"
             >
-              Reviews
+              {isHi ? 'रिव्यू' : 'Reviews'}
             </a>
             <a
               href="#contact"
               className="hover:text-[#A3E635] underline-offset-8 hover:underline decoration-[#A3E635] decoration-2 transition-colors whitespace-nowrap shrink-0"
             >
-              Contact
+              {isHi ? 'संपर्क' : 'Contact'}
             </a>
           </nav>
 
-          {/* Zone 3: 1 Primary Action + Mobile Menu Trigger */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Zone 3: Language Switcher (EN / हिंदी) + WhatsApp Action + Mobile Menu Trigger */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            {/* Bilingual Switcher Button (EN | हिंदी) */}
+            <div
+              role="group"
+              aria-label="Language switcher"
+              className="inline-flex items-center rounded-lg bg-zinc-900 border border-zinc-700 p-0.5 shrink-0"
+            >
+              <button
+                type="button"
+                onClick={() => setLang('en')}
+                aria-pressed={!isHi}
+                className={`px-2 sm:px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-extrabold transition-all cursor-pointer ${
+                  !isHi
+                    ? 'bg-[#FF6B00] text-white shadow'
+                    : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang('hi')}
+                aria-pressed={isHi}
+                className={`px-2 sm:px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-extrabold transition-all cursor-pointer ${
+                  isHi
+                    ? 'bg-[#FF6B00] text-white shadow'
+                    : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                हिंदी
+              </button>
+            </div>
+
             <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg bg-[#A3E635] text-black font-bold text-xs sm:text-sm hover:bg-[#bef264] transition-all whitespace-nowrap shrink-0"
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-4 py-2 rounded-lg bg-[#A3E635] text-black font-bold text-xs sm:text-sm hover:bg-[#bef264] transition-all whitespace-nowrap shrink-0"
             >
               <i className="fa-brands fa-whatsapp text-sm sm:text-base" aria-hidden="true"></i>
-              <span>WhatsApp Us</span>
+              <span className="hidden xs:inline sm:inline">{isHi ? 'व्हाट्सएप' : 'WhatsApp Us'}</span>
             </a>
 
             <button
@@ -699,7 +909,7 @@ export default function App() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
-              className="md:hidden inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg border border-zinc-800 text-zinc-200 hover:border-[#A3E635] hover:text-[#A3E635] transition-colors shrink-0"
+              className="lg:hidden inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg border border-zinc-800 text-zinc-200 hover:border-[#A3E635] hover:text-[#A3E635] transition-colors shrink-0 cursor-pointer"
             >
               <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'} text-base`} aria-hidden="true"></i>
             </button>
@@ -708,53 +918,53 @@ export default function App() {
 
         {/* Mobile Dropdown Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-zinc-950 border-b border-zinc-800 px-4 pt-3 pb-5 space-y-3">
+          <div className="lg:hidden bg-zinc-950 border-b border-zinc-800 px-4 pt-3 pb-5 space-y-3 shadow-2xl">
             <nav className="flex flex-col space-y-2.5 text-sm font-medium text-zinc-200">
               <a
                 href="#home"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1.5 hover:text-[#A3E635] transition-colors"
               >
-                Home
+                {isHi ? 'होम (Home)' : 'Home'}
               </a>
               <a
                 href="#gallery"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1.5 hover:text-[#A3E635] transition-colors"
               >
-                Facility & Supplements Gallery
+                {isHi ? 'जिम और सप्लीमेंट गैलरी' : 'Facility & Supplements Gallery'}
               </a>
               <a
                 href="#about"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1.5 hover:text-[#A3E635] transition-colors"
               >
-                About & Supplement Store
+                {isHi ? 'हमारे बारे में और सप्लीमेंट स्टोर' : 'About & Supplement Store'}
               </a>
               <a
                 href="#memberships"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1.5 hover:text-[#A3E635] transition-colors"
               >
-                Memberships & Free Trial
+                {isHi ? 'मेंबरशिप प्लान और फ्री ट्रायल' : 'Memberships & Free Trial'}
               </a>
               <a
                 href="#reviews"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1.5 hover:text-[#A3E635] transition-colors"
               >
-                Google Reviews (4.6 ★)
+                {isHi ? 'गूगल रिव्यू (4.6 ★)' : 'Google Reviews (4.6 ★)'}
               </a>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1.5 hover:text-[#A3E635] transition-colors"
               >
-                Location & Contact
+                {isHi ? 'लोकेशन और संपर्क' : 'Location & Contact'}
               </a>
             </nav>
             <div className="pt-2 border-t border-zinc-800 flex flex-wrap items-center justify-between gap-2 text-xs text-zinc-400">
-              <span>Gaurav Path Road, Sri Dungargarh</span>
+              <span>{isHi ? 'गौरव पथ रोड, श्री डूंगरगढ़' : 'Gaurav Path Road, Sri Dungargarh'}</span>
               <a href={`tel:${PHONE_TEL}`} className="text-[#A3E635] font-mono-num font-semibold">
                 {PHONE_DISPLAY}
               </a>
@@ -835,7 +1045,7 @@ export default function App() {
                               isOrange ? 'text-[#FACC15]' : 'text-[#A3E635]'
                             }`}
                           >
-                            {slide.kicker}
+                            {isHi ? slide.kickerHi : slide.kickerEn}
                           </div>
                           <div
                             className={`h-0.5 sm:h-1 w-8 sm:w-14 mt-1 rounded-full ${
@@ -845,16 +1055,16 @@ export default function App() {
                         </div>
 
                         {/* Bold Two-Tone Banner Headline */}
-                        <div className="font-display font-black uppercase tracking-tight leading-[0.94] text-2xl sm:text-5xl md:text-6xl lg:text-7xl mb-1.5 sm:mb-3.5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
-                          <div className="text-white">{slide.headlineTop}</div>
+                        <div className="font-display font-black uppercase tracking-tight leading-[0.96] text-2xl sm:text-5xl md:text-6xl lg:text-7xl mb-1.5 sm:mb-3.5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+                          <div className="text-white">{isHi ? slide.headlineTopHi : slide.headlineTopEn}</div>
                           <div className={isOrange ? 'text-[#FF6B00]' : 'text-[#A3E635]'}>
-                            {slide.headlineBottom}
+                            {isHi ? slide.headlineBottomHi : slide.headlineBottomEn}
                           </div>
                         </div>
 
                         {/* Crisp Subtext */}
                         <p className="text-[11px] sm:text-sm md:text-base lg:text-lg font-semibold text-zinc-100 leading-snug mb-2.5 sm:mb-6 max-w-[46ch] line-clamp-2 sm:line-clamp-none drop-shadow">
-                          {slide.subtext}
+                          {isHi ? slide.subtextHi : slide.subtextEn}
                         </p>
 
                         {/* Banner CTA Pill Button + Rating Badge */}
@@ -866,12 +1076,12 @@ export default function App() {
                                 : 'bg-[#A3E635] text-black shadow-[#A3E635]/40'
                             }`}
                           >
-                            {slide.ctaLabel}
+                            {isHi ? slide.ctaLabelHi : slide.ctaLabelEn}
                           </span>
 
                           <span className="text-[10px] sm:text-xs md:text-sm font-bold text-white/95 flex items-center gap-1.5 drop-shadow">
                             <i className="fa-solid fa-star text-[#FACC15] text-[10px] sm:text-xs" aria-hidden="true"></i>
-                            <span>{slide.badgeText}</span>
+                            <span>{isHi ? slide.badgeTextHi : slide.badgeTextEn}</span>
                           </span>
                         </div>
                       </div>
@@ -942,17 +1152,21 @@ export default function App() {
                   <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#FF6B00]/20 text-[#FF6B00]">
                     <i className="fa-solid fa-fire text-xs" aria-hidden="true"></i>
                   </span>
-                  <span className="font-bold text-white">1st Day Trial FREE</span>
+                  <span className="font-bold text-white">
+                    {isHi ? 'पहले दिन का ट्रायल बिल्कुल FREE' : '1st Day Trial FREE'}
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-2 text-zinc-300">
                   <i className="fa-solid fa-clock text-[#A3E635] text-xs" aria-hidden="true"></i>
-                  <span className="font-mono-num">5:00–9:00 AM &amp; 5:00–11:00 PM</span>
+                  <span className="font-mono-num">
+                    {isHi ? 'सुबह 5:00–9:00 व शाम 5:00–11:00' : '5:00–9:00 AM & 5:00–11:00 PM'}
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-2 text-zinc-300">
                   <i className="fa-solid fa-location-dot text-[#FF6B00] text-xs" aria-hidden="true"></i>
-                  <span>Gaurav Path Road, Sri Dungargarh</span>
+                  <span>{isHi ? 'गौरव पथ रोड, श्री डूंगरगढ़' : 'Gaurav Path Road, Sri Dungargarh'}</span>
                 </div>
               </div>
 
@@ -962,7 +1176,7 @@ export default function App() {
                   onClick={() => openTrialBooking('3 Months — Quarterly Transformation (₹3,800)')}
                   className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#FF6B00] hover:bg-[#ff7b1a] text-white font-bold text-xs sm:text-sm transition-all shadow-[0_6px_20px_rgba(255,107,0,0.35)] cursor-pointer whitespace-nowrap"
                 >
-                  <span>Book Free Trial</span>
+                  <span>{isHi ? 'फ्री ट्रायल बुक करें' : 'Book Free Trial'}</span>
                   <i className="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
                 </button>
 
@@ -984,17 +1198,28 @@ export default function App() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-1.5">
-                  Inside Alpine Fitness · 14 High-Clarity Photos (Real Club &amp; Supplement Tour)
+                  {isHi
+                    ? 'अल्पाइन फिटनेस की झलक · 14 हाई-क्लैरिटी फोटोज़ (असली जिम और सप्लीमेंट स्टोर)'
+                    : 'Inside Alpine Fitness · 14 High-Clarity Photos (Real Club & Supplement Tour)'}
                 </div>
                 <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white">
-                  Explore Our <span className="text-[#A3E635]">Facility &amp; Supplements</span>
+                  {isHi ? (
+                    <>
+                      हमारी <span className="text-[#A3E635]">जिम सुविधाएं और सप्लीमेंट्स</span> देखें
+                    </>
+                  ) : (
+                    <>
+                      Explore Our <span className="text-[#A3E635]">Facility &amp; Supplements</span>
+                    </>
+                  )}
                 </h2>
               </div>
 
               {/* Desktop Carousel Navigation Controls + Swipe Hint */}
               <div className="flex items-center justify-between sm:justify-end gap-3">
                 <span className="text-xs text-zinc-400 sm:hidden">
-                  Swipe or tap any photo to zoom <i className="fa-solid fa-arrow-right ml-1 text-[#A3E635]" aria-hidden="true"></i>
+                  {isHi ? 'स्वाइप करें या ज़ूम के लिए फोटो पर टैप करें' : 'Swipe or tap any photo to zoom'}{' '}
+                  <i className="fa-solid fa-arrow-right ml-1 text-[#A3E635]" aria-hidden="true"></i>
                 </span>
                 <div className="hidden sm:flex items-center gap-2">
                   <button
@@ -1017,7 +1242,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Smooth Horizontally Scrollable Carousel (flex overflow-x-auto snap-x gap-4 py-4 no-scrollbar) */}
+            {/* Smooth Horizontally Scrollable Carousel */}
             <div
               ref={galleryScrollRef}
               className="flex overflow-x-auto snap-x snap-mandatory gap-4 py-4 no-scrollbar scrollbar-hide"
@@ -1045,7 +1270,9 @@ export default function App() {
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-900 p-4 text-center">
                       <i className="fa-solid fa-dumbbell text-4xl text-[#A3E635] mb-2" aria-hidden="true"></i>
-                      <span className="text-xs font-semibold text-zinc-300">{item.title}</span>
+                      <span className="text-xs font-semibold text-zinc-300">
+                        {isHi ? item.titleHi : item.titleEn}
+                      </span>
                     </div>
                   )}
 
@@ -1061,9 +1288,11 @@ export default function App() {
                   />
 
                   <div className="absolute bottom-0 inset-x-0 p-4 pointer-events-none">
-                    <div className="text-[11px] font-semibold text-[#A3E635]">{item.subtitle}</div>
+                    <div className="text-[11px] font-semibold text-[#A3E635]">
+                      {isHi ? item.subtitleHi : item.subtitleEn}
+                    </div>
                     <h3 className="font-display text-lg font-bold uppercase text-white leading-snug mt-0.5">
-                      {item.title}
+                      {isHi ? item.titleHi : item.titleEn}
                     </h3>
                   </div>
                 </div>
@@ -1073,21 +1302,31 @@ export default function App() {
         </section>
 
         {/* 3. ABOUT & FACILITIES SECTION — Dark Gray (bg-zinc-900) */}
-        <section id="about" className="py-16 sm:py-20 md:py-24 bg-zinc-900 border-b border-zinc-800 w-full">
+        <section id="about" className="scroll-mt-16 py-16 sm:py-20 md:py-24 bg-zinc-900 border-b border-zinc-800 w-full">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             {/* Section Header */}
             <div className="max-w-2xl mb-10 sm:mb-12">
               <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-2">
-                01. Facility, Timings & Authentic Nutrition
+                {isHi ? '01. जिम सुविधाएं, समय और 100% असली न्यूट्रिशन' : '01. Facility, Timings & Authentic Nutrition'}
               </div>
               <h2
                 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white mb-4"
                 style={{ textWrap: 'balance' }}
               >
-                Engineered for Serious Training & <span className="text-[#A3E635]">Genuine Recovery</span> Under One Roof
+                {isHi ? (
+                  <>
+                    शानदार वर्कआउट और <span className="text-[#A3E635]">असली सप्लीमेंट्स</span> — दोनों एक ही छत के नीचे
+                  </>
+                ) : (
+                  <>
+                    Engineered for Serious Training &amp; <span className="text-[#A3E635]">Genuine Recovery</span> Under One Roof
+                  </>
+                )}
               </h2>
               <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
-                Located on Gaurav Path Road near Chidpid Nath in Sri Dungargarh, Alpine Fitness Club & Supplements combines commercial-grade iron with Rajasthan’s most reliable source for genuine sports nutrition.
+                {isHi
+                  ? 'श्री डूंगरगढ़ में गौरव पथ रोड पर चिड़पिड़ नाथ के पास स्थित, अल्पाइन फिटनेस क्लब एंड सप्लीमेंट्स में आपको आधुनिक कमर्शियल जिम मशीनों के साथ-साथ 100% असली और वेरिफाइड स्पोर्ट्स सप्लीमेंट्स मिलते हैं।'
+                  : 'Located on Gaurav Path Road near Chidpid Nath in Sri Dungargarh, Alpine Fitness Club & Supplements combines commercial-grade iron with Rajasthan’s most reliable source for genuine sports nutrition.'}
               </p>
             </div>
 
@@ -1112,7 +1351,7 @@ export default function App() {
                         : 'text-zinc-300 hover:text-white'
                     }`}
                   >
-                    Strength & Cardio Floor
+                    {isHi ? 'स्ट्रेंथ और कार्डियो फ्लोर' : 'Strength & Cardio Floor'}
                   </button>
                   <button
                     type="button"
@@ -1125,7 +1364,7 @@ export default function App() {
                         : 'text-zinc-300 hover:text-white'
                     }`}
                   >
-                    Authentic Supplement Store
+                    {isHi ? 'असली सप्लीमेंट स्टोर' : 'Authentic Supplement Store'}
                   </button>
                   <button
                     type="button"
@@ -1138,7 +1377,7 @@ export default function App() {
                         : 'text-zinc-300 hover:text-white'
                     }`}
                   >
-                    Batch Timings & Coaching
+                    {isHi ? 'बैच टाइमिंग और कोचिंग' : 'Batch Timings & Coaching'}
                   </button>
                 </div>
 
@@ -1147,10 +1386,14 @@ export default function App() {
                   <div className="space-y-6">
                     <div>
                       <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#A3E635] mb-2">
-                        Heavy-Duty Biomechanical Machines & Free Weights
+                        {isHi
+                          ? 'हैवी-ड्यूटी बायोमैकेनिकल मशीनें और फ्री वेट्स'
+                          : 'Heavy-Duty Biomechanical Machines & Free Weights'}
                       </h3>
                       <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
-                        Every station on our floor is calibrated for smooth resistance curves and joint-safe hypertrophy. No waiting in long queues during peak hours—we stock multiple Olympic benches, squat racks, and a complete dumbbell run.
+                        {isHi
+                          ? 'हमारे जिम की हर मशीन जोड़ों की सुरक्षा और बेहतरीन मसल ग्रोथ के लिए डिज़ाइन की गई है। पीक आवर्स में भी इंतजार नहीं करना पड़ता—हमारे पास कई ओलंपिक बेंच, स्क्वैट रैक्स और पूरा डंबल सेटअप मौजूद है।'
+                          : 'Every station on our floor is calibrated for smooth resistance curves and joint-safe hypertrophy. No waiting in long queues during peak hours—we stock multiple Olympic benches, squat racks, and a complete dumbbell run.'}
                       </p>
                     </div>
 
@@ -1158,27 +1401,39 @@ export default function App() {
                       <div className="flex items-start gap-3.5">
                         <i className="fa-solid fa-check text-[#A3E635] mt-1 text-sm shrink-0" aria-hidden="true"></i>
                         <div>
-                          <div className="text-sm font-semibold text-white">Olympic Power Racks & Deadlifting Platforms</div>
+                          <div className="text-sm font-semibold text-white">
+                            {isHi ? 'ओलंपिक पावर रैक्स और डेडलिफ्टिंग प्लेटफॉर्म' : 'Olympic Power Racks & Deadlifting Platforms'}
+                          </div>
                           <div className="text-xs text-zinc-400 mt-0.5">
-                            Heavy rubberized shock-absorbing flooring for heavy compound lifts, squats, and rack pulls.
+                            {isHi
+                              ? 'हैवी स्क्वैट्स, डेडलिफ्ट और कंपाउंड लिफ्टिंग के लिए शॉक-एब्जॉर्बिंग रबर फ्लोरिंग।'
+                              : 'Heavy rubberized shock-absorbing flooring for heavy compound lifts, squats, and rack pulls.'}
                           </div>
                         </div>
                       </div>
                       <div className="flex items-start gap-3.5">
                         <i className="fa-solid fa-check text-[#A3E635] mt-1 text-sm shrink-0" aria-hidden="true"></i>
                         <div>
-                          <div className="text-sm font-semibold text-white">Dual-Pulley Cable Crossovers & Isolation Stations</div>
+                          <div className="text-sm font-semibold text-white">
+                            {isHi ? 'ड्यूल-पुली केबल क्रॉसओवर और आइसोलेशन मशीनें' : 'Dual-Pulley Cable Crossovers & Isolation Stations'}
+                          </div>
                           <div className="text-xs text-zinc-400 mt-0.5">
-                            Lat pulldowns, seated rows, pec dec flyes, leg press, hack squat, and hamstring curl machines.
+                            {isHi
+                              ? 'लैट पुलडाउन, सीटेड रो, पेक डेक फ्लाई, 45° लेग प्रेस, हैक स्क्वैट और लेग कर्ल मशीनें।'
+                              : 'Lat pulldowns, seated rows, pec dec flyes, leg press, hack squat, and hamstring curl machines.'}
                           </div>
                         </div>
                       </div>
                       <div className="flex items-start gap-3.5">
                         <i className="fa-solid fa-check text-[#A3E635] mt-1 text-sm shrink-0" aria-hidden="true"></i>
                         <div>
-                          <div className="text-sm font-semibold text-white">Endurance Cardio & Functional Conditioning Zone</div>
+                          <div className="text-sm font-semibold text-white">
+                            {isHi ? 'कार्डियो और फंक्शनल फिटनेस ज़ोन' : 'Endurance Cardio & Functional Conditioning Zone'}
+                          </div>
                           <div className="text-xs text-zinc-400 mt-0.5">
-                            Commercial incline treadmills, spin bikes, battle ropes, and sled turf for fat loss and stamina.
+                            {isHi
+                              ? 'फैट लॉस और स्टैमिना बढ़ाने के लिए कमर्शियल ट्रेडमिल, स्पिन बाइक्स और बैटल रोप्स।'
+                              : 'Commercial incline treadmills, spin bikes, battle ropes, and sled turf for fat loss and stamina.'}
                           </div>
                         </div>
                       </div>
@@ -1190,10 +1445,14 @@ export default function App() {
                   <div className="space-y-6">
                     <div>
                       <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#A3E635] mb-2">
-                        100% Authentic, Direct-from-Importer Supplement Store
+                        {isHi
+                          ? '100% असली और इम्पोर्टर-वेरिफाइड सप्लीमेंट स्टोर'
+                          : '100% Authentic, Direct-from-Importer Supplement Store'}
                       </h3>
                       <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
-                        Never risk your health with unverified online sellers. Our counter inside Alpine Fitness stocks sealed, batch-verified sports supplements with official importer holograms and GST billing.
+                        {isHi
+                          ? 'नकली ऑनलाइन सप्लीमेंट्स से अपनी सेहत के साथ खिलवाड़ न करें। अल्पाइन फिटनेस के इन-हाउस स्टोर पर आपको आधिकारिक होलोग्राम और बिल के साथ 100% ओरिजिनल सप्लीमेंट्स मिलते हैं।'
+                          : 'Never risk your health with unverified online sellers. Our counter inside Alpine Fitness stocks sealed, batch-verified sports supplements with official importer holograms and GST billing.'}
                       </p>
                     </div>
 
@@ -1201,27 +1460,39 @@ export default function App() {
                       <div className="flex items-start gap-3.5">
                         <i className="fa-solid fa-check text-[#A3E635] mt-1 text-sm shrink-0" aria-hidden="true"></i>
                         <div>
-                          <div className="text-sm font-semibold text-white">Live Scratch-Code Verification at Counter</div>
+                          <div className="text-sm font-semibold text-white">
+                            {isHi ? 'काउंटर पर लाइव स्क्रैच-कोड वेरिफिकेशन' : 'Live Scratch-Code Verification at Counter'}
+                          </div>
                           <div className="text-xs text-zinc-400 mt-0.5">
-                            Verify your Whey Isolate, Concentrate, or Mass Gainer authenticity right at the desk before opening.
+                            {isHi
+                              ? 'बॉक्स खोलने से पहले काउंटर पर ही अपने व्हे प्रोटीन या गेनर का बारकोड/स्क्रैच कोड वेरिफाई करें।'
+                              : 'Verify your Whey Isolate, Concentrate, or Mass Gainer authenticity right at the desk before opening.'}
                           </div>
                         </div>
                       </div>
                       <div className="flex items-start gap-3.5">
                         <i className="fa-solid fa-check text-[#A3E635] mt-1 text-sm shrink-0" aria-hidden="true"></i>
                         <div>
-                          <div className="text-sm font-semibold text-white">Goal-Specific Stack Guidance (No Hard Selling)</div>
+                          <div className="text-sm font-semibold text-white">
+                            {isHi ? 'आपके गोल और बजट के अनुसार सही सलाह' : 'Goal-Specific Stack Guidance (No Hard Selling)'}
+                          </div>
                           <div className="text-xs text-zinc-400 mt-0.5">
-                            Our head coach recommends only what fits your blood work, digestion, and budget—whether Creatine, Whey, or Multi-vitamins.
+                            {isHi
+                              ? 'हमारे हेड कोच आपके शरीर की ज़रूरत और बजट के हिसाब से ही सही सप्लीमेंट लेने की सलाह देते हैं।'
+                              : 'Our head coach recommends only what fits your blood work, digestion, and budget—whether Creatine, Whey, or Multi-vitamins.'}
                           </div>
                         </div>
                       </div>
                       <div className="flex items-start gap-3.5">
                         <i className="fa-solid fa-check text-[#A3E635] mt-1 text-sm shrink-0" aria-hidden="true"></i>
                         <div>
-                          <div className="text-sm font-semibold text-white">Exclusive Up to 18% Club Member Rebate</div>
+                          <div className="text-sm font-semibold text-white">
+                            {isHi ? 'जिम मेंबर्स को 18% तक की विशेष छूट' : 'Exclusive Up to 18% Club Member Rebate'}
+                          </div>
                           <div className="text-xs text-zinc-400 mt-0.5">
-                            Active gym members receive direct wholesale discounts on every monthly supplement refill.
+                            {isHi
+                              ? 'हमारे सभी एक्टिव जिम मेंबर्स को हर महीने सप्लीमेंट्स पर सीधी होलसेल छूट मिलती है।'
+                              : 'Active gym members receive direct wholesale discounts on every monthly supplement refill.'}
                           </div>
                         </div>
                       </div>
@@ -1233,27 +1504,39 @@ export default function App() {
                   <div className="space-y-6">
                     <div>
                       <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#A3E635] mb-2">
-                        Two Dedicated Training Windows (Monday – Saturday)
+                        {isHi
+                          ? 'सुबह और शाम के दो विशेष ट्रेनिंग बैच (सोमवार – शनिवार)'
+                          : 'Two Dedicated Training Windows (Monday – Saturday)'}
                       </h3>
                       <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
-                        Our split schedule ensures the gym floor is sanitized, equipment is inspected twice daily, and certified floor trainers are present throughout every active hour.
+                        {isHi
+                          ? 'हमारे दोनों बैचों में सर्टिफाइड ट्रेनर पूरे समय फ्लोर पर मौजूद रहते हैं और दिन में दो बार जिम की पूरी साफ-सफाई की जाती है।'
+                          : 'Our split schedule ensures the gym floor is sanitized, equipment is inspected twice daily, and certified floor trainers are present throughout every active hour.'}
                       </p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                       <div className="p-4 rounded-xl bg-zinc-800 border border-zinc-700">
-                        <div className="text-xs font-bold text-[#A3E635] mb-1">Morning Batch (Mon – Sat)</div>
+                        <div className="text-xs font-bold text-[#A3E635] mb-1">
+                          {isHi ? 'सुबह का बैच (सोम – शनि)' : 'Morning Batch (Mon – Sat)'}
+                        </div>
                         <div className="font-mono-num text-base sm:text-lg font-bold text-white">5:00 AM – 9:00 AM</div>
                         <p className="text-xs text-zinc-300 mt-1.5">
-                          High-energy morning sessions, fasted cardio support, and focused compound strength supervision.
+                          {isHi
+                            ? 'सुबह की ताज़ा ऊर्जा, कार्डियो और स्ट्रेंथ ट्रेनिंग के लिए शांत और अनुशासित माहौल।'
+                            : 'High-energy morning sessions, fasted cardio support, and focused compound strength supervision.'}
                         </p>
                       </div>
 
                       <div className="p-4 rounded-xl bg-zinc-800 border border-zinc-700">
-                        <div className="text-xs font-bold text-[#A3E635] mb-1">Evening Batch (Mon – Sat)</div>
+                        <div className="text-xs font-bold text-[#A3E635] mb-1">
+                          {isHi ? 'शाम का बैच (सोम – शनि)' : 'Evening Batch (Mon – Sat)'}
+                        </div>
                         <div className="font-mono-num text-base sm:text-lg font-bold text-white">5:00 PM – 11:00 PM</div>
                         <p className="text-xs text-zinc-300 mt-1.5">
-                          6 full hours of evening access—perfect for students, traders, and professionals across Sri Dungargarh.
+                          {isHi
+                            ? 'शाम 5 बजे से रात 11 बजे तक पूरे 6 घंटे खुला—स्टूडेंट्स, व्यापारियों और नौकरीपेशा लोगों के लिए उत्तम।'
+                            : '6 full hours of evening access—perfect for students, traders, and professionals across Sri Dungargarh.'}
                         </p>
                       </div>
                     </div>
@@ -1263,14 +1546,19 @@ export default function App() {
                 {/* Always-Visible Facility Timings & Location Summary Strip */}
                 <div className="p-4 sm:p-5 rounded-xl bg-zinc-800 border border-zinc-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="space-y-1">
-                    <div className="text-xs font-semibold text-[#A3E635]">Club Timings & Location</div>
+                    <div className="text-xs font-semibold text-[#A3E635]">
+                      {isHi ? 'जिम का समय और पता' : 'Club Timings & Location'}
+                    </div>
                     <div className="text-xs sm:text-sm font-semibold text-white">
-                      Mon–Sat: <span className="font-mono-num text-[#A3E635]">5:00 AM – 9:00 AM</span> &amp;{' '}
+                      {isHi ? 'सोम–शनि: ' : 'Mon–Sat: '}
+                      <span className="font-mono-num text-[#A3E635]">5:00 AM – 9:00 AM</span> &amp;{' '}
                       <span className="font-mono-num text-[#A3E635]">5:00 PM – 11:00 PM</span>
                     </div>
                     <div className="text-xs text-zinc-300">
                       <i className="fa-solid fa-location-dot text-[#A3E635] mr-1.5" aria-hidden="true"></i>
-                      Gaurav Path Road, Near Chidpid Nath, Sri Dungargarh
+                      {isHi
+                        ? 'गौरव पथ रोड, चिड़पिड़ नाथ के पास, श्री डूंगरगढ़'
+                        : 'Gaurav Path Road, Near Chidpid Nath, Sri Dungargarh'}
                     </div>
                   </div>
 
@@ -1281,12 +1569,12 @@ export default function App() {
                     className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#A3E635] text-black text-xs font-bold hover:bg-[#bef264] transition-all whitespace-nowrap shrink-0"
                   >
                     <i className="fa-solid fa-map-location-dot" aria-hidden="true"></i>
-                    <span>Directions</span>
+                    <span>{isHi ? 'मैप में रास्ता देखें' : 'Directions'}</span>
                   </a>
                 </div>
               </div>
 
-              {/* Right Column: Attractive Visual Showcase (Matches Height of Left Column) */}
+              {/* Right Column: Attractive Visual Showcase */}
               <div className="lg:col-span-6 flex flex-col min-w-0">
                 <div className="relative flex-1 min-h-[280px] sm:min-h-[340px] lg:min-h-full rounded-xl overflow-hidden border border-zinc-700 bg-zinc-800">
                   {!aboutImgError ? (
@@ -1314,12 +1602,20 @@ export default function App() {
                     <div>
                       <div className="text-xs font-semibold text-[#A3E635]">
                         {activeFacilityTab === 'supplements'
-                          ? 'Authorized Nutrition Counter · Sri Dungargarh'
+                          ? isHi
+                            ? 'अधिकृत न्यूट्रिशन काउंटर · श्री डूंगरगढ़'
+                            : 'Authorized Nutrition Counter · Sri Dungargarh'
+                          : isHi
+                          ? 'मुख्य स्ट्रेंथ और बायोमैकेनिक्स ज़ोन · गौरव पथ रोड'
                           : 'Main Iron & Biomechanics Zone · Gaurav Path Road'}
                       </div>
                       <div className="font-display text-lg sm:text-xl font-bold uppercase text-white mt-0.5">
                         {activeFacilityTab === 'supplements'
-                          ? 'Batch-Verified Whey, Creatine & Pre-Workouts'
+                          ? isHi
+                            ? 'वेरिफाइड व्हे प्रोटीन, क्रिएटिन और प्री-वर्कआउट'
+                            : 'Batch-Verified Whey, Creatine & Pre-Workouts'
+                          : isHi
+                          ? 'कैलिब्रेटेड फ्री वेट्स, पावर रैक्स और आधुनिक मशीनें'
                           : 'Calibrated Free Weights, Racks & Isolation Machines'}
                       </div>
                     </div>
@@ -1330,7 +1626,7 @@ export default function App() {
                       }
                       className="w-fit px-3.5 py-2 rounded-lg bg-[#A3E635] text-black text-xs font-bold hover:bg-[#bef264] transition-all whitespace-nowrap shrink-0 cursor-pointer"
                     >
-                      Switch View
+                      {isHi ? 'दूसरा फोटो देखें' : 'Switch View'}
                     </button>
                   </div>
                 </div>
@@ -1342,10 +1638,10 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-7 sm:mb-8">
                 <div>
                   <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-1">
-                    In-Club Nutrition Counter
+                    {isHi ? 'इन-हाउस सप्लीमेंट स्टोर' : 'In-Club Nutrition Counter'}
                   </div>
                   <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase text-white">
-                    Popular Authentic Supplements in Stock
+                    {isHi ? 'स्टॉक में उपलब्ध लोकप्रिय असली सप्लीमेंट्स' : 'Popular Authentic Supplements in Stock'}
                   </h3>
                 </div>
 
@@ -1360,7 +1656,7 @@ export default function App() {
                         : 'text-zinc-400 hover:text-white'
                     }`}
                   >
-                    All Stock
+                    {isHi ? 'सभी सप्लीमेंट्स' : 'All Stock'}
                   </button>
                   <button
                     type="button"
@@ -1371,7 +1667,7 @@ export default function App() {
                         : 'text-zinc-400 hover:text-white'
                     }`}
                   >
-                    Whey Protein
+                    {isHi ? 'व्हे प्रोटीन' : 'Whey Protein'}
                   </button>
                   <button
                     type="button"
@@ -1382,7 +1678,7 @@ export default function App() {
                         : 'text-zinc-400 hover:text-white'
                     }`}
                   >
-                    Creatine
+                    {isHi ? 'क्रिएटिन' : 'Creatine'}
                   </button>
                   <button
                     type="button"
@@ -1393,7 +1689,7 @@ export default function App() {
                         : 'text-zinc-400 hover:text-white'
                     }`}
                   >
-                    Pre & Recovery
+                    {isHi ? 'प्री और रिकवरी' : 'Pre & Recovery'}
                   </button>
                 </div>
               </div>
@@ -1406,17 +1702,25 @@ export default function App() {
                   >
                     <div>
                       <div className="text-xs text-zinc-300 mb-1.5">
-                        <span className="text-[#A3E635] font-semibold">{item.categoryLabel}</span>
+                        <span className="text-[#A3E635] font-semibold">
+                          {isHi ? item.categoryLabelHi : item.categoryLabelEn}
+                        </span>
                         <span aria-hidden="true" className="mx-1.5">·</span>
-                        <span className="font-mono-num">{item.weight}</span>
+                        <span className="font-mono-num">{isHi ? item.weightHi : item.weightEn}</span>
                       </div>
-                      <h4 className="text-base font-bold text-white mb-2">{item.name}</h4>
-                      <p className="text-xs text-zinc-300 leading-relaxed mb-4">{item.highlights}</p>
+                      <h4 className="text-base font-bold text-white mb-2">
+                        {isHi ? item.nameHi : item.nameEn}
+                      </h4>
+                      <p className="text-xs text-zinc-300 leading-relaxed mb-4">
+                        {isHi ? item.highlightsHi : item.highlightsEn}
+                      </p>
                     </div>
 
                     <div className="pt-3 border-t border-zinc-700 flex items-center justify-between gap-2">
                       <div>
-                        <div className="text-[11px] text-zinc-400">Member Price</div>
+                        <div className="text-[11px] text-zinc-400">
+                          {isHi ? 'मेंबर प्राइस' : 'Member Price'}
+                        </div>
                         <div className="flex items-baseline gap-2">
                           <span className="font-mono-num text-lg font-bold text-[#A3E635]">{item.memberPrice}</span>
                           <span className="font-mono-num text-xs text-zinc-500 line-through">{item.mrp}</span>
@@ -1425,13 +1729,15 @@ export default function App() {
 
                       <a
                         href={getWhatsAppUrl(
-                          `Hi Alpine Fitness! I want to check stock and price for ${item.name} (${item.weight}) at your Sri Dungargarh store.`
+                          isHi
+                            ? `नमस्ते अल्पाइन फिटनेस! मुझे ${item.nameHi} (${item.weightHi}) के स्टॉक और प्राइस की जानकारी चाहिए।`
+                            : `Hi Alpine Fitness! I want to check stock and price for ${item.nameEn} (${item.weightEn}) at your Sri Dungargarh store.`
                         )}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-3 py-2 rounded-lg bg-[#A3E635] text-black text-xs font-bold hover:bg-[#bef264] transition-all whitespace-nowrap shrink-0"
                       >
-                        Check Stock
+                        {isHi ? 'स्टॉक पूछें' : 'Check Stock'}
                       </a>
                     </div>
                   </div>
@@ -1442,96 +1748,112 @@ export default function App() {
         </section>
 
         {/* 4. PRICING & BOOKING SECTION — Pure Black (bg-black) with Lighter Cards (bg-zinc-800) & Glowing Scaled Middle Card */}
-        <section id="memberships" className="py-16 sm:py-20 md:py-28 bg-black border-b border-zinc-800 w-full">
+        <section id="memberships" className="scroll-mt-16 py-16 sm:py-20 md:py-28 bg-black border-b border-zinc-800 w-full">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-12 sm:mb-16">
               <div className="max-w-2xl">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-2">
-                  02. Memberships & Free Trial Booking
+                  {isHi ? '02. मेंबरशिप प्लान और फ्री ट्रायल बुकिंग' : '02. Memberships & Free Trial Booking'}
                 </div>
                 <h2
                   className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white mb-3"
                   style={{ textWrap: 'balance' }}
                 >
-                  Transparent Membership Plans with <span className="text-[#A3E635]">Zero Hidden Fees</span>
+                  {isHi ? (
+                    <>
+                      किफायती मेंबरशिप प्लान — <span className="text-[#A3E635]">बिना किसी छुपे चार्ज के</span>
+                    </>
+                  ) : (
+                    <>
+                      Transparent Membership Plans with <span className="text-[#A3E635]">Zero Hidden Fees</span>
+                    </>
+                  )}
                 </h2>
                 <p className="text-zinc-300 text-sm sm:text-base">
-                  Every membership includes access to both strength and cardio zones, personal trainer floor guidance, and member-only discounts at our supplement counter. Not sure yet? Book a 1-day Free Trial first.
+                  {isHi
+                    ? 'हर मेंबरशिप प्लान में स्ट्रेंथ और कार्डियो ज़ोन का पूरा एक्सेस, ट्रेनर की गाइडेंस और सप्लीमेंट काउंटर पर विशेष छूट शामिल है। शुरुआत करने से पहले 1-दिन का फ्री ट्रायल ज़रूर लें!'
+                    : 'Every membership includes access to both strength and cardio zones, personal trainer floor guidance, and member-only discounts at our supplement counter. Not sure yet? Book a 1-day Free Trial first.'}
                 </p>
               </div>
 
               <div className="text-xs text-[#A3E635] font-mono-num font-semibold shrink-0">
-                Morning (5–9 AM) / Evening (5–11 PM)
+                {isHi ? 'सुबह (5–9 AM) / शाम (5–11 PM)' : 'Morning (5–9 AM) / Evening (5–11 PM)'}
               </div>
             </div>
 
-            {/* 3 Modern Pricing Cards (bg-zinc-800) with Highlighted Middle Card (Glowing Border + Scaled Up on Desktop) */}
+            {/* 3 Modern Pricing Cards (bg-zinc-800) with Highlighted Middle Card */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-              {PRICING_PLANS.map((plan) => (
-                <div
-                  key={plan.id}
-                  className={`rounded-xl p-6 sm:p-8 flex flex-col justify-between bg-zinc-800 transition-transform duration-200 ${
-                    plan.highlight
-                      ? 'border-2 border-[#A3E635] shadow-[0_0_30px_rgba(163,230,53,0.22)] lg:scale-105 lg:hover:scale-[1.07] z-10'
-                      : 'border border-zinc-700 hover:border-[#A3E635]/60 sm:hover:scale-[1.02]'
-                  }`}
-                >
-                  <div>
-                    {/* Quiet 1-line text kicker */}
-                    <div className="flex items-center justify-between gap-2 text-xs font-bold mb-3">
-                      <span className="text-[#A3E635]">{plan.kicker}</span>
-                      <span className="font-mono-num text-zinc-200">{plan.duration}</span>
-                    </div>
-
-                    <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase text-white mb-2">
-                      {plan.title}
-                    </h3>
-                    <p className="text-sm text-zinc-300 leading-relaxed mb-6">{plan.description}</p>
-
-                    <div className="pb-6 mb-6 border-b border-zinc-700">
-                      <div className="flex items-baseline gap-2">
-                        <span className="font-mono-num text-3xl sm:text-5xl font-bold text-white">{plan.price}</span>
-                        <span className="text-xs text-zinc-300">/ {plan.duration.toLowerCase()}</span>
-                      </div>
-                      <div className="font-mono-num text-xs font-semibold text-[#A3E635] mt-1.5">
-                        {plan.perMonthNote}
-                      </div>
-                    </div>
-
-                    <ul className="space-y-3.5 mb-8">
-                      {plan.features.map((feature, index) => (
-                        <li key={index} className="flex items-start gap-3 text-sm text-zinc-100">
-                          <i
-                            className="fa-solid fa-check text-[#A3E635] mt-1 text-xs shrink-0"
-                            aria-hidden="true"
-                          ></i>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={() => openTrialBooking(`${plan.duration} — ${plan.title} (${plan.price})`)}
-                    className="w-full py-3.5 px-5 rounded-lg bg-[#A3E635] text-black font-bold text-sm hover:bg-[#bef264] transition-all whitespace-nowrap shrink-0 cursor-pointer"
+              {PRICING_PLANS.map((plan) => {
+                const durationText = isHi ? plan.durationHi : plan.durationEn;
+                const titleText = isHi ? plan.titleHi : plan.titleEn;
+                const featuresList = isHi ? plan.featuresHi : plan.featuresEn;
+                return (
+                  <div
+                    key={plan.id}
+                    className={`rounded-xl p-6 sm:p-8 flex flex-col justify-between bg-zinc-800 transition-transform duration-200 ${
+                      plan.highlight
+                        ? 'border-2 border-[#A3E635] shadow-[0_0_30px_rgba(163,230,53,0.22)] lg:scale-105 lg:hover:scale-[1.07] z-10'
+                        : 'border border-zinc-700 hover:border-[#A3E635]/60 sm:hover:scale-[1.02]'
+                    }`}
                   >
-                    Book Free Trial
-                  </button>
-                </div>
-              ))}
+                    <div>
+                      <div className="flex items-center justify-between gap-2 text-xs font-bold mb-3">
+                        <span className="text-[#A3E635]">{isHi ? plan.kickerHi : plan.kickerEn}</span>
+                        <span className="font-mono-num text-zinc-200">{durationText}</span>
+                      </div>
+
+                      <h3 className="font-display text-2xl sm:text-3xl font-bold uppercase text-white mb-2">
+                        {titleText}
+                      </h3>
+                      <p className="text-sm text-zinc-300 leading-relaxed mb-6">
+                        {isHi ? plan.descriptionHi : plan.descriptionEn}
+                      </p>
+
+                      <div className="pb-6 mb-6 border-b border-zinc-700">
+                        <div className="flex items-baseline gap-2">
+                          <span className="font-mono-num text-3xl sm:text-5xl font-bold text-white">{plan.price}</span>
+                          <span className="text-xs text-zinc-300">/ {durationText}</span>
+                        </div>
+                        <div className="font-mono-num text-xs font-semibold text-[#A3E635] mt-1.5">
+                          {isHi ? plan.perMonthNoteHi : plan.perMonthNoteEn}
+                        </div>
+                      </div>
+
+                      <ul className="space-y-3.5 mb-8">
+                        {featuresList.map((feature, index) => (
+                          <li key={index} className="flex items-start gap-3 text-sm text-zinc-100">
+                            <i
+                              className="fa-solid fa-check text-[#A3E635] mt-1 text-xs shrink-0"
+                              aria-hidden="true"
+                            ></i>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => openTrialBooking(`${plan.durationEn} — ${plan.titleEn} (${plan.price})`)}
+                      className="w-full py-3.5 px-5 rounded-lg bg-[#A3E635] text-black font-bold text-sm hover:bg-[#bef264] transition-all whitespace-nowrap shrink-0 cursor-pointer"
+                    >
+                      {isHi ? 'फ्री ट्रायल बुक करें' : 'Book Free Trial'}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* 5. REDESIGNED TESTIMONIALS (REVIEWS) SECTION — Native Google Maps Review Cards Carousel */}
-        <section id="reviews" className="py-16 sm:py-20 md:py-24 bg-zinc-900 border-b border-zinc-800 w-full">
+        <section id="reviews" className="scroll-mt-16 py-16 sm:py-20 md:py-24 bg-zinc-900 border-b border-zinc-800 w-full">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             {/* Native Google Reviews Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 sm:mb-10">
               <div className="space-y-2">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635]">
-                  03. Verified Google Maps Reviews
+                  {isHi ? '03. वेरिफाइड गूगल मैप्स रिव्यू' : '03. Verified Google Maps Reviews'}
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
                   {/* Google Multi-Color G Badge */}
@@ -1557,7 +1879,15 @@ export default function App() {
                   </div>
 
                   <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white">
-                    What our members say on <span className="text-[#A3E635]">Google</span>
+                    {isHi ? (
+                      <>
+                        <span className="text-[#A3E635]">Google</span> पर हमारे मेंबर्स की राय
+                      </>
+                    ) : (
+                      <>
+                        What our members say on <span className="text-[#A3E635]">Google</span>
+                      </>
+                    )}
                   </h2>
                 </div>
               </div>
@@ -1574,7 +1904,9 @@ export default function App() {
                       <i className="fa-solid fa-star" aria-hidden="true"></i>
                       <i className="fa-solid fa-star-half-stroke" aria-hidden="true"></i>
                     </div>
-                    <span className="text-xs font-semibold text-zinc-600">(19 Reviews)</span>
+                    <span className="text-xs font-semibold text-zinc-600">
+                      {isHi ? '(19 समीक्षाएं)' : '(19 Reviews)'}
+                    </span>
                   </div>
                   <div className="text-[11px] text-zinc-500 mt-0.5">
                     अल्पाइन फिटनेस क्लब एंड सप्लीमेंट्स · Sri Dungargarh
@@ -1586,7 +1918,7 @@ export default function App() {
                   onClick={openReviewModal}
                   className="px-3.5 py-2 rounded-lg bg-[#1A73E8] text-white text-xs font-semibold hover:bg-[#1557B0] transition-colors whitespace-nowrap shrink-0 cursor-pointer shadow-sm"
                 >
-                  Write a Review
+                  {isHi ? 'रिव्यू लिखें' : 'Write a Review'}
                 </button>
               </div>
             </div>
@@ -1594,7 +1926,9 @@ export default function App() {
             {/* Swipe Hint & Desktop Carousel Controls */}
             <div className="flex items-center justify-between gap-3 mb-4">
               <span className="text-xs text-zinc-400">
-                Swipe horizontally to read all {GOOGLE_REVIEWS.length} member reviews{' '}
+                {isHi
+                  ? `सभी ${GOOGLE_REVIEWS.length} मेंबर रिव्यू पढ़ने के लिए स्वाइप करें`
+                  : `Swipe horizontally to read all ${GOOGLE_REVIEWS.length} member reviews`}{' '}
                 <i className="fa-solid fa-arrow-right ml-1 text-[#A3E635]" aria-hidden="true"></i>
               </span>
               <div className="hidden sm:flex items-center gap-2">
@@ -1645,7 +1979,9 @@ export default function App() {
                             <h3 className="font-sans text-[15px] font-bold text-zinc-900 leading-tight">
                               {review.name}
                             </h3>
-                            <div className="text-xs text-zinc-500 mt-0.5">{review.reviewCountText}</div>
+                            <div className="text-xs text-zinc-500 mt-0.5">
+                              {isHi ? review.reviewCountTextHi : review.reviewCountTextEn}
+                            </div>
                           </div>
                         </div>
 
@@ -1659,26 +1995,28 @@ export default function App() {
                         </button>
                       </div>
 
-                      {/* 5 Stars + Relative Time Row (⭐⭐⭐⭐⭐ 4 साल पहले) */}
+                      {/* 5 Stars + Relative Time Row */}
                       <div className="flex items-center gap-2 mb-3">
                         <div className="flex items-center gap-0.5 text-[#FBBC04] text-xs" aria-label="5 out of 5 stars">
                           {Array.from({ length: review.rating }).map((_, idx) => (
                             <i key={idx} className="fa-solid fa-star" aria-hidden="true"></i>
                           ))}
                         </div>
-                        <span className="text-xs text-zinc-500">{review.timeAgo}</span>
+                        <span className="text-xs text-zinc-500">
+                          {isHi ? review.timeAgoHi : review.timeAgoEn}
+                        </span>
                       </div>
 
-                      {/* Hindi Review Text */}
+                      {/* Review Text (Hindi in Hindi mode, or Hindi + English in EN mode) */}
                       <p className="font-sans text-[15px] text-zinc-800 leading-relaxed whitespace-pre-line mb-3">
-                        {review.text}
+                        {isHi ? review.textHi : `${review.textHi}\n(${review.textEn})`}
                       </p>
                     </div>
 
                     {/* Bottom Google Translation Footnote + Like/Reaction Row */}
                     <div className="pt-3 mt-2 border-t border-zinc-100">
                       <div className="text-[11px] text-zinc-500 mb-3">
-                        {review.translatedNote}
+                        {isHi ? review.translatedNoteHi : review.translatedNoteEn}
                       </div>
 
                       <div className="flex items-center gap-4 text-zinc-600">
@@ -1714,7 +2052,7 @@ export default function App() {
       </main>
 
       {/* 6. FOOTER — Pure Black (bg-black) with 2-Column Desktop Layout + Exact Google Maps Iframe */}
-      <footer id="contact" className="bg-black pt-14 sm:pt-16 pb-12 border-t border-zinc-800 w-full overflow-x-hidden">
+      <footer id="contact" className="scroll-mt-16 bg-black pt-14 sm:pt-16 pb-12 border-t border-zinc-800 w-full overflow-x-clip">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
             {/* LEFT SIDE: Gym Logo, Description, Address, Contact Number, Email, Quick Links, and Follow Us */}
@@ -1724,10 +2062,20 @@ export default function App() {
                   href="#home"
                   className="font-display text-2xl sm:text-3xl font-bold uppercase tracking-wider text-white inline-block"
                 >
-                  Alpine Fitness <span className="text-[#A3E635]">Club & Supplements</span>
+                  {isHi ? (
+                    <>
+                      अल्पाइन फिटनेस <span className="text-[#A3E635]">क्लब एंड सप्लीमेंट्स</span>
+                    </>
+                  ) : (
+                    <>
+                      Alpine Fitness <span className="text-[#A3E635]">Club &amp; Supplements</span>
+                    </>
+                  )}
                 </a>
                 <p className="text-sm text-zinc-400 leading-relaxed mt-3 max-w-md">
-                  Sri Dungargarh’s premier destination for strength training, athletic conditioning, personal coaching, and 100% genuine sports nutrition supplements.
+                  {isHi
+                    ? 'स्ट्रेंथ ट्रेनिंग, फिटनेस कंडीशनिंग, पर्सनल कोचिंग और 100% असली स्पोर्ट्स सप्लीमेंट्स के लिए श्री डूंगरगढ़ का सबसे भरोसेमंद फिटनेस क्लब।'
+                    : 'Sri Dungargarh’s premier destination for strength training, athletic conditioning, personal coaching, and 100% genuine sports nutrition supplements.'}
                 </p>
               </div>
 
@@ -1736,9 +2084,13 @@ export default function App() {
                 <div className="flex items-start gap-3.5">
                   <i className="fa-solid fa-location-dot text-[#A3E635] mt-1 text-base shrink-0" aria-hidden="true"></i>
                   <div className="min-w-0">
-                    <div className="font-semibold text-[#A3E635]">Club Address</div>
+                    <div className="font-semibold text-[#A3E635]">
+                      {isHi ? 'जिम का पता (Club Address)' : 'Club Address'}
+                    </div>
                     <div className="text-zinc-200 mt-0.5 break-words">
-                      Gaurav Path Road, Near Chidpid Nath, Sri Dungargarh, Bikaner, Rajasthan 331803
+                      {isHi
+                        ? 'गौरव पथ रोड, चिड़पिड़ नाथ के पास, श्री डूंगरगढ़, बीकानेर, राजस्थान 331803'
+                        : 'Gaurav Path Road, Near Chidpid Nath, Sri Dungargarh, Bikaner, Rajasthan 331803'}
                     </div>
                     <a
                       href={GMAPS_SHARE_URL}
@@ -1746,7 +2098,7 @@ export default function App() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-xs text-[#A3E635] hover:underline mt-1 font-medium"
                     >
-                      <span>Open in Google Maps App</span>
+                      <span>{isHi ? 'Google Maps ऐप में खोलें' : 'Open in Google Maps App'}</span>
                       <i className="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
                     </a>
                   </div>
@@ -1755,7 +2107,9 @@ export default function App() {
                 <div className="flex items-start gap-3.5">
                   <i className="fa-solid fa-phone text-[#A3E635] mt-1 text-base shrink-0" aria-hidden="true"></i>
                   <div>
-                    <div className="font-semibold text-[#A3E635]">Phone & WhatsApp Desk</div>
+                    <div className="font-semibold text-[#A3E635]">
+                      {isHi ? 'फ़ोन और व्हाट्सएप नंबर' : 'Phone & WhatsApp Desk'}
+                    </div>
                     <a
                       href={`tel:${PHONE_TEL}`}
                       className="font-mono-num text-zinc-100 hover:text-[#A3E635] transition-colors mt-0.5 inline-block"
@@ -1768,7 +2122,9 @@ export default function App() {
                 <div className="flex items-start gap-3.5">
                   <i className="fa-solid fa-envelope text-[#A3E635] mt-1 text-base shrink-0" aria-hidden="true"></i>
                   <div className="min-w-0">
-                    <div className="font-semibold text-[#A3E635]">Email Inquiries</div>
+                    <div className="font-semibold text-[#A3E635]">
+                      {isHi ? 'ईमेल संपर्क' : 'Email Inquiries'}
+                    </div>
                     <a
                       href="mailto:contact@alpinefitnessdungargarh.in"
                       className="text-zinc-200 hover:text-[#A3E635] transition-colors mt-0.5 inline-block break-all"
@@ -1781,11 +2137,19 @@ export default function App() {
                 <div className="flex items-start gap-3.5">
                   <i className="fa-solid fa-clock text-[#A3E635] mt-1 text-base shrink-0" aria-hidden="true"></i>
                   <div>
-                    <div className="font-semibold text-[#A3E635]">Operating Hours (Monday – Saturday)</div>
-                    <div className="font-mono-num text-zinc-200 mt-0.5 text-xs sm:text-sm">
-                      Morning: 5:00 AM – 9:00 AM &nbsp;|&nbsp; Evening: 5:00 PM – 11:00 PM
+                    <div className="font-semibold text-[#A3E635]">
+                      {isHi ? 'खुलने का समय (सोमवार – शनिवार)' : 'Operating Hours (Monday – Saturday)'}
                     </div>
-                    <div className="text-xs text-zinc-500 mt-0.5">Sunday: Closed for deep sanitization & maintenance</div>
+                    <div className="font-mono-num text-zinc-200 mt-0.5 text-xs sm:text-sm">
+                      {isHi
+                        ? 'सुबह: 5:00 AM – 9:00 AM  |  शाम: 5:00 PM – 11:00 PM'
+                        : 'Morning: 5:00 AM – 9:00 AM  |  Evening: 5:00 PM – 11:00 PM'}
+                    </div>
+                    <div className="text-xs text-zinc-500 mt-0.5">
+                      {isHi
+                        ? 'रविवार: डीप क्लीनिंग और मेंटेनेंस के लिए अवकाश'
+                        : 'Sunday: Closed for deep sanitization & maintenance'}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1793,29 +2157,31 @@ export default function App() {
               {/* Quick Links & Direct Trial Action */}
               <div className="pt-6 border-t border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-2.5">Quick Links</div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-2.5">
+                    {isHi ? 'महत्वपूर्ण लिंक्स' : 'Quick Links'}
+                  </div>
                   <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-zinc-300">
                     <a href="#home" className="hover:text-[#A3E635] transition-colors">
-                      Home
+                      {isHi ? 'होम' : 'Home'}
                     </a>
                     <a href="#gallery" className="hover:text-[#A3E635] transition-colors">
-                      Gallery
+                      {isHi ? 'गैलरी' : 'Gallery'}
                     </a>
                     <a href="#about" className="hover:text-[#A3E635] transition-colors">
-                      About & Store
+                      {isHi ? 'हमारे बारे में' : 'About & Store'}
                     </a>
                     <a href="#memberships" className="hover:text-[#A3E635] transition-colors">
-                      Memberships
+                      {isHi ? 'मेंबरशिप' : 'Memberships'}
                     </a>
                     <a href="#reviews" className="hover:text-[#A3E635] transition-colors">
-                      Reviews
+                      {isHi ? 'रिव्यू' : 'Reviews'}
                     </a>
                     <button
                       type="button"
                       onClick={() => openTrialBooking()}
                       className="text-[#A3E635] hover:underline font-bold cursor-pointer"
                     >
-                      Book Free Trial
+                      {isHi ? 'फ्री ट्रायल बुक करें' : 'Book Free Trial'}
                     </button>
                   </div>
                 </div>
@@ -1823,7 +2189,9 @@ export default function App() {
 
               {/* Follow Us — Colorful Circular Social Media Icons */}
               <div className="pt-6 border-t border-zinc-800">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-3">Follow Us</div>
+                <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-3">
+                  {isHi ? 'हमें सोशल मीडिया पर फॉलो करें' : 'Follow Us'}
+                </div>
                 <div className="flex gap-4 justify-start items-center">
                   <a
                     href={getWhatsAppUrl()}
@@ -1873,7 +2241,9 @@ export default function App() {
               {/* Glowing Interactive Header with Pulse Animation */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-4 py-3 rounded-xl bg-zinc-900/90 border border-[#A3E635]/40 shadow-[0_0_20px_rgba(163,230,53,0.12)]">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-white">
-                  <span>📍 Live Gym Location - Gaurav Path Road</span>
+                  <span>
+                    {isHi ? '📍 लाइव जिम लोकेशन - गौरव पथ रोड' : '📍 Live Gym Location - Gaurav Path Road'}
+                  </span>
                 </div>
 
                 <a
@@ -1886,7 +2256,9 @@ export default function App() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
                   </span>
-                  <span>● Exact Gym Location Pinpoint below</span>
+                  <span>
+                    {isHi ? '● नीचे मैप में सटीक लोकेशन देखें' : '● Exact Gym Location Pinpoint below'}
+                  </span>
                 </a>
               </div>
 
@@ -1907,9 +2279,15 @@ export default function App() {
           {/* Bottom Copyright Bar */}
           <div className="mt-12 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 text-center sm:text-left">
             <div>
-              © {new Date().getFullYear()} Alpine Fitness Club &amp; Supplements. All rights reserved.
+              {isHi
+                ? `© ${new Date().getFullYear()} अल्पाइन फिटनेस क्लब एंड सप्लीमेंट्स। सर्वाधिकार सुरक्षित।`
+                : `© ${new Date().getFullYear()} Alpine Fitness Club & Supplements. All rights reserved.`}
             </div>
-            <div>Gaurav Path Road, Near Chidpid Nath, Sri Dungargarh, Bikaner, Rajasthan</div>
+            <div>
+              {isHi
+                ? 'गौरव पथ रोड, चिड़पिड़ नाथ के पास, श्री डूंगरगढ़, बीकानेर, राजस्थान'
+                : 'Gaurav Path Road, Near Chidpid Nath, Sri Dungargarh, Bikaner, Rajasthan'}
+            </div>
           </div>
         </div>
       </footer>
@@ -1926,10 +2304,12 @@ export default function App() {
             <div className="flex items-start justify-between gap-4 mb-5">
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-1">
-                  Alpine Fitness Club & Supplements · Sri Dungargarh
+                  {isHi
+                    ? 'अल्पाइन फिटनेस क्लब एंड सप्लीमेंट्स · श्री डूंगरगढ़'
+                    : 'Alpine Fitness Club & Supplements · Sri Dungargarh'}
                 </div>
                 <h3 id="modal-booking-title" className="font-display text-2xl sm:text-3xl font-bold uppercase text-white">
-                  Book Your Free Trial & Pass
+                  {isHi ? 'अपना फ्री ट्रायल और पास बुक करें' : 'Book Your Free Trial & Pass'}
                 </h3>
               </div>
 
@@ -1947,7 +2327,7 @@ export default function App() {
               <form onSubmit={handleBookingSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="booking-plan" className="block text-xs font-medium text-zinc-300 mb-1.5">
-                    Selected Membership / Trial Plan
+                    {isHi ? 'चुना गया मेंबरशिप / ट्रायल प्लान' : 'Selected Membership / Trial Plan'}
                   </label>
                   <select
                     id="booking-plan"
@@ -1956,13 +2336,19 @@ export default function App() {
                     className="w-full rounded-lg bg-black border border-zinc-700 px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#A3E635]"
                   >
                     <option value="1 Month — Monthly Flex Pass (₹1,500)">
-                      1 Month — Monthly Flex Pass (₹1,500 + 1-Day Free Trial)
+                      {isHi
+                        ? '1 महीना — मंथली फ्लेक्स पास (₹1,500 + 1-दिन फ्री ट्रायल)'
+                        : '1 Month — Monthly Flex Pass (₹1,500 + 1-Day Free Trial)'}
                     </option>
                     <option value="3 Months — Quarterly Transformation (₹3,800)">
-                      3 Months — Quarterly Transformation (₹3,800 + Free Trial)
+                      {isHi
+                        ? '3 महीने — क्वार्टरली ट्रांसफॉर्मेशन (₹3,800 + फ्री ट्रायल)'
+                        : '3 Months — Quarterly Transformation (₹3,800 + Free Trial)'}
                     </option>
                     <option value="12 Months — Annual Athlete Elite (₹11,500)">
-                      12 Months — Annual Athlete Elite (₹11,500 + Free Trial)
+                      {isHi
+                        ? '12 महीने — एनुअल एथलीट एलीट (₹11,500 + फ्री ट्रायल)'
+                        : '12 Months — Annual Athlete Elite (₹11,500 + Free Trial)'}
                     </option>
                   </select>
                 </div>
@@ -1970,13 +2356,13 @@ export default function App() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="booking-name" className="block text-xs font-medium text-zinc-300 mb-1.5">
-                      Your Full Name *
+                      {isHi ? 'आपका पूरा नाम *' : 'Your Full Name *'}
                     </label>
                     <input
                       id="booking-name"
                       type="text"
                       required
-                      placeholder="e.g. Rohit Swami"
+                      placeholder={isHi ? 'उदा. रोहित स्वामी' : 'e.g. Rohit Swami'}
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       className="w-full rounded-lg bg-black border border-zinc-700 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#A3E635]"
@@ -1985,7 +2371,7 @@ export default function App() {
 
                   <div>
                     <label htmlFor="booking-phone" className="block text-xs font-medium text-zinc-300 mb-1.5">
-                      Mobile / WhatsApp Number *
+                      {isHi ? 'मोबाइल / व्हाट्सएप नंबर *' : 'Mobile / WhatsApp Number *'}
                     </label>
                     <input
                       id="booking-phone"
@@ -2002,7 +2388,7 @@ export default function App() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="booking-batch" className="block text-xs font-medium text-zinc-300 mb-1.5">
-                      Preferred Batch Timing
+                      {isHi ? 'पसंदीदा बैच टाइमिंग' : 'Preferred Batch Timing'}
                     </label>
                     <select
                       id="booking-batch"
@@ -2010,14 +2396,18 @@ export default function App() {
                       onChange={(e) => setPreferredBatch(e.target.value as typeof preferredBatch)}
                       className="w-full rounded-lg bg-black border border-zinc-700 px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#A3E635]"
                     >
-                      <option value="Morning (5:00 AM - 9:00 AM)">Morning (5:00 AM - 9:00 AM)</option>
-                      <option value="Evening (5:00 PM - 11:00 PM)">Evening (5:00 PM - 11:00 PM)</option>
+                      <option value="Morning (5:00 AM - 9:00 AM)">
+                        {isHi ? 'सुबह का बैच (5:00 AM - 9:00 AM)' : 'Morning (5:00 AM - 9:00 AM)'}
+                      </option>
+                      <option value="Evening (5:00 PM - 11:00 PM)">
+                        {isHi ? 'शाम का बैच (5:00 PM - 11:00 PM)' : 'Evening (5:00 PM - 11:00 PM)'}
+                      </option>
                     </select>
                   </div>
 
                   <div>
                     <label htmlFor="booking-goal" className="block text-xs font-medium text-zinc-300 mb-1.5">
-                      Primary Fitness Goal
+                      {isHi ? 'आपका मुख्य फिटनेस गोल' : 'Primary Fitness Goal'}
                     </label>
                     <select
                       id="booking-goal"
@@ -2025,9 +2415,15 @@ export default function App() {
                       onChange={(e) => setFitnessGoal(e.target.value as typeof fitnessGoal)}
                       className="w-full rounded-lg bg-black border border-zinc-700 px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#A3E635]"
                     >
-                      <option value="Muscle Gain & Strength">Muscle Gain & Strength</option>
-                      <option value="Fat Loss & Conditioning">Fat Loss & Conditioning</option>
-                      <option value="Supplement Consultation">Supplement Consultation</option>
+                      <option value="Muscle Gain & Strength">
+                        {isHi ? 'मसल गेन और स्ट्रेंथ' : 'Muscle Gain & Strength'}
+                      </option>
+                      <option value="Fat Loss & Conditioning">
+                        {isHi ? 'वेट लॉस और फिटनेस' : 'Fat Loss & Conditioning'}
+                      </option>
+                      <option value="Supplement Consultation">
+                        {isHi ? 'सप्लीमेंट और डाइट परामर्श' : 'Supplement Consultation'}
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -2044,7 +2440,7 @@ export default function App() {
                     type="submit"
                     className="w-full sm:flex-1 py-3 px-5 rounded-lg bg-[#A3E635] text-black font-bold text-sm hover:bg-[#bef264] transition-all cursor-pointer"
                   >
-                    Confirm Free Trial Slot
+                    {isHi ? 'फ्री ट्रायल कन्फर्म करें' : 'Confirm Free Trial Slot'}
                   </button>
 
                   <a
@@ -2056,7 +2452,7 @@ export default function App() {
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg border border-zinc-700 hover:border-[#A3E635] text-xs font-bold text-white hover:text-[#A3E635] transition-colors whitespace-nowrap"
                   >
                     <i className="fa-brands fa-whatsapp text-sm text-[#A3E635]" aria-hidden="true"></i>
-                    <span>Book via WhatsApp</span>
+                    <span>{isHi ? 'व्हाट्सएप से बुक करें' : 'Book via WhatsApp'}</span>
                   </a>
                 </div>
               </form>
@@ -2065,11 +2461,24 @@ export default function App() {
                 <div className="p-4 rounded-lg bg-black border border-[#A3E635]/50 space-y-2">
                   <div className="flex items-center gap-2 text-[#A3E635] font-bold text-sm">
                     <i className="fa-solid fa-circle-check" aria-hidden="true"></i>
-                    <span>Free Trial Pass Reserved for {fullName}</span>
+                    <span>
+                      {isHi
+                        ? `${fullName} के लिए फ्री ट्रायल पास बुक हो गया है!`
+                        : `Free Trial Pass Reserved for ${fullName}`}
+                    </span>
                   </div>
                   <p className="text-xs text-zinc-300 leading-relaxed">
-                    Show this confirmation at the Alpine Fitness Club desk on Gaurav Path Road, Near Chidpid Nath, Sri Dungargarh during your selected{' '}
-                    <span className="text-white font-semibold">{preferredBatch}</span> window.
+                    {isHi ? (
+                      <>
+                        गौरव पथ रोड, चिड़पिड़ नाथ के पास, श्री डूंगरगढ़ स्थित अल्पाइन फिटनेस क्लब रिसेप्शन पर अपने चुने गए{' '}
+                        <span className="text-white font-semibold">{preferredBatch}</span> समय पर यह पास दिखाएं।
+                      </>
+                    ) : (
+                      <>
+                        Show this confirmation at the Alpine Fitness Club desk on Gaurav Path Road, Near Chidpid Nath, Sri Dungargarh during your selected{' '}
+                        <span className="text-white font-semibold">{preferredBatch}</span> window.
+                      </>
+                    )}
                   </p>
                   <div className="pt-2 text-xs font-mono-num text-zinc-400">
                     Plan: {selectedPlan} · Contact: {PHONE_DISPLAY}
@@ -2086,7 +2495,7 @@ export default function App() {
                     className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 py-3 px-5 rounded-lg bg-[#A3E635] text-black font-bold text-sm hover:bg-[#bef264] transition-all"
                   >
                     <i className="fa-brands fa-whatsapp text-base" aria-hidden="true"></i>
-                    <span>Send Pass to Club WhatsApp</span>
+                    <span>{isHi ? 'क्लब व्हाट्सएप पर पास भेजें' : 'Send Pass to Club WhatsApp'}</span>
                   </a>
 
                   <button
@@ -2094,7 +2503,7 @@ export default function App() {
                     onClick={() => setBookingModalOpen(false)}
                     className="w-full sm:w-auto py-3 px-5 rounded-lg border border-zinc-700 text-xs font-semibold text-zinc-300 hover:text-white cursor-pointer"
                   >
-                    Done
+                    {isHi ? 'बंद करें' : 'Done'}
                   </button>
                 </div>
               </div>
@@ -2140,10 +2549,10 @@ export default function App() {
                 </div>
                 <div>
                   <h3 id="modal-review-title" className="font-display text-2xl font-bold uppercase text-white leading-none">
-                    Write a Review
+                    {isHi ? 'अपना रिव्यू लिखें' : 'Write a Review'}
                   </h3>
                   <div className="text-xs text-zinc-400 mt-1">
-                    Alpine Fitness Club &amp; Supplements
+                    {isHi ? 'अल्पाइन फिटनेस क्लब एंड सप्लीमेंट्स' : 'Alpine Fitness Club & Supplements'}
                   </div>
                 </div>
               </div>
@@ -2164,23 +2573,25 @@ export default function App() {
                   <i className="fa-solid fa-check" aria-hidden="true"></i>
                 </div>
                 <div className="text-base font-bold text-[#A3E635]">
-                  Review submitted for moderation!
+                  {isHi ? 'Review submitted for moderation! (रिव्यू सबमिट हो गया है!)' : 'Review submitted for moderation!'}
                 </div>
                 <p className="text-xs text-zinc-400">
-                  Thank you for sharing your feedback with Alpine Fitness Club &amp; Supplements.
+                  {isHi
+                    ? 'अल्पाइन फिटनेस क्लब एंड सप्लीमेंट्स के साथ अपना अनुभव साझा करने के लिए धन्यवाद।'
+                    : 'Thank you for sharing your feedback with Alpine Fitness Club & Supplements.'}
                 </p>
               </div>
             ) : (
               <form onSubmit={handleReviewSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="reviewer-name" className="block text-xs font-semibold text-zinc-300 mb-1.5">
-                    Your Name *
+                    {isHi ? 'आपका नाम *' : 'Your Name *'}
                   </label>
                   <input
                     id="reviewer-name"
                     type="text"
                     required
-                    placeholder="Enter your full name"
+                    placeholder={isHi ? 'अपना पूरा नाम लिखें' : 'Enter your full name'}
                     value={reviewerName}
                     onChange={(e) => setReviewerName(e.target.value)}
                     disabled={isSubmittingReview}
@@ -2190,7 +2601,7 @@ export default function App() {
 
                 <div>
                   <label htmlFor="review-rating" className="block text-xs font-semibold text-zinc-300 mb-1.5">
-                    Rating (1 - 5 Stars) *
+                    {isHi ? 'रेटिंग चुनें (1 - 5 स्टार) *' : 'Rating (1 - 5 Stars) *'}
                   </label>
                   <select
                     id="review-rating"
@@ -2199,23 +2610,37 @@ export default function App() {
                     disabled={isSubmittingReview}
                     className="w-full rounded-lg bg-black border border-zinc-700 px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-[#A3E635]"
                   >
-                    <option value={5}>⭐⭐⭐⭐⭐ (5 Stars - Excellent)</option>
-                    <option value={4}>⭐⭐⭐⭐ (4 Stars - Very Good)</option>
-                    <option value={3}>⭐⭐⭐ (3 Stars - Good)</option>
-                    <option value={2}>⭐⭐ (2 Stars - Fair)</option>
-                    <option value={1}>⭐ (1 Star - Poor)</option>
+                    <option value={5}>
+                      {isHi ? '⭐⭐⭐⭐⭐ (5 स्टार - बहुत शानदार)' : '⭐⭐⭐⭐⭐ (5 Stars - Excellent)'}
+                    </option>
+                    <option value={4}>
+                      {isHi ? '⭐⭐⭐⭐ (4 स्टार - बहुत अच्छा)' : '⭐⭐⭐⭐ (4 Stars - Very Good)'}
+                    </option>
+                    <option value={3}>
+                      {isHi ? '⭐⭐⭐ (3 स्टार - अच्छा)' : '⭐⭐⭐ (3 Stars - Good)'}
+                    </option>
+                    <option value={2}>
+                      {isHi ? '⭐⭐ (2 स्टार - ठीक है)' : '⭐⭐ (2 Stars - Fair)'}
+                    </option>
+                    <option value={1}>
+                      {isHi ? '⭐ (1 स्टार - सुधार की आवश्यकता)' : '⭐ (1 Star - Poor)'}
+                    </option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="review-comment" className="block text-xs font-semibold text-zinc-300 mb-1.5">
-                    Review Text *
+                    {isHi ? 'आपका रिव्यू *' : 'Review Text *'}
                   </label>
                   <textarea
                     id="review-comment"
                     rows={4}
                     required
-                    placeholder="Share your experience about our trainers, machines, hygiene, or supplements..."
+                    placeholder={
+                      isHi
+                        ? 'हमारे ट्रेनर्स, मशीनों, साफ-सफाई या सप्लीमेंट्स के बारे में अपना अनुभव लिखें...'
+                        : 'Share your experience about our trainers, machines, hygiene, or supplements...'
+                    }
                     value={reviewComment}
                     onChange={(e) => setReviewComment(e.target.value)}
                     disabled={isSubmittingReview}
@@ -2237,14 +2662,20 @@ export default function App() {
                     disabled={isSubmittingReview}
                     className="px-4 py-2.5 rounded-lg border border-zinc-700 text-xs font-semibold text-zinc-300 hover:text-white transition-colors cursor-pointer"
                   >
-                    Cancel
+                    {isHi ? 'रद्द करें' : 'Cancel'}
                   </button>
                   <button
                     type="submit"
                     disabled={isSubmittingReview}
                     className="px-5 py-2.5 rounded-lg bg-[#A3E635] text-black text-xs sm:text-sm font-bold hover:bg-[#bef264] transition-all cursor-pointer disabled:opacity-70"
                   >
-                    {isSubmittingReview ? 'Submitting...' : 'Submit'}
+                    {isSubmittingReview
+                      ? isHi
+                        ? 'Submitting... (सबमिट हो रहा है...)'
+                        : 'Submitting...'
+                      : isHi
+                      ? 'सबमिट करें (Submit)'
+                      : 'Submit'}
                   </button>
                 </div>
               </form>
@@ -2258,7 +2689,7 @@ export default function App() {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={lightboxItem.title}
+          aria-label={isHi ? lightboxItem.titleHi : lightboxItem.titleEn}
           onClick={() => setLightboxItem(null)}
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
         >
@@ -2269,10 +2700,10 @@ export default function App() {
             <div className="flex items-center justify-between gap-4 px-5 py-3.5 border-b border-zinc-800">
               <div>
                 <div className="text-[11px] font-bold uppercase tracking-wider text-[#A3E635]">
-                  {lightboxItem.subtitle}
+                  {isHi ? lightboxItem.subtitleHi : lightboxItem.subtitleEn}
                 </div>
                 <h3 className="font-display text-xl font-bold uppercase text-white">
-                  {lightboxItem.title}
+                  {isHi ? lightboxItem.titleHi : lightboxItem.titleEn}
                 </h3>
               </div>
               <button

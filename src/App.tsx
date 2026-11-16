@@ -1300,6 +1300,52 @@ export default function App() {
                   </div>
                 </div>
               </div>
+
+              {/* Follow Us — Colorful Circular Social Media Icons */}
+              <div className="pt-6 border-t border-zinc-800">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-3">Follow Us</div>
+                <div className="flex gap-4 justify-start items-center">
+                  <a
+                    href={getWhatsAppUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Chat with Alpine Fitness on WhatsApp"
+                    className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all shadow-md"
+                  >
+                    <i className="fa-brands fa-whatsapp text-white text-xl" aria-hidden="true"></i>
+                  </a>
+
+                  <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow Alpine Fitness on Instagram"
+                    className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all shadow-md"
+                  >
+                    <i className="fa-brands fa-instagram text-white text-xl" aria-hidden="true"></i>
+                  </a>
+
+                  <a
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Follow Alpine Fitness on Facebook"
+                    className="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all shadow-md"
+                  >
+                    <i className="fa-brands fa-facebook-f text-white text-xl" aria-hidden="true"></i>
+                  </a>
+
+                  <a
+                    href="https://www.youtube.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Subscribe to Alpine Fitness on YouTube"
+                    className="w-10 h-10 rounded-full bg-[#FF0000] flex items-center justify-center hover:opacity-80 hover:scale-110 transition-all shadow-md"
+                  >
+                    <i className="fa-brands fa-youtube text-white text-xl" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* RIGHT SIDE: Exact Embedded Google Map for Alpine Fitness Club & Supplements */}

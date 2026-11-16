@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import heroGymImg from './assets/images/hero_gym_interior_1794801318333.jpg';
 import supplementStoreImg from './assets/images/about_gym_supplements_1794801320086.jpg';
 import strengthZoneImg from './assets/images/facility_strength_zone_1794801320690.jpg';
@@ -58,15 +58,59 @@ interface GalleryItem {
   cropZoom?: boolean;
 }
 
-// First 8 images: Real gym photos (real-image-1.jpg through real-image-8.jpg)
+interface HeroSlideItem {
+  id: string;
+  image: string;
+  alt: string;
+}
+
+const HERO_SLIDES: HeroSlideItem[] = [
+  {
+    id: 'hero-banner-1',
+    image: 'real-image-1.jpg',
+    alt: 'Alpine Fitness Club Banner 1 — No Pain No Gain, Pehla Din Free, Join Now',
+  },
+  {
+    id: 'hero-banner-2',
+    image: 'real-image-2.jpg',
+    alt: 'Alpine Fitness Club Banner 2 — Your Gym Your Family, Clean Safe and Friendly Environment',
+  },
+  {
+    id: 'hero-banner-3',
+    image: 'real-image-3.jpg',
+    alt: 'Alpine Fitness Club Banner 3 — Train Hard Stay Strong, Full Dumbbell Rack and Modern Machines',
+  },
+  {
+    id: 'hero-banner-4',
+    image: 'real-image-4.jpg',
+    alt: 'Alpine Fitness Club Banner 4 — Supplement Store, 100% Original Protein, Gainer and Creatine',
+  },
+  {
+    id: 'hero-banner-5',
+    image: 'real-image-5.jpg',
+    alt: 'Alpine Fitness Club Banner 5 — Build Your Dream Body, Weight Loss, Muscle Gain, Personal Training',
+  },
+  {
+    id: 'hero-banner-6',
+    image: 'real-image-6.jpg',
+    alt: 'Alpine Fitness Club Banner 6 — Push Your Limits, Train Stronger and Build Better',
+  },
+  {
+    id: 'hero-banner-7',
+    image: 'real-image-7.jpg',
+    alt: 'Alpine Fitness Club Banner 7 — Achieve Your Best Physique at Alpine Fitness Club & Supplements',
+  },
+];
+
+// First 8 images: Real gym photos
 // Next 6 images: High-quality premium gym placeholder images
 const GALLERY_ITEMS: GalleryItem[] = [
-  // 8 Real Gym Photos FIRST (real-image-1.jpg to real-image-8.jpg)
+  // 8 Real Gym Photos FIRST
   {
     id: 'real-1',
     title: 'Alpine Supplement Store Counter',
     subtitle: 'Real Club Photo · MuscleTech & Mass Gainers',
-    image: 'real-image-1.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.43_PM_eb8d425a.jpeg',
     alt: 'Real photo of Alpine Fitness Supplement Store shelves and counter in Sri Dungargarh',
     isRealPhoto: true,
     cropZoom: true,
@@ -75,7 +119,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-2',
     title: 'Main Bench & Squat Rack Zone',
     subtitle: 'Real Club Photo · Alpine Fitness Floor',
-    image: 'real-image-2.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.43_PM__1__61a684c7.jpeg',
     alt: 'Real photo of Alpine Fitness Club incline bench press and squat rack floor',
     isRealPhoto: true,
   },
@@ -83,7 +127,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-3',
     title: 'WG10 Functional Cable Crossover',
     subtitle: 'Real Club Photo · Multi-Pulley Station',
-    image: 'real-image-3.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.43_PM__2__6a7254cc.jpeg',
     alt: 'Real photo of Wellness Gym WG10 FT30 cable crossover station at Alpine Fitness',
     isRealPhoto: true,
   },
@@ -91,7 +135,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-4',
     title: 'Heavy Hex & Urethane Dumbbell Rack',
     subtitle: 'Real Club Photo · Wellness Gym Series',
-    image: 'real-image-4.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.44_PM__1__965c8e3f.jpeg',
     alt: 'Real photo of heavy dumbbell rack at Alpine Fitness Club Sri Dungargarh',
     isRealPhoto: true,
   },
@@ -99,7 +143,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-5',
     title: 'Heavy 45° Plate-Loaded Leg Press',
     subtitle: 'Real Club Photo · Lower Body Hypertrophy',
-    image: 'real-image-5.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.44_PM__2__ca31704d.jpeg',
     alt: 'Real photo of angled leg press station at Alpine Fitness Club',
     isRealPhoto: true,
   },
@@ -107,7 +151,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-6',
     title: 'Lat Pulldown & Seated Row Machine',
     subtitle: 'Real Club Photo · Back Isolation Station',
-    image: 'real-image-6.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.42_PM_374bc3d1.jpeg',
     alt: 'Real photo of commercial lat pulldown machine at Alpine Fitness Club',
     isRealPhoto: true,
   },
@@ -115,7 +159,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-7',
     title: 'Mirrored Free-Weight & Machine Hall',
     subtitle: 'Real Club Photo · Spacious Training Bay',
-    image: 'real-image-7.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.39_PM_d38175ca.jpeg',
     alt: 'Real photo of Alpine Fitness mirrored training hall and benches',
     isRealPhoto: true,
     cropZoom: true,
@@ -124,7 +168,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'real-8',
     title: 'Complete Commercial Dumbbell Lineup',
     subtitle: 'Real Club Photo · Free Weights Area',
-    image: 'real-image-8.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-16_at_1.50.40_PM_0cbbd91a.jpeg',
     alt: 'Real photo of full dumbbell rack and mirror wall at Alpine Fitness Club',
     isRealPhoto: true,
   },
@@ -335,9 +379,53 @@ export default function App() {
   const [likedReviews, setLikedReviews] = useState<Record<string, boolean>>({});
 
   // Image error fallback flags
-  const [heroImgError, setHeroImgError] = useState(false);
+  const [failedHeroSlides, setFailedHeroSlides] = useState<Record<string, boolean>>({});
   const [aboutImgError, setAboutImgError] = useState(false);
   const [failedGalleryIds, setFailedGalleryIds] = useState<Record<string, boolean>>({});
+
+  // Hero Slider State & Touch Swipe Tracking
+  const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
+  const [isHeroPaused, setIsHeroPaused] = useState(false);
+  const touchStartXRef = useRef<number | null>(null);
+  const touchEndXRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (isHeroPaused) return;
+    const timer = window.setInterval(() => {
+      setCurrentHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 4000);
+    return () => window.clearInterval(timer);
+  }, [currentHeroSlide, isHeroPaused]);
+
+  const goToNextHeroSlide = () => {
+    setCurrentHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
+
+  const goToPrevHeroSlide = () => {
+    setCurrentHeroSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  };
+
+  const handleHeroTouchStart = (e: React.TouchEvent) => {
+    touchEndXRef.current = null;
+    touchStartXRef.current = e.targetTouches[0].clientX;
+  };
+
+  const handleHeroTouchMove = (e: React.TouchEvent) => {
+    touchEndXRef.current = e.targetTouches[0].clientX;
+  };
+
+  const handleHeroTouchEnd = () => {
+    if (touchStartXRef.current === null || touchEndXRef.current === null) return;
+    const distance = touchStartXRef.current - touchEndXRef.current;
+    const minSwipeDistance = 45;
+    if (distance > minSwipeDistance) {
+      goToNextHeroSlide();
+    } else if (distance < -minSwipeDistance) {
+      goToPrevHeroSlide();
+    }
+    touchStartXRef.current = null;
+    touchEndXRef.current = null;
+  };
 
   // Gallery Scroll Reference
   const galleryScrollRef = useRef<HTMLDivElement | null>(null);
@@ -532,120 +620,106 @@ export default function App() {
       </header>
 
       <main className="flex-1 w-full overflow-x-hidden">
-        {/* 2. HERO SECTION — Pure Black (bg-black) with Responsive Breakpoint Typography */}
-        <section id="home" className="relative overflow-hidden bg-black border-b border-zinc-800 w-full">
-          {/* Background Image with Measured Contrast Scrim & Resilient Fallback */}
-          <div className="absolute inset-0 z-0 bg-black">
-            {!heroImgError ? (
-              <img
-                src={heroGymImg}
-                alt="Alpine Fitness Club & Supplements main strength floor with power racks and calibrated weights"
-                referrerPolicy="no-referrer"
-                onError={() => setHeroImgError(true)}
-                className="w-full h-full object-cover object-center opacity-50"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center opacity-20">
-                <i className="fa-solid fa-dumbbell text-8xl sm:text-9xl text-[#A3E635]" aria-hidden="true"></i>
-              </div>
-            )}
-            {/* Measured multi-stop scrim guaranteeing >4.5:1 text contrast on pure black */}
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/45"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/70"
-              aria-hidden="true"
-            />
+        {/* 2. HERO SECTION — Responsive 7-Slide Pre-Designed Banner Carousel (No HTML Text Overlays) */}
+        <section
+          id="home"
+          aria-label="Alpine Fitness Promotional Banner Carousel"
+          onMouseEnter={() => setIsHeroPaused(true)}
+          onMouseLeave={() => setIsHeroPaused(false)}
+          onTouchStart={handleHeroTouchStart}
+          onTouchMove={handleHeroTouchMove}
+          onTouchEnd={handleHeroTouchEnd}
+          className="relative w-full bg-black border-b border-zinc-800 overflow-hidden select-none"
+        >
+          {/* Horizontal Sliding Banner Track */}
+          <div
+            className="flex w-full transition-transform duration-700 ease-out"
+            style={{ transform: `translateX(-${currentHeroSlide * 100}%)` }}
+          >
+            {HERO_SLIDES.map((slide, index) => {
+              const hasError = !!failedHeroSlides[slide.id];
+              return (
+                <div
+                  key={slide.id}
+                  aria-hidden={index !== currentHeroSlide}
+                  onClick={() => openTrialBooking('3 Months — Quarterly Transformation (₹3,800)')}
+                  className="w-full shrink-0 relative cursor-pointer"
+                >
+                  {!hasError ? (
+                    <img
+                      src={slide.image}
+                      alt={slide.alt}
+                      referrerPolicy="no-referrer"
+                      onError={() =>
+                        setFailedHeroSlides((prev) => ({
+                          ...prev,
+                          [slide.id]: true,
+                        }))
+                      }
+                      className="w-full h-auto aspect-video block"
+                    />
+                  ) : (
+                    <div className="w-full aspect-video flex items-center justify-center bg-zinc-900">
+                      <i className="fa-solid fa-dumbbell text-6xl sm:text-8xl text-zinc-700" aria-hidden="true"></i>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-24 md:pb-20">
-            <div className="max-w-2xl">
-              {/* Quiet unboxed metadata line */}
-              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs sm:text-sm font-medium text-zinc-300 mb-4">
-                <span className="text-[#A3E635] font-semibold">Sri Dungargarh, Bikaner</span>
-                <span aria-hidden="true" className="text-zinc-600">·</span>
-                <span>Gaurav Path Road, Near Chidpid Nath</span>
-                <span aria-hidden="true" className="text-zinc-600">·</span>
-                <span className="font-mono-num text-[#A3E635]">
-                  <i className="fa-solid fa-star mr-1 text-xs text-[#A3E635]" aria-hidden="true"></i>
-                  4.6 Google Rated (19 Reviews)
-                </span>
-              </div>
+          {/* Subtle Left (<) and Right (>) Navigation Arrows — Positioned at Outer Edges */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              goToPrevHeroSlide();
+            }}
+            aria-label="Previous banner slide"
+            className="absolute left-1.5 sm:left-3 md:left-4 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-black/40 hover:bg-black/75 text-white/80 hover:text-[#A3E635] border border-white/20 hover:border-[#A3E635]/60 flex items-center justify-center backdrop-blur-sm transition-all duration-200 cursor-pointer"
+          >
+            <i className="fa-solid fa-chevron-left text-[10px] sm:text-xs md:text-sm" aria-hidden="true"></i>
+          </button>
 
-              {/* Responsive Hero Heading: text-3xl sm:text-5xl md:text-6xl */}
-              <h1
-                className="font-display text-3xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight text-white leading-[1.06] mb-5 sm:mb-6"
-                style={{ textWrap: 'balance' }}
-              >
-                Achieve Your Dream Physique at <span className="text-[#A3E635]">Alpine Fitness</span>
-              </h1>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              goToNextHeroSlide();
+            }}
+            aria-label="Next banner slide"
+            className="absolute right-1.5 sm:right-3 md:right-4 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-black/40 hover:bg-black/75 text-white/80 hover:text-[#A3E635] border border-white/20 hover:border-[#A3E635]/60 flex items-center justify-center backdrop-blur-sm transition-all duration-200 cursor-pointer"
+          >
+            <i className="fa-solid fa-chevron-right text-[10px] sm:text-xs md:text-sm" aria-hidden="true"></i>
+          </button>
 
-              {/* Responsive Hero Sub-Headline */}
-              <p className="text-sm sm:text-base md:text-lg text-zinc-200 leading-relaxed mb-7 sm:mb-8 max-w-[62ch]">
-                Train on heavy-duty biomechanical strength machines and fuel your recovery at Sri Dungargarh’s most trusted in-house authentic supplement store. Built for serious lifters, beginners, and athletes alike.
-              </p>
-
-              {/* Single Dominant Primary CTA + Quiet Secondary Link */}
-              <div className="flex flex-wrap items-center gap-4 sm:gap-5">
+          {/* Subtle Bottom Dot Indicators — Placed Neatly Along Bottom Edge Without Blocking Banner Text */}
+          <div
+            className="absolute bottom-1.5 sm:bottom-3 md:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-black/45 backdrop-blur-sm border border-white/15"
+            role="tablist"
+            aria-label="Banner slide indicators"
+          >
+            {HERO_SLIDES.map((slide, index) => {
+              const isActive = index === currentHeroSlide;
+              return (
                 <button
+                  key={slide.id}
                   type="button"
-                  onClick={() => openTrialBooking('3 Months — Quarterly Transformation (₹3,800)')}
-                  className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg bg-[#A3E635] text-black font-bold text-sm sm:text-base hover:bg-[#bef264] transition-all whitespace-nowrap shrink-0 cursor-pointer"
-                >
-                  <span>Join Now</span>
-                  <i className="fa-solid fa-arrow-right text-sm" aria-hidden="true"></i>
-                </button>
-
-                <a
-                  href="#gallery"
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#A3E635] hover:underline underline-offset-4 transition-colors py-2 whitespace-nowrap shrink-0"
-                >
-                  <span>Explore Facility & Supplements</span>
-                  <i className="fa-solid fa-chevron-down text-xs" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-
-            {/* Full-Width 4-Column Operational & Proof Strip below Hero content */}
-            <div className="mt-10 sm:mt-14 pt-7 sm:pt-8 border-t border-zinc-800 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-              <div>
-                <div className="text-xs font-semibold text-[#A3E635] mb-1">Operating Days & Morning Batch</div>
-                <div className="font-mono-num text-sm sm:text-base font-semibold text-white">
-                  Mon – Sat · 5:00 AM – 9:00 AM
-                </div>
-                <div className="text-xs text-zinc-400 mt-0.5">Dedicated morning strength & cardio coaching</div>
-              </div>
-
-              <div>
-                <div className="text-xs font-semibold text-[#A3E635] mb-1">Evening Peak Training Batch</div>
-                <div className="font-mono-num text-sm sm:text-base font-semibold text-white">
-                  Mon – Sat · 5:00 PM – 11:00 PM
-                </div>
-                <div className="text-xs text-zinc-400 mt-0.5">Extended late-evening hours for working professionals</div>
-              </div>
-
-              <div>
-                <div className="text-xs font-semibold text-[#A3E635] mb-1">In-House Nutrition Store</div>
-                <div className="text-sm sm:text-base font-semibold text-white">
-                  100% Importer-Verified Supplements
-                </div>
-                <div className="text-xs text-zinc-400 mt-0.5">Scratch-code verified Whey, Creatine, BCAA & Pre</div>
-              </div>
-
-              <div>
-                <div className="text-xs font-semibold text-[#A3E635] mb-1">Direct Club Desk</div>
-                <a
-                  href={`tel:${PHONE_TEL}`}
-                  className="font-mono-num text-sm sm:text-base font-semibold text-white hover:text-[#A3E635] transition-colors inline-flex items-center gap-2"
-                >
-                  <i className="fa-solid fa-phone text-xs text-[#A3E635]" aria-hidden="true"></i>
-                  <span>{PHONE_DISPLAY}</span>
-                </a>
-                <div className="text-xs text-zinc-400 mt-0.5">Near Chidpid Nath, Gaurav Path Road</div>
-              </div>
-            </div>
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-label={`Go to banner ${index + 1}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentHeroSlide(index);
+                  }}
+                  className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? 'w-5 sm:w-7 bg-[#A3E635] shadow-[0_0_8px_rgba(163,230,53,0.85)]'
+                      : 'w-1.5 sm:w-2 bg-white/55 hover:bg-white/90'
+                  }`}
+                />
+              );
+            })}
           </div>
         </section>
 

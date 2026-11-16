@@ -11,7 +11,6 @@ import galleryWheyStackImg from './assets/images/gallery_whey_creatine_stack_179
 import galleryCableWorkoutImg from './assets/images/gallery_cable_machine_workout_1794803954678.jpg';
 import galleryCardioImg from './assets/images/gallery_cardio_treadmills_1794803954942.jpg';
 import galleryDumbbellsImg from './assets/images/gallery_heavy_dumbbells_1794803956321.jpg';
-import galleryPersonalTrainingImg from './assets/images/gallery_personal_training_1794803957508.jpg';
 
 interface PricingPlan {
   id: string;
@@ -36,14 +35,17 @@ interface SupplementItem {
   highlights: string;
 }
 
-interface ReviewItem {
+interface GoogleReviewItem {
   id: string;
   name: string;
-  role: string;
-  tenure: string;
+  reviewCountText: string;
+  initial: string;
+  avatarBg: string;
   rating: number;
-  outcome: string;
-  quote: string;
+  timeAgo: string;
+  text: string;
+  translatedNote: string;
+  likesCount: number;
 }
 
 interface GalleryItem {
@@ -52,64 +54,122 @@ interface GalleryItem {
   subtitle: string;
   image: string;
   alt: string;
+  isRealPhoto?: boolean;
+  cropZoom?: boolean;
 }
 
+// First 8 images: Real gym photos (real-image-1.jpg through real-image-8.jpg)
+// Next 6 images: High-quality premium gym placeholder images
 const GALLERY_ITEMS: GalleryItem[] = [
+  // 8 Real Gym Photos FIRST (real-image-1.jpg to real-image-8.jpg)
   {
-    id: 'gal-1',
+    id: 'real-1',
+    title: 'Alpine Supplement Store Counter',
+    subtitle: 'Real Club Photo · MuscleTech & Mass Gainers',
+    image: 'real-image-1.jpg',
+    alt: 'Real photo of Alpine Fitness Supplement Store shelves and counter in Sri Dungargarh',
+    isRealPhoto: true,
+    cropZoom: true,
+  },
+  {
+    id: 'real-2',
+    title: 'Main Bench & Squat Rack Zone',
+    subtitle: 'Real Club Photo · Alpine Fitness Floor',
+    image: 'real-image-2.jpg',
+    alt: 'Real photo of Alpine Fitness Club incline bench press and squat rack floor',
+    isRealPhoto: true,
+  },
+  {
+    id: 'real-3',
+    title: 'WG10 Functional Cable Crossover',
+    subtitle: 'Real Club Photo · Multi-Pulley Station',
+    image: 'real-image-3.jpg',
+    alt: 'Real photo of Wellness Gym WG10 FT30 cable crossover station at Alpine Fitness',
+    isRealPhoto: true,
+  },
+  {
+    id: 'real-4',
+    title: 'Heavy Hex & Urethane Dumbbell Rack',
+    subtitle: 'Real Club Photo · Wellness Gym Series',
+    image: 'real-image-4.jpg',
+    alt: 'Real photo of heavy dumbbell rack at Alpine Fitness Club Sri Dungargarh',
+    isRealPhoto: true,
+  },
+  {
+    id: 'real-5',
+    title: 'Heavy 45° Plate-Loaded Leg Press',
+    subtitle: 'Real Club Photo · Lower Body Hypertrophy',
+    image: 'real-image-5.jpg',
+    alt: 'Real photo of angled leg press station at Alpine Fitness Club',
+    isRealPhoto: true,
+  },
+  {
+    id: 'real-6',
+    title: 'Lat Pulldown & Seated Row Machine',
+    subtitle: 'Real Club Photo · Back Isolation Station',
+    image: 'real-image-6.jpg',
+    alt: 'Real photo of commercial lat pulldown machine at Alpine Fitness Club',
+    isRealPhoto: true,
+  },
+  {
+    id: 'real-7',
+    title: 'Mirrored Free-Weight & Machine Hall',
+    subtitle: 'Real Club Photo · Spacious Training Bay',
+    image: 'real-image-7.jpg',
+    alt: 'Real photo of Alpine Fitness mirrored training hall and benches',
+    isRealPhoto: true,
+    cropZoom: true,
+  },
+  {
+    id: 'real-8',
+    title: 'Complete Commercial Dumbbell Lineup',
+    subtitle: 'Real Club Photo · Free Weights Area',
+    image: 'real-image-8.jpg',
+    alt: 'Real photo of full dumbbell rack and mirror wall at Alpine Fitness Club',
+    isRealPhoto: true,
+  },
+  // 6 Placeholder Gym Images AFTER Real Photos
+  {
+    id: 'placeholder-1',
     title: 'Olympic Power Racks & Strength Floor',
     subtitle: 'Heavy Compound Lifting Zone',
     image: heroGymImg,
     alt: 'Alpine Fitness Olympic power racks and main strength training floor',
   },
   {
-    id: 'gal-2',
+    id: 'placeholder-2',
     title: '100% Authentic Supplement Bar',
     subtitle: 'Importer-Verified Nutrition Store',
     image: supplementStoreImg,
     alt: 'Alpine Fitness in-house authentic whey protein and sports supplement counter',
   },
   {
-    id: 'gal-3',
+    id: 'placeholder-3',
     title: 'Dual-Pulley Cable Crossover',
     subtitle: 'Precision Hypertrophy Stations',
     image: galleryCableWorkoutImg,
     alt: 'Athlete performing cable chest flyes on commercial cable crossover machine',
   },
   {
-    id: 'gal-4',
+    id: 'placeholder-4',
     title: 'Whey Isolate & Creatine Stack',
     subtitle: 'Lab-Tested Recovery Fuel',
     image: galleryWheyStackImg,
     alt: 'Authentic whey protein isolate tub, micronized creatine, and shaker bottle',
   },
   {
-    id: 'gal-5',
+    id: 'placeholder-5',
     title: 'Calibrated Dumbbells & Plates',
     subtitle: '2.5 kg to 50 kg Complete Run',
     image: galleryDumbbellsImg,
     alt: 'Row of heavy calibrated urethane dumbbells and Olympic weight plates',
   },
   {
-    id: 'gal-6',
+    id: 'placeholder-6',
     title: 'Cardio & Endurance Turf',
     subtitle: 'Incline Treadmills, Bikes & Ropes',
     image: galleryCardioImg,
     alt: 'Commercial motorized treadmills, spin bikes, and battle ropes conditioning zone',
-  },
-  {
-    id: 'gal-7',
-    title: '1-on-1 Personal Coaching',
-    subtitle: 'Certified Floor Trainers (Morning & Evening)',
-    image: galleryPersonalTrainingImg,
-    alt: 'Personal trainer spotting a member on an Olympic bench press',
-  },
-  {
-    id: 'gal-8',
-    title: 'Biomechanical Isolation Machines',
-    subtitle: 'Smooth Joint-Safe Resistance',
-    image: strengthZoneImg,
-    alt: 'Commercial biomechanical strength equipment and free weight benches',
   },
 ];
 
@@ -208,36 +268,42 @@ const SUPPLEMENTS: SupplementItem[] = [
   },
 ];
 
-const REVIEWS: ReviewItem[] = [
+const GOOGLE_REVIEWS: GoogleReviewItem[] = [
   {
-    id: 'rev-1',
-    name: 'Vikram Singh Rathore',
-    role: 'Business Owner, Sri Dungargarh',
-    tenure: 'Member for 11 Months · 12-Month Plan',
+    id: 'google-rev-1',
+    name: 'Puneet Ojha',
+    reviewCountText: '4 समीक्षाएं',
+    initial: 'P',
+    avatarBg: 'bg-[#C2185B]',
     rating: 5,
-    outcome: 'Lost 11.5 kg & improved deadlift to 160 kg in 6 months',
-    quote:
-      'Best gym on Gaurav Path Road by far. Before joining Alpine Fitness, I struggled with inconsistent home workouts. The cable stations, heavy dumbbells, and morning 5:30 AM batch vibe pushed my consistency, and their diet plan worked with my regular home food.',
+    timeAgo: '4 साल पहले',
+    text: 'बहुत ही बढ़िया प्रशिक्षक, बहुत मददगार।',
+    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    likesCount: 1,
   },
   {
-    id: 'rev-2',
-    name: 'Pradeep Sharma',
-    role: 'Competitive Powerlifter & Athlete',
-    tenure: 'Member for 8 Months · 3-Month Plan',
+    id: 'google-rev-2',
+    name: 'lalita tiwari',
+    reviewCountText: '3 समीक्षाएं',
+    initial: 'l',
+    avatarBg: 'bg-[#00897B]',
     rating: 5,
-    outcome: 'Added 18 kg to bench press & verified 100% authentic supplements',
-    quote:
-      'Finding genuine supplements in Bikaner district used to be tough with so many duplicates in the market. At Alpine Fitness Club & Supplements, every protein tub has the official importer tag and scratch code. Heavy biomechanics machines are smooth and well-maintained.',
+    timeAgo: '4 साल पहले',
+    text: 'अच्छी जगह है और लड़कों और लड़कियों दोनों के लिए बढ़िया व्यवस्था है।\nलड़कियों के लिए विशेष रूप से अनुशंसित।',
+    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    likesCount: 1,
   },
   {
-    id: 'rev-3',
-    name: 'Ankit Bhargava',
-    role: 'Bank Executive, Near Chidpid Nath',
-    tenure: 'Member for 5 Months · 3-Month Plan',
+    id: 'google-rev-3',
+    name: 'mukesh pareek',
+    reviewCountText: '7 समीक्षाएं',
+    initial: 'M',
+    avatarBg: 'bg-[#1E88E5]',
     rating: 5,
-    outcome: 'Dropped waist from 36" to 32" training in the 7:00 PM evening batch',
-    quote:
-      'The evening slot from 5:00 PM to 11:00 PM is ideal after office hours. Even during peak evening time, the ventilation, hygiene, and floor trainers are top-notch. Worth every rupee of the 4.6+ star reputation they have in Sri Dungargarh.',
+    timeAgo: '3 साल पहले',
+    text: 'शानदार जिम उपकरण और 100% ओरिजिनल सप्लीमेंट्स। श्री डूंगरगढ़ में फिटनेस के लिए सबसे बेहतरीन जगह।',
+    translatedNote: 'यह अनुवाद Google ने किया है · मूल भाषा (अंग्रेज़ी) में समीक्षा देखें',
+    likesCount: 2,
   },
 ];
 
@@ -265,6 +331,9 @@ export default function App() {
   const [formError, setFormError] = useState('');
   const [bookingSubmitted, setBookingSubmitted] = useState(false);
 
+  // Interactive like state for Google review cards
+  const [likedReviews, setLikedReviews] = useState<Record<string, boolean>>({});
+
   // Image error fallback flags
   const [heroImgError, setHeroImgError] = useState(false);
   const [aboutImgError, setAboutImgError] = useState(false);
@@ -280,6 +349,13 @@ export default function App() {
       left: direction === 'left' ? -scrollAmount : scrollAmount,
       behavior: 'smooth',
     });
+  };
+
+  const toggleReviewLike = (id: string) => {
+    setLikedReviews((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
   };
 
   const openTrialBooking = (planLabel?: string) => {
@@ -334,7 +410,7 @@ export default function App() {
             Alpine Fitness <span className="text-[#A3E635]">Club & Supplements</span>
           </a>
 
-          {/* Zone 2: 5 concise single-line navigation links */}
+          {/* Zone 2: Concise single-line navigation links */}
           <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-6 lg:gap-7 text-sm font-medium text-zinc-300 shrink-0">
             <a
               href="#home"
@@ -435,7 +511,7 @@ export default function App() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1.5 hover:text-[#A3E635] transition-colors"
               >
-                Member Reviews (4.6 ★)
+                Google Reviews (4.6 ★)
               </a>
               <a
                 href="#contact"
@@ -494,7 +570,7 @@ export default function App() {
                 <span aria-hidden="true" className="text-zinc-600">·</span>
                 <span className="font-mono-num text-[#A3E635]">
                   <i className="fa-solid fa-star mr-1 text-xs text-[#A3E635]" aria-hidden="true"></i>
-                  4.6 Google Rated
+                  4.6 Google Rated (19 Reviews)
                 </span>
               </div>
 
@@ -573,13 +649,13 @@ export default function App() {
           </div>
         </section>
 
-        {/* 2.5 NEW SECTION: SCROLLABLE IMAGE GALLERY ("Explore Our Facility & Supplements") */}
+        {/* 2.5 SCROLLABLE IMAGE GALLERY — 6 Premium Placeholders + 8 Real Gym Photos (real-image-1.jpg .. real-image-8.jpg) */}
         <section id="gallery" className="py-14 sm:py-18 bg-zinc-950 border-b border-zinc-800 w-full">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-1.5">
-                  Inside Alpine Fitness · Sri Dungargarh
+                  Inside Alpine Fitness · 14 Photos (Concept & Real Club Tour)
                 </div>
                 <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white">
                   Explore Our <span className="text-[#A3E635]">Facility & Supplements</span>
@@ -589,7 +665,7 @@ export default function App() {
               {/* Desktop Carousel Navigation Controls + Swipe Hint */}
               <div className="flex items-center justify-between sm:justify-end gap-3">
                 <span className="text-xs text-zinc-400 sm:hidden">
-                  Swipe to explore <i className="fa-solid fa-arrow-right ml-1 text-[#A3E635]" aria-hidden="true"></i>
+                  Swipe to see all 14 photos <i className="fa-solid fa-arrow-right ml-1 text-[#A3E635]" aria-hidden="true"></i>
                 </span>
                 <div className="hidden sm:flex items-center gap-2">
                   <button
@@ -620,7 +696,7 @@ export default function App() {
               {GALLERY_ITEMS.map((item) => (
                 <div
                   key={item.id}
-                  className="min-w-[250px] h-[250px] md:min-w-[300px] md:h-[300px] rounded-2xl snap-center shrink-0 relative overflow-hidden border border-zinc-800 bg-zinc-900 group"
+                  className="w-[300px] h-[300px] min-w-[300px] shrink-0 rounded-xl shadow-lg border-2 border-zinc-800 snap-center relative overflow-hidden bg-zinc-900 group"
                 >
                   {!failedGalleryIds[item.id] ? (
                     <img
@@ -634,23 +710,26 @@ export default function App() {
                           [item.id]: true,
                         }))
                       }
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-200"
+                      className={`w-[300px] h-[300px] object-cover object-center transition-transform duration-200 ${
+                        item.cropZoom ? 'scale-[1.85] group-hover:scale-[1.92]' : 'group-hover:scale-105'
+                      }`}
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-zinc-900">
-                      <i className="fa-solid fa-dumbbell text-5xl text-zinc-700" aria-hidden="true"></i>
+                    <div className="w-[300px] h-[300px] flex flex-col items-center justify-center bg-zinc-900 p-4 text-center">
+                      <i className="fa-solid fa-dumbbell text-4xl text-[#A3E635] mb-2" aria-hidden="true"></i>
+                      <span className="text-xs font-semibold text-zinc-300">{item.title}</span>
                     </div>
                   )}
 
                   {/* Measured Bottom Gradient Scrim for Legible Caption */}
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"
                     aria-hidden="true"
                   />
 
-                  <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5">
+                  <div className="absolute bottom-0 inset-x-0 p-4 pointer-events-none">
                     <div className="text-[11px] font-semibold text-[#A3E635]">{item.subtitle}</div>
-                    <h3 className="font-display text-lg sm:text-xl font-bold uppercase text-white leading-snug mt-0.5">
+                    <h3 className="font-display text-lg font-bold uppercase text-white leading-snug mt-0.5">
                       {item.title}
                     </h3>
                   </div>
@@ -1112,82 +1191,171 @@ export default function App() {
           </div>
         </section>
 
-        {/* 5. TESTIMONIALS (REVIEWS) SECTION — Dark Gray (bg-zinc-900) */}
+        {/* 5. REDESIGNED TESTIMONIALS (REVIEWS) SECTION — Native Google Maps Review Cards (bg-white text-black) */}
         <section id="reviews" className="py-16 sm:py-20 md:py-24 bg-zinc-900 border-b border-zinc-800 w-full">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-10 sm:mb-14">
-              <div className="max-w-2xl">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635] mb-2">
-                  03. Verified Member Outcomes
+            {/* Native Google Reviews Header */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+              <div className="space-y-2">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#A3E635]">
+                  03. Verified Google Maps Reviews
                 </div>
-                <h2
-                  className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white mb-3"
-                  style={{ textWrap: 'balance' }}
-                >
-                  Rated <span className="text-[#A3E635]">4.6 Stars</span> by Lifters Across Sri Dungargarh
-                </h2>
-                <p className="text-zinc-300 text-sm sm:text-base">
-                  Real transformations and honest feedback from members training at our Gaurav Path Road facility.
-                </p>
+                <div className="flex flex-wrap items-center gap-3">
+                  {/* Google Multi-Color G Badge */}
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md shrink-0">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        fill="#4285F4"
+                        d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"
+                      />
+                      <path
+                        fill="#34A853"
+                        d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"
+                      />
+                      <path
+                        fill="#FBBC05"
+                        d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z"
+                      />
+                      <path
+                        fill="#EA4335"
+                        d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"
+                      />
+                    </svg>
+                  </div>
+
+                  <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white">
+                    What our members say on <span className="text-[#A3E635]">Google</span>
+                  </h2>
+                </div>
               </div>
 
-              {/* Unboxed Google Rating Summary Link */}
-              <div className="flex flex-col sm:items-end shrink-0">
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center text-[#A3E635] text-sm" aria-label="4.6 out of 5 stars">
-                    <i className="fa-solid fa-star" aria-hidden="true"></i>
-                    <i className="fa-solid fa-star" aria-hidden="true"></i>
-                    <i className="fa-solid fa-star" aria-hidden="true"></i>
-                    <i className="fa-solid fa-star" aria-hidden="true"></i>
-                    <i className="fa-solid fa-star-half-stroke" aria-hidden="true"></i>
+              {/* 4.6 ⭐ (19 Reviews) Summary Container */}
+              <div className="flex flex-wrap items-center gap-4 bg-white text-zinc-900 px-5 py-3.5 rounded-2xl shadow-lg shrink-0">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono-num text-xl font-bold text-zinc-900">4.6</span>
+                    <div className="flex items-center text-[#FBBC04] text-sm" aria-label="4.6 out of 5 stars">
+                      <i className="fa-solid fa-star" aria-hidden="true"></i>
+                      <i className="fa-solid fa-star" aria-hidden="true"></i>
+                      <i className="fa-solid fa-star" aria-hidden="true"></i>
+                      <i className="fa-solid fa-star" aria-hidden="true"></i>
+                      <i className="fa-solid fa-star-half-stroke" aria-hidden="true"></i>
+                    </div>
+                    <span className="text-xs font-semibold text-zinc-600">(19 Reviews)</span>
                   </div>
-                  <span className="font-mono-num text-lg font-bold text-white">4.6 / 5.0</span>
+                  <div className="text-[11px] text-zinc-500 mt-0.5">
+                    अल्पाइन फिटनेस क्लब एंड सप्लीमेंट्स · Sri Dungargarh
+                  </div>
                 </div>
+
                 <a
                   href={GMAPS_SHARE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-[#A3E635] hover:underline underline-offset-4 mt-1 font-medium transition-colors"
+                  className="px-3.5 py-2 rounded-lg bg-[#1A73E8] text-white text-xs font-semibold hover:bg-[#1557B0] transition-colors whitespace-nowrap shrink-0"
                 >
-                  View Alpine Fitness on Google Maps
+                  Write a Review
                 </a>
               </div>
             </div>
 
-            {/* 3 Review Cards with 5-Star Ratings */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 items-stretch">
-              {REVIEWS.map((review) => (
-                <article
-                  key={review.id}
-                  className="rounded-xl p-6 sm:p-7 bg-zinc-800 border border-zinc-700 flex flex-col justify-between"
-                >
-                  <div>
-                    {/* 5-Star Rating Row in Striking Accent Color */}
-                    <div className="flex items-center justify-between gap-2 mb-4">
-                      <div className="flex items-center gap-1 text-[#A3E635] text-xs" aria-label="5 star rating">
-                        {Array.from({ length: review.rating }).map((_, i) => (
-                          <i key={i} className="fa-solid fa-star" aria-hidden="true"></i>
-                        ))}
+            {/* 3 Native Google Maps Style Review Cards (White Background, Colored Initial Circle, Hindi Text) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+              {GOOGLE_REVIEWS.map((review) => {
+                const isLiked = !!likedReviews[review.id];
+                const displayLikes = review.likesCount + (isLiked ? 1 : 0);
+
+                return (
+                  <article
+                    key={review.id}
+                    className="bg-white text-black rounded-2xl p-6 shadow-xl border border-zinc-200 flex flex-col justify-between"
+                  >
+                    <div>
+                      {/* Top Author Row: Colored Initial Circle + Name + Review Count + 3-Dots Menu */}
+                      <div className="flex items-start justify-between gap-3 mb-3.5">
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={`w-10 h-10 rounded-full ${review.avatarBg} text-white font-semibold text-lg flex items-center justify-center shrink-0 select-none`}
+                            aria-hidden="true"
+                          >
+                            {review.initial}
+                          </div>
+                          <div>
+                            <h3 className="font-sans text-[15px] font-bold text-zinc-900 leading-tight">
+                              {review.name}
+                            </h3>
+                            <div className="text-xs text-zinc-500 mt-0.5">{review.reviewCountText}</div>
+                          </div>
+                        </div>
+
+                        <a
+                          href={GMAPS_SHARE_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`View ${review.name}'s review on Google Maps`}
+                          className="text-zinc-500 hover:text-zinc-800 p-1 transition-colors"
+                        >
+                          <i className="fa-solid fa-ellipsis-vertical text-sm" aria-hidden="true"></i>
+                        </a>
                       </div>
-                      <span className="text-xs text-zinc-300">Verified Member</span>
+
+                      {/* 5 Stars + Relative Time Row (⭐⭐⭐⭐⭐ 4 साल पहले) */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="flex items-center gap-0.5 text-[#FBBC04] text-xs" aria-label="5 out of 5 stars">
+                          {Array.from({ length: review.rating }).map((_, idx) => (
+                            <i key={idx} className="fa-solid fa-star" aria-hidden="true"></i>
+                          ))}
+                        </div>
+                        <span className="text-xs text-zinc-500">{review.timeAgo}</span>
+                      </div>
+
+                      {/* Hindi Review Text */}
+                      <p className="font-sans text-[15px] text-zinc-800 leading-relaxed whitespace-pre-line mb-3">
+                        {review.text}
+                      </p>
                     </div>
 
-                    {/* Quantified Member Outcome Sub-heading */}
-                    <div className="text-xs font-bold text-[#A3E635] mb-3">{review.outcome}</div>
+                    {/* Bottom Google Translation Footnote + Like/Reaction Row */}
+                    <div className="pt-3 mt-2 border-t border-zinc-100">
+                      <div className="text-[11px] text-zinc-500 mb-3">
+                        यह अनुवाद Google ने किया है ·{' '}
+                        <a
+                          href={GMAPS_SHARE_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-zinc-700 hover:underline"
+                        >
+                          मूल भाषा (अंग्रेज़ी) में समीक्षा देखें
+                        </a>
+                      </div>
 
-                    <p className="text-sm text-zinc-100 leading-relaxed mb-6">“{review.quote}”</p>
-                  </div>
+                      <div className="flex items-center gap-4 text-zinc-600">
+                        <button
+                          type="button"
+                          onClick={() => toggleReviewLike(review.id)}
+                          aria-label="Helpful review"
+                          className={`inline-flex items-center gap-1.5 text-xs font-medium transition-colors cursor-pointer ${
+                            isLiked ? 'text-red-600' : 'text-zinc-600 hover:text-zinc-900'
+                          }`}
+                        >
+                          <i className={`${isLiked ? 'fa-solid' : 'fa-regular'} fa-heart text-base`} aria-hidden="true"></i>
+                        </button>
 
-                  <div className="pt-4 border-t border-zinc-700">
-                    <div className="text-sm font-bold text-white">{review.name}</div>
-                    <div className="text-xs text-zinc-300 mt-0.5">
-                      <span>{review.role}</span>
-                      <span aria-hidden="true" className="mx-1.5">·</span>
-                      <span>{review.tenure}</span>
+                        <button
+                          type="button"
+                          onClick={() => toggleReviewLike(review.id)}
+                          className="inline-flex items-center gap-1 text-xs font-medium text-zinc-700 hover:text-zinc-900 cursor-pointer"
+                        >
+                          <span role="img" aria-label="folded hands">
+                            🙏
+                          </span>
+                          <span>{displayLikes}</span>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -1197,7 +1365,7 @@ export default function App() {
       <footer id="contact" className="bg-black pt-14 sm:pt-16 pb-12 border-t border-zinc-800 w-full overflow-x-hidden">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
-            {/* LEFT SIDE: Gym Logo, Description, Address, Contact Number, Email, and Quick Links */}
+            {/* LEFT SIDE: Gym Logo, Description, Address, Contact Number, Email, Quick Links, and Follow Us */}
             <div className="space-y-7 sm:space-y-8 min-w-0">
               <div>
                 <a

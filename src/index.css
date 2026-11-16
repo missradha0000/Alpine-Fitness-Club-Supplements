@@ -8,11 +8,14 @@
     --font-mono: 'JetBrains Mono', monospace;
   }
 
+  html,
   body {
     font-family: var(--font-sans);
     background-color: #000000;
     color: #F4F5F6;
     letter-spacing: 0.01em;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   h1, h2, h3, .font-display {
@@ -23,4 +26,13 @@
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
   }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
